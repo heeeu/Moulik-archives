@@ -4,49 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moulik Archives ♡</title>
+
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     min-height: 100vh;
     background: #080808;
     color: #f5f0f2;
     font-family: Arial, sans-serif;
+}
+
+/* FIRST PAGE */
+
+#home {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
     overflow: hidden;
 }
+
 .container {
     width: 90%;
     max-width: 500px;
-    text-align: center;
-    padding: 30px 20px;
+    position: relative;
+    z-index: 1;
 }
+
 .tag {
     color: #d78da9;
     font-size: 10px;
     letter-spacing: 5px;
     margin-bottom: 35px;
 }
+
 h1 {
     font-size: clamp(34px, 9vw, 55px);
     letter-spacing: 3px;
     line-height: 1.2;
     margin-bottom: 15px;
 }
+
 .heart {
     color: #ed9cbd;
 }
+
 .subtitle {
     color: #a9a0a4;
     font-size: 13px;
     letter-spacing: 1px;
     margin-bottom: 55px;
 }
+
 .details {
     border-top: 1px solid #30232a;
     border-bottom: 1px solid #30232a;
@@ -58,32 +75,41 @@ h1 {
     letter-spacing: 1px;
     color: #b9afb4;
 }
+
 .details span {
     color: #ed9cbd;
 }
+
 button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.enter {
     background: transparent;
     border: 1px solid #d78da9;
     color: #f5d9e5;
     padding: 15px 35px;
     font-size: 11px;
     letter-spacing: 3px;
-    cursor: pointer;
     transition: 0.3s;
 }
-button:hover {
+
+.enter:hover {
     background: #d78da9;
     color: #080808;
     box-shadow: 0 0 25px #d78da955;
 }
+
 .footer {
     margin-top: 55px;
     color: #655960;
     font-size: 10px;
     letter-spacing: 2px;
 }
-.glow {
-    position: fixed;
+
+.home-glow {
+    position: absolute;
     width: 220px;
     height: 220px;
     background: #d78da9;
@@ -93,33 +119,435 @@ button:hover {
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
-    pointer-events: none;
+}
+
+/* DASHBOARD */
+
+#dashboard {
+    display: none;
+    min-height: 100vh;
+    padding: 55px 22px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #142338 0%, transparent 55%),
+        #080a0e;
+    animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+    from {opacity: 0; transform: translateY(12px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.dash-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.top-label {
+    color: #6d9bc8;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+}
+
+.dash-title {
+    color: #e9edf4;
+    font-size: clamp(27px, 7vw, 43px);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.dash-subtitle {
+    color: #8995a5;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, #477ba9, transparent);
+    margin-bottom: 35px;
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #8294aa;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card {
+    min-height: 145px;
+    padding: 22px 17px;
+    border: 1px solid #283747;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #151c26, #0c1118);
+    text-align: left;
+    color: #e9edf4;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #639ed5;
+    box-shadow: 0 8px 30px #2464a522;
+}
+
+.card-icon {
+    font-size: 23px;
+    margin-bottom: 17px;
+}
+
+.card h3 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 11px;
+    color: #8c9bad;
+    line-height: 1.5;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: #3878b8;
+    filter: blur(55px);
+    opacity: 0.13;
+    right: -20px;
+    bottom: -20px;
+}
+
+.bottom-note {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 11px;
+    color: #627286;
+    letter-spacing: 1px;
+}
+
+.back-button {
+    margin-top: 30px;
+    background: transparent;
+    border: 1px solid #354b61;
+    color: #9cb7d2;
+    padding: 12px 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* FILE POPUP */
+
+#filePopup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000000dc;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+}
+
+.popup-content {
+    width: 100%;
+    max-width: 420px;
+    background: #111923;
+    border: 1px solid #416487;
+    border-radius: 14px;
+    padding: 30px 23px;
+    box-shadow: 0 0 45px #2464a533;
+    animation: appear 0.3s ease;
+}
+
+.popup-label {
+    color: #76a9d7;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.popup-content h2 {
+    font-size: 22px;
+    color: #edf3fa;
+    margin-bottom: 17px;
+}
+
+.popup-content p {
+    color: #a2b0c0;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.close-button {
+    margin-top: 28px;
+    background: transparent;
+    border: 1px solid #527da5;
+    color: #b9d6f1;
+    padding: 11px 22px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+@media(max-width: 380px) {
+    .cards {
+        gap: 10px;
+    }
+
+    .card {
+        padding: 17px 12px;
+    }
 }
 </style>
 </head>
+
 <body>
-<div class="glow"></div>
+
+<!-- FIRST PAGE -->
+
+<section id="home">
+
+<div class="home-glow"></div>
+
 <div class="container">
-<div class="tag">✦ A PERSONAL PROJECT ✦</div>
-<h1>MOULIK<br>ARCHIVES <span class="heart">♡</span></h1>
-<div class="subtitle">
-    A little universe, made with a lot of love.
+
+    <div class="tag">✦ A PERSONAL PROJECT ✦</div>
+
+    <h1>MOULIK<br>ARCHIVES <span class="heart">♡</span></h1>
+
+    <div class="subtitle">
+        A little universe, made with a lot of love.
+    </div>
+
+    <div class="details">
+        SUBJECT: <span>ONE VERY SPECIAL HUMAN</span><br>
+        CLASSIFICATION: <span>IRREPLACEABLE</span><br>
+        STATUS: <span>PERMANENTLY LOVED</span><br>
+        ACCESS: <span>EXCLUSIVELY YOURS</span>
+    </div>
+
+    <button class="enter" onclick="enterArchives()">
+        ENTER ARCHIVES ↗
+    </button>
+
+    <div class="footer">
+        MADE WITH ♡ & A LITTLE TOO MUCH LOVE
+    </div>
+
 </div>
-<div class="details">
-    SUBJECT: <span>ONE VERY SPECIAL HUMAN</span><br>
-    CLASSIFICATION: <span>IRREPLACEABLE</span><br>
-    STATUS: <span>PERMANENTLY LOVED</span><br>
-    ACCESS: <span>EXCLUSIVELY YOURS</span>
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard">
+
+<div class="dash-container">
+
+    <div class="top-label">
+        ARCHIVE SYSTEM // ACCESS GRANTED
+    </div>
+
+    <h1 class="dash-title">
+        WELCOME TO<br>MOULIK'S WORLD.
+    </h1>
+
+    <p class="dash-subtitle">
+        An archive of one very interesting human.<br>
+        Some things are worth keeping forever.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="section-label">
+        AVAILABLE FILES
+    </div>
+
+    <div class="cards">
+
+        <button class="card" onclick="openFile('profile')">
+            <div class="card-icon">◈</div>
+            <h3>PERSONAL PROFILE</h3>
+            <p>Subject information and identity records.</p>
+        </button>
+
+        <button class="card" onclick="openFile('gaming')">
+            <div class="card-icon">⌘</div>
+            <h3>GAMING RECORDS</h3>
+            <p>Known activities and gaming obsession.</p>
+        </button>
+
+        <button class="card" onclick="openFile('music')">
+            <div class="card-icon">♫</div>
+            <h3>THE SOUNDTRACK</h3>
+            <p>Favourite sounds and musical interests.</p>
+        </button>
+
+        <button class="card" onclick="openFile('food')">
+            <div class="card-icon">◇</div>
+            <h3>FUEL STATION</h3>
+            <p>Things that make the subject happy.</p>
+        </button>
+
+        <button class="card" onclick="openFile('chaos')">
+            <div class="card-icon">⌬</div>
+            <h3>THE CHAOS</h3>
+            <p>Unusual behaviour. No explanation available.</p>
+        </button>
+
+        <button class="card" onclick="openFile('memories')">
+            <div class="card-icon">▧</div>
+            <h3>MEMORY BANK</h3>
+            <p>Little moments worth remembering.</p>
+        </button>
+
+        <button class="card" onclick="openFile('secret')">
+            <div class="card-icon">⌑</div>
+            <h3>RESTRICTED FILE</h3>
+            <p>Confidential. Reserved for one person.</p>
+        </button>
+
+        <button class="card" onclick="openFile('unknown')">
+            <div class="card-icon">?</div>
+            <h3>UNKNOWN TERRITORY</h3>
+            <p>Some discoveries are still pending.</p>
+        </button>
+
+    </div>
+
+    <div class="bottom-note">
+        ENDLESS FILES. ONE VERY SPECIAL HUMAN. ♡
+        <br>
+        <button class="back-button" onclick="goHome()">
+            ↶ RETURN TO ENTRANCE
+        </button>
+    </div>
+
 </div>
-<button onclick="enterProject()">ENTER ARCHIVES ↗</button>
-<div class="footer">
-    MADE WITH ♡ & A LITTLE TOO MUCH LOVE
+</section>
+
+
+<!-- POPUP -->
+
+<div id="filePopup" onclick="outsideClose(event)">
+
+    <div class="popup-content">
+
+        <div class="popup-label" id="popupLabel">
+            ARCHIVE RECORD
+        </div>
+
+        <h2 id="popupTitle">FILE TITLE</h2>
+
+        <p id="popupText">File information.</p>
+
+        <button class="close-button" onclick="closeFile()">
+            CLOSE FILE ✕
+        </button>
+
+    </div>
+
 </div>
-</div>
+
+
 <script>
-function enterProject() {
-    alert("Your little universe is still being prepared. ♡");
+
+function enterArchives() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+    window.scrollTo(0, 0);
 }
+
+function goHome() {
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("home").style.display = "flex";
+    window.scrollTo(0, 0);
+}
+
+const files = {
+
+    profile: {
+        title: "PERSONAL PROFILE",
+        text: "Subject: Moulik. Classification: One of a kind. Further information is being collected. This file will contain the little details that make him who he is."
+    },
+
+    gaming: {
+        title: "GAMING RECORDS",
+        text: "A place dedicated to the gaming universe. Hours spent playing, favourite games, funny incidents and everything in between."
+    },
+
+    music: {
+        title: "THE SOUNDTRACK",
+        text: "Every person has a soundtrack. This file is reserved for the songs, artists and music that make Moulik's world a little louder."
+    },
+
+    food: {
+        title: "FUEL STATION",
+        text: "Important research is underway regarding favourite foods, snacks, sweets and other essential sources of happiness."
+    },
+
+    chaos: {
+        title: "THE CHAOS",
+        text: "A collection of questionable decisions, funny habits, unexpected moments and things that are simply... very Moulik."
+    },
+
+    memories: {
+        title: "MEMORY BANK",
+        text: "Some moments deserve their own little place in the universe. This file is reserved for memories that should never get lost."
+    },
+
+    secret: {
+        title: "RESTRICTED FILE",
+        text: "Access to this section is reserved for someone very special. Some things are better kept between two people. ♡"
+    },
+
+    unknown: {
+        title: "UNKNOWN TERRITORY",
+        text: "Not everything about a person can be discovered at once. There will always be new things to learn, little surprises and unexpected discoveries."
+    }
+
+};
+
+function openFile(id) {
+
+    const file = files[id];
+
+    document.getElementById("popupLabel").textContent =
+        "ARCHIVE RECORD // " + id.toUpperCase();
+
+    document.getElementById("popupTitle").textContent =
+        file.title;
+
+    document.getElementById("popupText").textContent =
+        file.text;
+
+    document.getElementById("filePopup").style.display = "flex";
+}
+
+function closeFile() {
+    document.getElementById("filePopup").style.display = "none";
+}
+
+function outsideClose(event) {
+    if (event.target.id === "filePopup") {
+        closeFile();
+    }
+}
+
 </script>
+
 </body>
 </html>

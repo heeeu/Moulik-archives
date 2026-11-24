@@ -4,23 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moulik Archives ♡</title>
-
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     min-height: 100vh;
-    background: #080808;
-    color: #f5f0f2;
+    background: #07090d;
+    color: #e5eaf0;
     font-family: Arial, sans-serif;
 }
-
-/* FIRST PAGE */
-
+/* OPENING PAGE */
 #home {
     min-height: 100vh;
     display: flex;
@@ -30,524 +26,427 @@ body {
     padding: 30px 20px;
     position: relative;
     overflow: hidden;
+    background: #080a0e;
 }
-
 .container {
     width: 90%;
     max-width: 500px;
     position: relative;
     z-index: 1;
 }
-
 .tag {
-    color: #d78da9;
+    color: #9ebbd8;
     font-size: 10px;
     letter-spacing: 5px;
     margin-bottom: 35px;
 }
-
 h1 {
     font-size: clamp(34px, 9vw, 55px);
     letter-spacing: 3px;
     line-height: 1.2;
     margin-bottom: 15px;
 }
-
 .heart {
-    color: #ed9cbd;
+    color: #a9c8e8;
 }
-
 .subtitle {
-    color: #a9a0a4;
+    color: #9ba6b3;
     font-size: 13px;
     letter-spacing: 1px;
     margin-bottom: 55px;
 }
-
 .details {
-    border-top: 1px solid #30232a;
-    border-bottom: 1px solid #30232a;
+    border-top: 1px solid #34475b;
+    border-bottom: 1px solid #34475b;
     padding: 22px 10px;
     margin-bottom: 40px;
     text-align: left;
     line-height: 2.4;
     font-size: 11px;
     letter-spacing: 1px;
-    color: #b9afb4;
+    color: #b6c0cc;
 }
-
 .details span {
-    color: #ed9cbd;
+    color: #a9c8e8;
 }
-
 button {
     cursor: pointer;
     font-family: inherit;
 }
-
 .enter {
     background: transparent;
-    border: 1px solid #d78da9;
-    color: #f5d9e5;
+    border: 1px solid #9ebbd8;
+    color: #dceafa;
     padding: 15px 35px;
     font-size: 11px;
     letter-spacing: 3px;
     transition: 0.3s;
 }
-
 .enter:hover {
-    background: #d78da9;
-    color: #080808;
-    box-shadow: 0 0 25px #d78da955;
+    background: #a9c8e8;
+    color: #080a0e;
+    box-shadow: 0 0 25px #8db7e555;
 }
-
 .footer {
     margin-top: 55px;
-    color: #655960;
+    color: #77899d;
     font-size: 10px;
     letter-spacing: 2px;
 }
-
 .home-glow {
     position: absolute;
-    width: 220px;
-    height: 220px;
-    background: #d78da9;
-    opacity: 0.07;
-    filter: blur(100px);
+    width: 240px;
+    height: 240px;
+    background: #6fa8e8;
+    opacity: 0.09;
+    filter: blur(110px);
     border-radius: 50%;
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
 }
-
 /* DASHBOARD */
-
 #dashboard {
     display: none;
     min-height: 100vh;
     padding: 55px 22px;
     background:
-        radial-gradient(ellipse at 50% 0%, #142338 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 0%, #172a40 0%, transparent 55%),
         #080a0e;
     animation: appear 0.8s ease;
 }
-
 @keyframes appear {
-    from {opacity: 0; transform: translateY(12px);}
-    to {opacity: 1; transform: translateY(0);}
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
 .dash-container {
     max-width: 850px;
     margin: auto;
 }
-
 .top-label {
-    color: #6d9bc8;
+    color: #9ebbd8;
     font-size: 10px;
     letter-spacing: 4px;
     margin-bottom: 28px;
 }
-
 .dash-title {
-    color: #e9edf4;
+    color: #e6edf5;
     font-size: clamp(27px, 7vw, 43px);
     letter-spacing: 2px;
     margin-bottom: 12px;
 }
-
 .dash-subtitle {
-    color: #8995a5;
+    color: #a2adba;
     font-size: 13px;
     line-height: 1.7;
     margin-bottom: 40px;
 }
-
 .divider {
     height: 1px;
-    background: linear-gradient(90deg, #477ba9, transparent);
+    background: linear-gradient(90deg, #8faecb, transparent);
     margin-bottom: 35px;
 }
-
 .section-label {
     font-size: 10px;
     letter-spacing: 3px;
-    color: #8294aa;
+    color: #a7b9cb;
     margin-bottom: 20px;
 }
-
 .cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
 }
-
 .card {
     min-height: 145px;
     padding: 22px 17px;
-    border: 1px solid #283747;
+    border: 1px solid #45596e;
     border-radius: 12px;
-    background: linear-gradient(145deg, #151c26, #0c1118);
+    background: linear-gradient(145deg, #18212c, #0c1118);
     text-align: left;
     color: #e9edf4;
     transition: 0.3s;
     position: relative;
     overflow: hidden;
 }
-
 .card:hover {
     transform: translateY(-5px);
-    border-color: #639ed5;
-    box-shadow: 0 8px 30px #2464a522;
+    border-color: #a5c9eb;
+    box-shadow: 0 8px 30px #6699c533;
 }
-
 .card-icon {
     font-size: 23px;
     margin-bottom: 17px;
+    color: #c1d5e8;
 }
-
 .card h3 {
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 1px;
     margin-bottom: 8px;
 }
-
 .card p {
     font-size: 11px;
-    color: #8c9bad;
+    color: #a3b0bf;
     line-height: 1.5;
 }
-
 .card::after {
     content: "";
     position: absolute;
     width: 75px;
     height: 75px;
-    background: #3878b8;
+    background: #80b9ec;
     filter: blur(55px);
-    opacity: 0.13;
+    opacity: 0.17;
     right: -20px;
     bottom: -20px;
+    pointer-events: none;
 }
-
+/* CENTERED FINAL CARD */
+.card-final {
+    grid-column: 1 / -1;
+    width: calc(50% - 9px);
+    justify-self: center;
+    min-height: 145px;
+    border-color: #829fbd;
+    background: linear-gradient(145deg, #1b2837, #101721);
+    box-shadow: 0 0 24px #6b9dc51a;
+}
+.card-final:hover {
+    border-color: #c4ddf5;
+    box-shadow: 0 0 32px #8dbbe955;
+}
 .bottom-note {
     text-align: center;
     margin-top: 50px;
     font-size: 11px;
-    color: #627286;
+    color: #8999aa;
     letter-spacing: 1px;
 }
-
 .back-button {
     margin-top: 30px;
     background: transparent;
-    border: 1px solid #354b61;
-    color: #9cb7d2;
+    border: 1px solid #526b84;
+    color: #b9d1e9;
     padding: 12px 20px;
     font-size: 10px;
     letter-spacing: 2px;
 }
-
-/* FILE POPUP */
-
+/* POPUP */
 #filePopup {
     display: none;
     position: fixed;
     inset: 0;
-    background: #000000dc;
+    background: #000000e8;
     z-index: 10;
     justify-content: center;
     align-items: center;
     padding: 22px;
 }
-
 .popup-content {
     width: 100%;
     max-width: 420px;
-    background: #111923;
-    border: 1px solid #416487;
+    background: #111a25;
+    border: 1px solid #7799ba;
     border-radius: 14px;
     padding: 30px 23px;
-    box-shadow: 0 0 45px #2464a533;
+    box-shadow: 0 0 45px #6c9ac633;
     animation: appear 0.3s ease;
 }
-
 .popup-label {
-    color: #76a9d7;
+    color: #a8c9e8;
     font-size: 10px;
     letter-spacing: 3px;
     margin-bottom: 22px;
 }
-
 .popup-content h2 {
     font-size: 22px;
     color: #edf3fa;
     margin-bottom: 17px;
 }
-
 .popup-content p {
-    color: #a2b0c0;
+    color: #b4c1d0;
     font-size: 13px;
     line-height: 1.8;
 }
-
 .close-button {
     margin-top: 28px;
     background: transparent;
-    border: 1px solid #527da5;
-    color: #b9d6f1;
+    border: 1px solid #7799ba;
+    color: #d0e4f7;
     padding: 11px 22px;
     font-size: 10px;
     letter-spacing: 2px;
 }
-
 @media(max-width: 380px) {
     .cards {
         gap: 10px;
     }
-
     .card {
         padding: 17px 12px;
+    }
+    .card-final {
+        width: calc(50% - 5px);
+    }
+}
+@media(max-width: 300px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .card-final {
+        grid-column: auto;
+        width: 100%;
     }
 }
 </style>
 </head>
-
 <body>
-
-<!-- FIRST PAGE -->
-
+<!-- OPENING PAGE -->
 <section id="home">
-
 <div class="home-glow"></div>
-
 <div class="container">
-
-    <div class="tag">✦ A PERSONAL PROJECT ✦</div>
-
-    <h1>MOULIK<br>ARCHIVES <span class="heart">♡</span></h1>
-
-    <div class="subtitle">
-        A little universe, made with a lot of love.
-    </div>
-
-    <div class="details">
-        SUBJECT: <span>ONE VERY SPECIAL HUMAN</span><br>
-        CLASSIFICATION: <span>IRREPLACEABLE</span><br>
-        STATUS: <span>PERMANENTLY LOVED</span><br>
-        ACCESS: <span>EXCLUSIVELY YOURS</span>
-    </div>
-
-    <button class="enter" onclick="enterArchives()">
-        ENTER ARCHIVES ↗
-    </button>
-
-    <div class="footer">
-        MADE WITH ♡ & A LITTLE TOO MUCH LOVE
-    </div>
-
+<div class="tag">✦ A PERSONAL PROJECT ✦</div>
+<h1>MOULIK<br>ARCHIVES <span class="heart">♡</span></h1>
+<div class="subtitle">
+    A little universe, made with a lot of love.
+</div>
+<div class="details">
+    SUBJECT: <span>ONE VERY SPECIAL HUMAN</span><br>
+    CLASSIFICATION: <span>IRREPLACEABLE</span><br>
+    STATUS: <span>PERMANENTLY LOVED</span><br>
+    ACCESS: <span>EXCLUSIVELY YOURS</span>
+</div>
+<button class="enter" onclick="enterArchives()">
+    ENTER ARCHIVES ↗
+</button>
+<div class="footer">
+    MADE WITH ♡ & A LITTLE TOO MUCH LOVE
+</div>
 </div>
 </section>
-
-
 <!-- DASHBOARD -->
-
 <section id="dashboard">
-
 <div class="dash-container">
-
-    <div class="top-label">
-        ARCHIVE SYSTEM // ACCESS GRANTED
-    </div>
-
-    <h1 class="dash-title">
-        WELCOME TO<br>MOULIK'S WORLD.
-    </h1>
-
-    <p class="dash-subtitle">
-        An archive of one very interesting human.<br>
-        Some things are worth keeping forever.
-    </p>
-
-    <div class="divider"></div>
-
-    <div class="section-label">
-        AVAILABLE FILES
-    </div>
-
-    <div class="cards">
-
-        <button class="card" onclick="openFile('profile')">
-            <div class="card-icon">◈</div>
-            <h3>PERSONAL PROFILE</h3>
-            <p>Subject information and identity records.</p>
-        </button>
-
-        <button class="card" onclick="openFile('gaming')">
-            <div class="card-icon">⌘</div>
-            <h3>GAMING RECORDS</h3>
-            <p>Known activities and gaming obsession.</p>
-        </button>
-
-        <button class="card" onclick="openFile('music')">
-            <div class="card-icon">♫</div>
-            <h3>THE SOUNDTRACK</h3>
-            <p>Favourite sounds and musical interests.</p>
-        </button>
-
-        <button class="card" onclick="openFile('food')">
-            <div class="card-icon">◇</div>
-            <h3>FUEL STATION</h3>
-            <p>Things that make the subject happy.</p>
-        </button>
-
-        <button class="card" onclick="openFile('chaos')">
-            <div class="card-icon">⌬</div>
-            <h3>THE CHAOS</h3>
-            <p>Unusual behaviour. No explanation available.</p>
-        </button>
-
-        <button class="card" onclick="openFile('memories')">
-            <div class="card-icon">▧</div>
-            <h3>MEMORY BANK</h3>
-            <p>Little moments worth remembering.</p>
-        </button>
-
-        <button class="card" onclick="openFile('secret')">
-            <div class="card-icon">⌑</div>
-            <h3>RESTRICTED FILE</h3>
-            <p>Confidential. Reserved for one person.</p>
-        </button>
-
-        <button class="card" onclick="openFile('unknown')">
-            <div class="card-icon">?</div>
-            <h3>UNKNOWN TERRITORY</h3>
-            <p>Some discoveries are still pending.</p>
-        </button>
-
-    </div>
-
-    <div class="bottom-note">
-        ENDLESS FILES. ONE VERY SPECIAL HUMAN. ♡
-        <br>
-        <button class="back-button" onclick="goHome()">
-            ↶ RETURN TO ENTRANCE
-        </button>
-    </div>
-
+<div class="top-label">
+    ARCHIVE SYSTEM // ACCESS GRANTED
+</div>
+<h1 class="dash-title">
+    WELCOME TO<br>MOULIK'S WORLD.
+</h1>
+<p class="dash-subtitle">
+    An archive of one very interesting human.<br>
+    Some things are worth keeping forever.
+</p>
+<div class="divider"></div>
+<div class="section-label">
+    AVAILABLE FILES
+</div>
+<div class="cards">
+    <button class="card" onclick="openFile('about')">
+        <div class="card-icon">◈</div>
+        <h3>ABOUT MOULIK</h3>
+        <p>A closer look at the person behind the name.</p>
+    </button>
+    <button class="card" onclick="openFile('world')">
+        <div class="card-icon">◇</div>
+        <h3>HIS LITTLE WORLD</h3>
+        <p>Favourite things, interests and little joys.</p>
+    </button>
+    <button class="card" onclick="openFile('story')">
+        <div class="card-icon">∞</div>
+        <h3>OUR STORY</h3>
+        <p>Two people, countless little moments.</p>
+    </button>
+    <button class="card" onclick="openFile('things')">
+        <div class="card-icon">⌬</div>
+        <h3>THINGS ABOUT YOU</h3>
+        <p>Observations, inside jokes and affectionate teasing.</p>
+    </button>
+    <button class="card card-final" onclick="openFile('birthday')">
+        <div class="card-icon">♡</div>
+        <h3>ONE LAST THING</h3>
+        <p>Something I have been wanting to tell you.</p>
+    </button>
+</div>
+<div class="bottom-note">
+    MADE WITH LOVE. RESERVED FOR YOU. ♡
+    <br>
+    <button class="back-button" onclick="goHome()">
+        ↶ RETURN TO ENTRANCE
+    </button>
+</div>
 </div>
 </section>
-
-
 <!-- POPUP -->
-
 <div id="filePopup" onclick="outsideClose(event)">
-
-    <div class="popup-content">
-
-        <div class="popup-label" id="popupLabel">
-            ARCHIVE RECORD
-        </div>
-
-        <h2 id="popupTitle">FILE TITLE</h2>
-
-        <p id="popupText">File information.</p>
-
-        <button class="close-button" onclick="closeFile()">
-            CLOSE FILE ✕
-        </button>
-
+<div class="popup-content">
+    <div class="popup-label" id="popupLabel">
+        ARCHIVE RECORD
     </div>
-
+    <h2 id="popupTitle">FILE TITLE</h2>
+    <p id="popupText">File information.</p>
+    <button class="close-button" onclick="closeFile()">
+        CLOSE FILE ✕
+    </button>
 </div>
-
-
+</div>
 <script>
-
 function enterArchives() {
     document.getElementById("home").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
     window.scrollTo(0, 0);
 }
-
 function goHome() {
+    closeFile();
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("home").style.display = "flex";
     window.scrollTo(0, 0);
 }
-
 const files = {
-
-    profile: {
-        title: "PERSONAL PROFILE",
-        text: "Subject: Moulik. Classification: One of a kind. Further information is being collected. This file will contain the little details that make him who he is."
+    about: {
+        title: "ABOUT MOULIK",
+        text: "A little introduction to one very special human. This section is waiting for the little details, habits and personality traits that make him uniquely himself."
     },
-
-    gaming: {
-        title: "GAMING RECORDS",
-        text: "A place dedicated to the gaming universe. Hours spent playing, favourite games, funny incidents and everything in between."
+    world: {
+        title: "HIS LITTLE WORLD",
+        text: "A collection of his favourite music, food, interests, hobbies and all the little things that make his world his own."
     },
-
-    music: {
-        title: "THE SOUNDTRACK",
-        text: "Every person has a soundtrack. This file is reserved for the songs, artists and music that make Moulik's world a little louder."
+    story: {
+        title: "OUR STORY",
+        text: "Every story has a beginning. This one has its own dates, memories, unexpected moments and chapters that mean something to us."
     },
-
-    food: {
-        title: "FUEL STATION",
-        text: "Important research is underway regarding favourite foods, snacks, sweets and other essential sources of happiness."
+    things: {
+        title: "THINGS ABOUT YOU",
+        text: "A collection of observations, funny habits, inside jokes and things that make me laugh. Yes, you are being lovingly investigated."
     },
-
-    chaos: {
-        title: "THE CHAOS",
-        text: "A collection of questionable decisions, funny habits, unexpected moments and things that are simply... very Moulik."
-    },
-
-    memories: {
-        title: "MEMORY BANK",
-        text: "Some moments deserve their own little place in the universe. This file is reserved for memories that should never get lost."
-    },
-
-    secret: {
-        title: "RESTRICTED FILE",
-        text: "Access to this section is reserved for someone very special. Some things are better kept between two people. ♡"
-    },
-
-    unknown: {
-        title: "UNKNOWN TERRITORY",
-        text: "Not everything about a person can be discovered at once. There will always be new things to learn, little surprises and unexpected discoveries."
+    birthday: {
+        title: "ONE LAST THING ♡",
+        text: "Happy birthday, my love. This little corner of the internet is something I made just for you. And I hope it reminds you how special you are to me. There's so much more I want to tell you, but I'll save that for the birthday surprise."
     }
-
 };
-
 function openFile(id) {
-
     const file = files[id];
-
     document.getElementById("popupLabel").textContent =
         "ARCHIVE RECORD // " + id.toUpperCase();
-
     document.getElementById("popupTitle").textContent =
         file.title;
-
     document.getElementById("popupText").textContent =
         file.text;
-
     document.getElementById("filePopup").style.display = "flex";
 }
-
 function closeFile() {
     document.getElementById("filePopup").style.display = "none";
 }
-
 function outsideClose(event) {
     if (event.target.id === "filePopup") {
         closeFile();
     }
 }
-
 </script>
-
 </body>
 </html>

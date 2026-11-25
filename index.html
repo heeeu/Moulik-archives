@@ -992,37 +992,120 @@ h1 {
     inset: 0;
     z-index: 200;
     width: 100%;
+    height: 100%;
     min-height: 100vh;
-    overflow-y: auto;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 25px 18px;
     color: #a83d70;
 
-    /* YOUR ACTUAL CHEETAH BACKGROUND IMAGE */
-    background-image: url("cheetah-bg.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    /* CSS-ONLY BABY PINK AND WHITE CHEETAH PRINT */
 
+    background-color: #ffe6f0;
+    background-image:
+        radial-gradient(ellipse 13px 18px at 20px 20px,
+            transparent 42%, #ffffff 47%, #ffffff 65%, transparent 70%),
+        radial-gradient(ellipse 17px 11px at 72px 53px,
+            transparent 40%, #ffffff 47%, #ffffff 66%, transparent 72%),
+        radial-gradient(ellipse 10px 16px at 112px 17px,
+            transparent 42%, #ffffff 48%, #ffffff 66%, transparent 72%),
+        radial-gradient(ellipse 18px 12px at 35px 91px,
+            transparent 40%, #ffffff 47%, #ffffff 65%, transparent 72%),
+        radial-gradient(ellipse 12px 17px at 105px 105px,
+            transparent 40%, #ffffff 48%, #ffffff 66%, transparent 72%);
+    background-size: 145px 135px;
     animation: pinkAppear 0.8s ease;
 }
 
+/* SOFT PINK OVERLAY */
+
 #finalSurprise::before {
     content: "";
-    position: fixed;
+    position: absolute;
     inset: 0;
-    background: #fff0f566;
+    background: #ffd9e966;
     pointer-events: none;
+    z-index: 0;
 }
+
+/* FLOATING KISS STICKERS */
+
+.kiss-sticker {
+    position: absolute;
+    z-index: 1;
+    font-size: clamp(30px, 8vw, 55px);
+    pointer-events: none;
+    opacity: 0;
+    filter: drop-shadow(0 4px 5px #c95b8b55);
+    animation: kissFloat 5s ease-in-out infinite;
+}
+
+.kiss-one {
+    left: 7%;
+    bottom: -70px;
+    animation-delay: 0s;
+}
+
+.kiss-two {
+    left: 25%;
+    bottom: -80px;
+    animation-delay: 1.2s;
+    font-size: 38px;
+}
+
+.kiss-three {
+    right: 10%;
+    bottom: -70px;
+    animation-delay: 2s;
+}
+
+.kiss-four {
+    right: 28%;
+    bottom: -80px;
+    animation-delay: 2.8s;
+    font-size: 42px;
+}
+
+.kiss-five {
+    left: 48%;
+    bottom: -90px;
+    animation-delay: 3.5s;
+    font-size: 34px;
+}
+
+@keyframes kissFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(-15deg) scale(0.6);
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(-15vh) rotate(10deg) scale(1);
+    }
+    50% {
+        opacity: 0.95;
+        transform: translateY(-48vh) rotate(-12deg) scale(1.15);
+    }
+    85% {
+        opacity: 0.8;
+        transform: translateY(-85vh) rotate(15deg) scale(0.9);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-110vh) rotate(-10deg) scale(0.7);
+    }
+}
+
+/* FINAL MESSAGE CARD */
 
 .final-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     max-width: 430px;
-    padding: 32px 22px;
+    padding: 38px 23px;
     border: 2px solid #ffffff;
     border-radius: 25px;
     background: #fff5fae8;
@@ -1036,36 +1119,40 @@ h1 {
     color: #d46b9a;
     font-size: 10px;
     letter-spacing: 3px;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
-
-/* NEW SOFTER HEADING */
 
 .final-content h1 {
     color: #bd4f83;
-    font-size: clamp(32px, 9vw, 45px);
+    font-size: clamp(38px, 10vw, 53px);
     line-height: 1.3;
     letter-spacing: 1px;
-    margin-bottom: 12px;
-}
-
-/* YOUR KISSING STICKER */
-
-.final-sticker {
-    display: block;
-    width: min(65vw, 250px);
-    max-height: 260px;
-    object-fit: contain;
-    margin: 12px auto 18px;
-    border-radius: 12px;
-    animation: stickerAppear 1s ease;
+    margin-bottom: 18px;
+    text-shadow: 0 3px 12px #f6a5c755;
 }
 
 .final-message {
     color: #a94d78;
-    font-size: 15px;
+    font-size: 19px;
+    font-weight: 500;
     line-height: 1.8;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
+}
+
+.final-heart {
+    font-size: 35px;
+    display: block;
+    margin: 12px auto 20px;
+    animation: heartBeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
 }
 
 /* BACK TO ARCHIVES BUTTON */
@@ -1100,17 +1187,6 @@ h1 {
     from {
         opacity: 0;
         transform: scale(0.75);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes stickerAppear {
-    from {
-        opacity: 0;
-        transform: scale(0.85);
     }
     to {
         opacity: 1;
@@ -1219,11 +1295,7 @@ h1 {
     }
 
     .final-content {
-        padding: 27px 17px;
-    }
-
-    .final-sticker {
-        width: min(68vw, 220px);
+        padding: 30px 17px;
     }
 }
 
@@ -1677,24 +1749,27 @@ SUBMIT BONUS ANSWER ♡
 
 <section id="finalSurprise">
 
+    <!-- FLOATING KISS STICKERS: CSS ANIMATED -->
+
+    <span class="kiss-sticker kiss-one">💋</span>
+    <span class="kiss-sticker kiss-two">💋</span>
+    <span class="kiss-sticker kiss-three">💋</span>
+    <span class="kiss-sticker kiss-four">😘</span>
+    <span class="kiss-sticker kiss-five">💋</span>
+
     <div class="final-content">
 
         <div class="final-label">
             SECRET SUCCESSFULLY UNLOCKED ♡
         </div>
 
-        <!-- NEW SUBTLE KISSING STICKER -->
-        <img
-            src="kiss-sticker.jpeg"
-            class="final-sticker"
-            alt="A cute little kissing couple"
-        >
-
-        <h1>aww ♡</h1>
+        <h1>Ahhaa ♡</h1>
 
         <p class="final-message">
-            You did it, baby! ♡
+            U really remember!?
         </p>
+
+        <span class="final-heart">♡</span>
 
         <button
             class="final-back-button"

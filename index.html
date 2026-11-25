@@ -315,6 +315,14 @@ h1 {
     pointer-events: none;
 }
 
+/* CENTRE THE FIFTH DASHBOARD CARD */
+
+.cards .card:nth-child(5) {
+    grid-column: 1 / -1;
+    width: 50%;
+    justify-self: center;
+}
+
 .bottom-note {
     text-align: center;
     margin-top: 50px;
@@ -899,26 +907,46 @@ h1 {
     margin: 20px 0;
 }
 
+/* FULL-SCREEN WRONG ANSWER WARNING */
+
 .wrong-warning {
     display: none;
-    max-width: 300px;
-    margin: 18px auto 0;
-    padding: 15px;
-    border: 1px solid #a76d7b;
-    border-radius: 10px;
-    background: #24151c;
-    color: #f0dce3;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #050609e8;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+}
+
+.wrong-warning-tile {
+    width: 100%;
+    max-width: 340px;
+    padding: 35px 25px;
+    border: 1px solid #d46b7b;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #421b27, #211018);
+    color: #ffe8ed;
+    text-align: center;
+    box-shadow: 0 0 40px #e34b6945;
     animation: appear 0.3s ease;
 }
 
 .wrong-warning .sad-face {
-    font-size: 27px;
-    margin-bottom: 8px;
+    font-size: 48px;
+    margin-bottom: 17px;
 }
 
 .wrong-warning p {
-    font-size: 13px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.wrong-warning .game-button {
+    border-color: #e69aaa;
+    color: #ffe8ed;
 }
 
 .bonus-box,
@@ -928,6 +956,15 @@ h1 {
     padding-top: 22px;
     border-top: 1px solid #45596e;
 }
+
+.vault-gift {
+    color: #dceafa;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+/* JIGSAW */
 
 .jigsaw-board {
     width: min(88vw, 390px);
@@ -1024,6 +1061,11 @@ h1 {
     .about-grid,
     .secret-grid {
         grid-template-columns: 1fr;
+    }
+
+    .cards .card:nth-child(5) {
+        grid-column: auto;
+        width: 100%;
     }
 
     .about-grid .glass-tile:nth-child(7) {
@@ -1357,17 +1399,42 @@ SUBMIT ANSWER ↗
 0 / 4 COMPLETED
 </div>
 
-<div class="wrong-warning" id="wrongWarning">
-<div class="sad-face">☹️</div>
-<p>I thought u knew baby</p>
-<button class="game-button" onclick="retryRiddle()">
-TRY AGAIN ♡
+<!-- VAULT APPEARS AFTER FOUR RIDDLES -->
+
+<div class="vault-box" id="vaultBox">
+
+<div class="game-level">A LITTLE GIFT FOR YOU ♡</div>
+
+<h2>YOU EARNED THE VAULT.</h2>
+
+<p class="vault-gift">
+Four riddles solved! You've unlocked a little gift.<br>
+Enter your secret code to discover what's waiting inside.
+</p>
+
+<input
+type="text"
+id="vaultAnswer"
+class="game-input"
+placeholder="Enter the 4-digit code"
+maxlength="4"
+inputmode="numeric"
+autocomplete="off"
+>
+
+<button class="game-button" onclick="checkVault()">
+UNLOCK YOUR GIFT ♡
 </button>
+
+<div id="vaultResult" class="game-progress"></div>
+
 </div>
+
+<!-- BONUS QUESTION APPEARS ONLY AFTER VAULT OPENS -->
 
 <div class="bonus-box" id="bonusBox">
 
-<div class="game-level">BONUS CHALLENGE</div>
+<div class="game-level">BONUS CHALLENGE // VAULT REWARD</div>
 
 <h2>THE NAME THAT STARTED IT ALL</h2>
 
@@ -1399,33 +1466,6 @@ SUBMIT BONUS ANSWER ♡
 
 </div>
 
-<div class="vault-box" id="vaultBox">
-
-<div class="game-level">FINAL VAULT</div>
-
-<h2>ONE LAST CODE.</h2>
-
-<p class="riddle">
-You've made it this far. Enter the secret code to unlock the vault.
-</p>
-
-<input
-type="text"
-id="vaultAnswer"
-class="game-input"
-placeholder="Enter the 4-digit code"
-maxlength="4"
-inputmode="numeric"
->
-
-<button class="game-button" onclick="checkVault()">
-UNLOCK VAULT ♡
-</button>
-
-<div id="vaultResult" class="game-progress"></div>
-
-</div>
-
 </div>
 
 <div class="about-bottom">
@@ -1436,6 +1476,19 @@ UNLOCK VAULT ♡
 
 </div>
 </section>
+
+
+<!-- WRONG ANSWER WARNING SCREEN -->
+
+<div class="wrong-warning" id="wrongWarning">
+    <div class="wrong-warning-tile">
+        <div class="sad-face">☹️</div>
+        <p>I thought u knew baby</p>
+        <button class="game-button" onclick="retryRiddle()">
+            TRY AGAIN ♡
+        </button>
+    </div>
+</div>
 
 
 <!-- THE MISSING PIECES -->
@@ -1642,17 +1695,13 @@ function acceptLove() {
 
 function goHome() {
     hideAllMainPages();
-
     document.getElementById("home").style.display = "flex";
-
     window.scrollTo(0, 0);
 }
 
 function backToDashboard() {
     hideAllMainPages();
-
     document.getElementById("dashboard").style.display = "block";
-
     window.scrollTo(0, 0);
 }
 
@@ -1792,15 +1841,15 @@ function hideAllMainPages() {
     document.getElementById("codePage").style.display = "none";
     document.getElementById("jigsawPage").style.display = "none";
 
+    document.getElementById("wrongWarning").style.display = "none";
+
     closeNote();
     closeFile();
 }
 
 function openSecretChamber() {
     hideAllMainPages();
-
     document.getElementById("secretPage").style.display = "block";
-
     window.scrollTo(0, 0);
 }
 
@@ -1811,7 +1860,7 @@ function openCodeGame() {
 
     window.scrollTo(0, 0);
 
-    showRiddle();
+    resetCodeGame();
 }
 
 function openJigsaw() {
@@ -1836,7 +1885,7 @@ const riddles = [
 I can be served with cheese,
 But when I'm made the way you love me,
 I'm your ultimate comfort feast.`,
-        answer: "pav bhaji"
+        answer: ["pav bhaji", "pavbhaji"]
     },
 
     {
@@ -1845,7 +1894,7 @@ I'm your ultimate comfort feast.`,
 You love to annoy,
 You watch people react,
 And that's your favourite joy.`,
-        answer: "ragebaiting"
+        answer: ["ragebaiting", "rage baiting"]
     },
 
     {
@@ -1854,7 +1903,7 @@ And that's your favourite joy.`,
 But hours disappear.
 The world keeps moving around you,
 While you're nowhere near.`,
-        answer: "sleeping"
+        answer: ["sleeping", "sleep"]
     },
 
     {
@@ -1863,15 +1912,37 @@ While you're nowhere near.`,
 It wasn't expected,
 Yet somewhere along the way,
 Two strangers became each other's favourite notification.`,
-        answer: "snapchat"
+        answer: ["snapchat"]
     }
 ];
 
 let currentRiddle = 0;
 let completedRiddles = [];
 let bonusSolved = false;
+let vaultUnlocked = false;
+
+function resetCodeGame() {
+
+    currentRiddle = 0;
+    completedRiddles = [];
+    bonusSolved = false;
+    vaultUnlocked = false;
+
+    document.getElementById("vaultAnswer").value = "";
+    document.getElementById("vaultResult").textContent = "";
+
+    document.getElementById("bonusAnswer").value = "";
+    document.getElementById("bonusResult").textContent = "";
+
+    document.getElementById("vaultBox").style.display = "none";
+    document.getElementById("bonusBox").style.display = "none";
+    document.getElementById("wrongWarning").style.display = "none";
+
+    showRiddle();
+}
 
 function showRiddle() {
+
     const riddle = riddles[currentRiddle];
 
     document.getElementById("codeLevel").textContent =
@@ -1886,7 +1957,8 @@ function showRiddle() {
     document.getElementById("riddleAnswer").value = "";
     document.getElementById("riddleAnswer").style.display = "block";
 
-    document.getElementById("submitRiddleButton").style.display = "inline-block";
+    document.getElementById("submitRiddleButton").style.display =
+        "inline-block";
 
     document.getElementById("wrongWarning").style.display = "none";
     document.getElementById("bonusBox").style.display = "none";
@@ -1897,12 +1969,13 @@ function showRiddle() {
 }
 
 function checkRiddle() {
+
     const input = document.getElementById("riddleAnswer")
         .value.trim().toLowerCase().replace(/\s+/g, " ");
 
-    const correct = riddles[currentRiddle].answer;
+    const correctAnswers = riddles[currentRiddle].answer;
 
-    if (input === correct) {
+    if (correctAnswers.includes(input)) {
 
         completedRiddles[currentRiddle] = true;
 
@@ -1922,71 +1995,98 @@ function checkRiddle() {
                 "YOU DID IT! ♡";
 
             document.getElementById("riddleText").textContent =
-                "Four riddles solved. Now let's see if you remember the very first name you gave me.";
+                "Four riddles solved! You've earned a special gift.";
 
-            document.getElementById("riddleAnswer").style.display = "none";
+            document.getElementById("riddleAnswer").style.display =
+                "none";
 
-            document.getElementById("submitRiddleButton").style.display = "none";
+            document.getElementById("submitRiddleButton").style.display =
+                "none";
 
             document.getElementById("codeProgress").textContent =
                 "4 / 4 COMPLETED";
 
-            document.getElementById("bonusBox").style.display = "block";
+            /* SHOW THE VAULT GIFT FIRST */
+
+            document.getElementById("vaultBox").style.display = "block";
+            document.getElementById("bonusBox").style.display = "none";
         }
 
     } else {
 
-        document.getElementById("wrongWarning").style.display = "block";
+        document.getElementById("wrongWarning").style.display = "flex";
 
     }
 }
 
 function retryRiddle() {
+
     document.getElementById("wrongWarning").style.display = "none";
-    document.getElementById("riddleAnswer").value = "";
+
+    if (!vaultUnlocked && completedRiddles.length < 4) {
+        document.getElementById("riddleAnswer").value = "";
+    }
 }
 
 
-/* BONUS QUESTION */
+/* VAULT — CODE 1511 */
 
-function checkBonus() {
-    const answer = document.getElementById("bonusAnswer")
-        .value.trim().toLowerCase();
+function checkVault() {
 
-    if (answer === "babydoll") {
+    const answer = document.getElementById("vaultAnswer").value.trim();
 
-        bonusSolved = true;
+    const result = document.getElementById("vaultResult");
+
+    if (answer === "1511" && completedRiddles.length === 4) {
+
+        vaultUnlocked = true;
+
+        result.textContent =
+            "VAULT UNLOCKED! YOUR GIFT IS WAITING INSIDE. ♡";
+
+        document.getElementById("vaultBox").style.display = "none";
+
+        /* ONLY NOW DOES THE BONUS QUESTION APPEAR */
+
+        document.getElementById("bonusBox").style.display = "block";
+
+        document.getElementById("bonusAnswer").value = "";
 
         document.getElementById("bonusResult").textContent =
-            "YOU REMEMBERED! ♡";
+            "A little question from the beginning of our story. ♡";
 
-        document.getElementById("vaultBox").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("bonusBox").scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }, 200);
 
     } else {
 
-        document.getElementById("bonusResult").textContent =
-            "Not quite, baby. Think back to the very beginning. ☹️";
+        result.textContent = "That's not the code, baby. Try again. ☹️";
 
     }
 }
 
 
-/* FINAL VAULT — CODE 1511 */
+/* BONUS QUESTION — BABYDOLL */
 
-function checkVault() {
-    const answer = document.getElementById("vaultAnswer").value.trim();
+function checkBonus() {
 
-    const result = document.getElementById("vaultResult");
+    const answer = document.getElementById("bonusAnswer")
+        .value.trim().toLowerCase();
 
-    if (answer === "1511" && bonusSolved) {
+    if (answer === "babydoll" && vaultUnlocked) {
 
-        result.textContent =
-            "VAULT UNLOCKED! YOU KNOW ME PRETTY WELL. ♡";
+        bonusSolved = true;
+
+        document.getElementById("bonusResult").textContent =
+            "YOU REMEMBERED! ♡ SECRET CHAMBER COMPLETED. I LOVE YOU, BABY.";
 
     } else {
 
-        result.textContent =
-            "Not quite, baby. Try again. ☹️";
+        document.getElementById("wrongWarning").style.display = "flex";
 
     }
 }

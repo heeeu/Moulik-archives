@@ -16,6 +16,10 @@ body {
     color: #e5eaf0;
     font-family: Arial, sans-serif;
 }
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
 /* OPENING PAGE */
 #home {
     min-height: 100vh;
@@ -69,10 +73,6 @@ h1 {
 .details span {
     color: #a9c8e8;
 }
-button {
-    cursor: pointer;
-    font-family: inherit;
-}
 .enter {
     background: transparent;
     border: 1px solid #9ebbd8;
@@ -105,16 +105,7 @@ button {
     left: 50%;
     transform: translateX(-50%);
 }
-/* DASHBOARD */
-#dashboard {
-    display: none;
-    min-height: 100vh;
-    padding: 55px 22px;
-    background:
-        radial-gradient(ellipse at 50% 0%, #172a40 0%, transparent 55%),
-        #080a0e;
-    animation: appear 0.8s ease;
-}
+/* ANIMATION */
 @keyframes appear {
     from {
         opacity: 0;
@@ -124,6 +115,16 @@ button {
         opacity: 1;
         transform: translateY(0);
     }
+}
+/* DASHBOARD */
+#dashboard {
+    display: none;
+    min-height: 100vh;
+    padding: 55px 22px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #172a40 0%, transparent 55%),
+        #080a0e;
+    animation: appear 0.8s ease;
 }
 .dash-container {
     max-width: 850px;
@@ -207,7 +208,6 @@ button {
     bottom: -20px;
     pointer-events: none;
 }
-/* CENTERED FINAL CARD */
 .card-final {
     grid-column: 1 / -1;
     width: calc(50% - 9px);
@@ -237,7 +237,173 @@ button {
     font-size: 10px;
     letter-spacing: 2px;
 }
-/* POPUP */
+/* ABOUT MOULIK PAGE */
+#aboutPage {
+    display: none;
+    min-height: 100vh;
+    padding: 45px 22px 60px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #1b3048 0%, transparent 55%),
+        #080a0e;
+    animation: appear 0.6s ease;
+}
+.about-container {
+    max-width: 750px;
+    margin: auto;
+}
+.about-label {
+    color: #9ebbd8;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+}
+.about-title {
+    font-size: clamp(30px, 8vw, 44px);
+    letter-spacing: 2px;
+    color: #edf3fa;
+    margin-bottom: 12px;
+}
+.about-intro {
+    color: #aab8c7;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+.about-divider {
+    height: 1px;
+    background: linear-gradient(90deg, #9bbbd9, transparent);
+    margin-bottom: 28px;
+}
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+/* FROSTED GLASS TILES */
+.glass-tile {
+    min-height: 145px;
+    padding: 21px 16px;
+    border: 1px solid #718ba5aa;
+    border-radius: 15px;
+    background:
+        linear-gradient(140deg, #ffffff12, #ffffff03),
+        linear-gradient(145deg, #182637aa, #101721cc);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #edf3fa;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: 0.35s ease;
+    box-shadow:
+        inset 0 1px 1px #ffffff12,
+        0 5px 22px #00000030;
+}
+.glass-tile::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -40px;
+    bottom: -45px;
+    border-radius: 50%;
+    background: #85bbed;
+    filter: blur(45px);
+    opacity: 0.17;
+    transition: 0.35s;
+    pointer-events: none;
+}
+.glass-tile:hover,
+.glass-tile:focus-visible {
+    transform: translateY(-5px);
+    border-color: #c2dff9;
+    box-shadow:
+        inset 0 1px 2px #ffffff25,
+        0 8px 30px #7db5ed30;
+    outline: none;
+}
+.glass-tile:hover::before {
+    opacity: 0.35;
+}
+.tile-icon {
+    font-size: 22px;
+    color: #c2d9ef;
+    margin-bottom: 18px;
+}
+.tile-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 9px;
+}
+.tile-hint {
+    color: #9eafc1;
+    font-size: 10px;
+    line-height: 1.5;
+}
+.about-bottom {
+    text-align: center;
+    color: #8396aa;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 38px;
+}
+/* FINAL TILE */
+.about-final {
+    grid-column: 1 / -1;
+    width: calc(50% - 8px);
+    justify-self: center;
+    border-color: #9bbbd9;
+}
+/* PERSONAL NOTE POPUP */
+#notePopup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: #000000df;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+}
+.note-content {
+    width: 100%;
+    max-width: 430px;
+    padding: 32px 25px;
+    border: 1px solid #91b2d2;
+    border-radius: 16px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #233c56, transparent 75%),
+        #111923;
+    box-shadow: 0 0 50px #75a9db35;
+    animation: appear 0.35s ease;
+}
+.note-label {
+    color: #a8c9e8;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+.note-content h2 {
+    color: #edf4fc;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 18px;
+}
+.note-content p {
+    color: #c1ccda;
+    font-size: 13px;
+    line-height: 1.9;
+}
+.close-button {
+    margin-top: 28px;
+    background: transparent;
+    border: 1px solid #91b2d2;
+    color: #d0e4f7;
+    padding: 11px 22px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+/* OTHER FILE POPUP */
 #filePopup {
     display: none;
     position: fixed;
@@ -274,31 +440,29 @@ button {
     font-size: 13px;
     line-height: 1.8;
 }
-.close-button {
-    margin-top: 28px;
-    background: transparent;
-    border: 1px solid #7799ba;
-    color: #d0e4f7;
-    padding: 11px 22px;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
 @media(max-width: 380px) {
-    .cards {
+    .cards,
+    .about-grid {
         gap: 10px;
     }
     .card {
         padding: 17px 12px;
     }
-    .card-final {
+    .card-final,
+    .about-final {
         width: calc(50% - 5px);
+    }
+    .glass-tile {
+        padding: 17px 12px;
     }
 }
 @media(max-width: 300px) {
-    .cards {
+    .cards,
+    .about-grid {
         grid-template-columns: 1fr;
     }
-    .card-final {
+    .card-final,
+    .about-final {
         grid-column: auto;
         width: 100%;
     }
@@ -313,19 +477,19 @@ button {
 <div class="tag">✦ A PERSONAL PROJECT ✦</div>
 <h1>MOULIK<br>ARCHIVES <span class="heart">♡</span></h1>
 <div class="subtitle">
-    A little universe, made with a lot of love.
+A little universe, made with a lot of love.
 </div>
 <div class="details">
-    SUBJECT: <span>ONE VERY SPECIAL HUMAN</span><br>
-    CLASSIFICATION: <span>IRREPLACEABLE</span><br>
-    STATUS: <span>PERMANENTLY LOVED</span><br>
-    ACCESS: <span>EXCLUSIVELY YOURS</span>
+SUBJECT: <span>ONE VERY SPECIAL HUMAN</span><br>
+CLASSIFICATION: <span>IRREPLACEABLE</span><br>
+STATUS: <span>PERMANENTLY LOVED</span><br>
+ACCESS: <span>EXCLUSIVELY YOURS</span>
 </div>
 <button class="enter" onclick="enterArchives()">
-    ENTER ARCHIVES ↗
+ENTER ARCHIVES ↗
 </button>
 <div class="footer">
-    MADE WITH ♡ & A LITTLE TOO MUCH LOVE
+MADE WITH ♡ & A LITTLE TOO MUCH LOVE
 </div>
 </div>
 </section>
@@ -333,69 +497,141 @@ button {
 <section id="dashboard">
 <div class="dash-container">
 <div class="top-label">
-    ARCHIVE SYSTEM // ACCESS GRANTED
+ARCHIVE SYSTEM // ACCESS GRANTED
 </div>
 <h1 class="dash-title">
-    WELCOME TO<br>MOULIK'S WORLD.
+WELCOME TO<br>MOULIK'S WORLD.
 </h1>
 <p class="dash-subtitle">
-    An archive of one very interesting human.<br>
-    Some things are worth keeping forever.
+An archive of one very interesting human.<br>
+Some things are worth keeping forever.
 </p>
 <div class="divider"></div>
 <div class="section-label">
-    AVAILABLE FILES
+AVAILABLE FILES
 </div>
 <div class="cards">
-    <button class="card" onclick="openFile('about')">
-        <div class="card-icon">◈</div>
-        <h3>ABOUT MOULIK</h3>
-        <p>A closer look at the person behind the name.</p>
-    </button>
-    <button class="card" onclick="openFile('world')">
-        <div class="card-icon">◇</div>
-        <h3>HIS LITTLE WORLD</h3>
-        <p>Favourite things, interests and little joys.</p>
-    </button>
-    <button class="card" onclick="openFile('story')">
-        <div class="card-icon">∞</div>
-        <h3>OUR STORY</h3>
-        <p>Two people, countless little moments.</p>
-    </button>
-    <button class="card" onclick="openFile('things')">
-        <div class="card-icon">⌬</div>
-        <h3>THINGS ABOUT YOU</h3>
-        <p>Observations, inside jokes and affectionate teasing.</p>
-    </button>
-    <button class="card card-final" onclick="openFile('birthday')">
-        <div class="card-icon">♡</div>
-        <h3>ONE LAST THING</h3>
-        <p>Something I have been wanting to tell you.</p>
-    </button>
+<button class="card" onclick="openFile('about')">
+<div class="card-icon">◈</div>
+<h3>ABOUT MOULIK</h3>
+<p>A closer look at the person behind the name.</p>
+</button>
+<button class="card" onclick="openFile('world')">
+<div class="card-icon">◇</div>
+<h3>HIS LITTLE WORLD</h3>
+<p>Favourite things, interests and little joys.</p>
+</button>
+<button class="card" onclick="openFile('story')">
+<div class="card-icon">∞</div>
+<h3>OUR STORY</h3>
+<p>Two people, countless little moments.</p>
+</button>
+<button class="card" onclick="openFile('things')">
+<div class="card-icon">⌬</div>
+<h3>THINGS ABOUT YOU</h3>
+<p>Observations, inside jokes and affectionate teasing.</p>
+</button>
+<button class="card card-final" onclick="openFile('birthday')">
+<div class="card-icon">♡</div>
+<h3>ONE LAST THING</h3>
+<p>Something I have been wanting to tell you.</p>
+</button>
 </div>
 <div class="bottom-note">
-    MADE WITH LOVE. RESERVED FOR YOU. ♡
-    <br>
-    <button class="back-button" onclick="goHome()">
-        ↶ RETURN TO ENTRANCE
-    </button>
+MADE WITH LOVE. RESERVED FOR YOU. ♡
+<br>
+<button class="back-button" onclick="goHome()">
+↶ RETURN TO ENTRANCE
+</button>
 </div>
 </div>
 </section>
-<!-- POPUP -->
+<!-- ABOUT MOULIK PAGE -->
+<section id="aboutPage">
+<div class="about-container">
+<div class="about-label">
+PERSONAL RECORD // SUBJECT: MOULIK
+</div>
+<h1 class="about-title">ABOUT MOULIK.</h1>
+<p class="about-intro">
+A few little things about you.<br>
+Things I notice, things I adore, and things that make you YOU.
+</p>
+<div class="about-divider"></div>
+<div class="about-grid">
+<button class="glass-tile" onclick="openNote('giggles')">
+<div class="tile-icon">♫</div>
+<div class="tile-title">THAT GIGGLE OF YOURS</div>
+<div class="tile-hint">Your favourite way to make me smile.</div>
+</button>
+<button class="glass-tile" onclick="openNote('flirting')">
+<div class="tile-icon">✧</div>
+<div class="tile-title">THE UNEXPECTED ROMANTIC</div>
+<div class="tile-hint">Never know when you'll flirt next.</div>
+</button>
+<button class="glass-tile" onclick="openNote('menace')">
+<div class="tile-icon">⌁</div>
+<div class="tile-title">CERTIFIED LITTLE MENACE</div>
+<div class="tile-hint">Your talent for getting on my nerves.</div>
+</button>
+<button class="glass-tile" onclick="openNote('softie')">
+<div class="tile-icon">♡</div>
+<div class="tile-title">YOUR SOFT SIDE</div>
+<div class="tile-hint">The way you get me talking again.</div>
+</button>
+<button class="glass-tile" onclick="openNote('heart')">
+<div class="tile-icon">☾</div>
+<div class="tile-title">NO HEAVY HEARTS</div>
+<div class="tile-hint">You don't let me sleep upset.</div>
+</button>
+<button class="glass-tile" onclick="openNote('patience')">
+<div class="tile-icon">∞</div>
+<div class="tile-title">YOUR PATIENCE</div>
+<div class="tile-hint">Especially the patience you have with me.</div>
+</button>
+<button class="glass-tile about-final" onclick="openNote('proud')">
+<div class="tile-icon">✦</div>
+<div class="tile-title">I'M PROUD OF YOU.</div>
+<div class="tile-hint">No particular reason needed. Just you.</div>
+</button>
+</div>
+<div class="about-bottom">
+A COLLECTION OF LITTLE THINGS I NOTICE ♡
+<br>
+<button class="back-button" onclick="backToDashboard()">
+↶ BACK TO ARCHIVES
+</button>
+</div>
+</div>
+</section>
+<!-- ABOUT MOULIK NOTE POPUP -->
+<div id="notePopup" onclick="outsideNoteClose(event)">
+<div class="note-content">
+<div class="note-label">
+A LITTLE NOTE FOR YOU ♡
+</div>
+<h2 id="noteTitle">TITLE</h2>
+<p id="noteText">MESSAGE</p>
+<button class="close-button" onclick="closeNote()">
+BACK TO COLLECTION ✕
+</button>
+</div>
+</div>
+<!-- OTHER FILE POPUP -->
 <div id="filePopup" onclick="outsideClose(event)">
 <div class="popup-content">
-    <div class="popup-label" id="popupLabel">
-        ARCHIVE RECORD
-    </div>
-    <h2 id="popupTitle">FILE TITLE</h2>
-    <p id="popupText">File information.</p>
-    <button class="close-button" onclick="closeFile()">
-        CLOSE FILE ✕
-    </button>
+<div class="popup-label" id="popupLabel">
+ARCHIVE RECORD
+</div>
+<h2 id="popupTitle">FILE TITLE</h2>
+<p id="popupText">File information.</p>
+<button class="close-button" onclick="closeFile()">
+CLOSE FILE ✕
+</button>
 </div>
 </div>
 <script>
+/* MAIN NAVIGATION */
 function enterArchives() {
     document.getElementById("home").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
@@ -403,14 +639,22 @@ function enterArchives() {
 }
 function goHome() {
     closeFile();
+    document.getElementById("aboutPage").style.display = "none";
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("home").style.display = "flex";
     window.scrollTo(0, 0);
 }
+function backToDashboard() {
+    closeNote();
+    document.getElementById("aboutPage").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+    window.scrollTo(0, 0);
+}
+/* DASHBOARD FILES */
 const files = {
     about: {
         title: "ABOUT MOULIK",
-        text: "A little introduction to one very special human. This section is waiting for the little details, habits and personality traits that make him uniquely himself."
+        text: "A little introduction to one very special human."
     },
     world: {
         title: "HIS LITTLE WORLD",
@@ -430,6 +674,12 @@ const files = {
     }
 };
 function openFile(id) {
+    if (id === "about") {
+        document.getElementById("dashboard").style.display = "none";
+        document.getElementById("aboutPage").style.display = "block";
+        window.scrollTo(0, 0);
+        return;
+    }
     const file = files[id];
     document.getElementById("popupLabel").textContent =
         "ARCHIVE RECORD // " + id.toUpperCase();
@@ -445,6 +695,53 @@ function closeFile() {
 function outsideClose(event) {
     if (event.target.id === "filePopup") {
         closeFile();
+    }
+}
+/* PERSONAL NOTES */
+const notes = {
+    giggles: {
+        title: "THAT GIGGLE OF YOURS ♡",
+        text: "You already know what your giggles do to me. And yet, every single time, you manage to get the same reaction out of me. Never stop laughing, okay? I could listen to that sound over and over again."
+    },
+    flirting: {
+        title: "THE UNEXPECTED ROMANTIC",
+        text: "You can be talking about literally anything, and suddenly you decide to flirt with me. No warning, no context. Just Moulik being Moulik. And I hope you never stop."
+    },
+    menace: {
+        title: "CERTIFIED LITTLE MENACE",
+        text: "You successfully get on my nerves, watch me get annoyed, and then laugh like you've achieved something extraordinary. I don't know whether to laugh with you or be even more annoyed. You really are a menace."
+    },
+    softie: {
+        title: "YOUR SOFT SIDE",
+        text: "The moment I get annoyed and stop talking, suddenly your voice gets all soft. Sweet little words, gentle flirting, and every possible attempt to make me talk again. I notice that side of you, too."
+    },
+    heart: {
+        title: "NO HEAVY HEARTS",
+        text: "One thing I'll always appreciate about you is how you try to make sure I never go to bed angry or spend the night overthinking. Even when things aren't perfect, you don't just let me sit with all those thoughts. You try to make things okay between us. And that means more to me than you probably realise."
+    },
+    patience: {
+        title: "YOUR PATIENCE",
+        text: "I know patience isn't always your strongest quality, but somehow you have so much of it for me. You let me be me, even when I'm being difficult, emotional, dramatic or taking forever to explain what's wrong. I notice the patience you show me, and I appreciate it more than I can put into words."
+    },
+    proud: {
+        title: "I'M PROUD OF YOU. PERIOD.",
+        text: "I don't think I need one particular reason to be proud of you. I just am. Of the person you are, the things you do, the little ways you grow and even the things you don't give yourself enough credit for. I hope you never doubt that there's someone who believes in you and is rooting for you, always. I hope you see yourself the way I see you, at least sometimes."
+    }
+};
+function openNote(id) {
+    const note = notes[id];
+    document.getElementById("noteTitle").textContent =
+        note.title;
+    document.getElementById("noteText").textContent =
+        note.text;
+    document.getElementById("notePopup").style.display = "flex";
+}
+function closeNote() {
+    document.getElementById("notePopup").style.display = "none";
+}
+function outsideNoteClose(event) {
+    if (event.target.id === "notePopup") {
+        closeNote();
     }
 }
 </script>

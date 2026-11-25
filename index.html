@@ -80,7 +80,7 @@ h1, h2, h3 {
 }
 
 .secondary-btn {
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 11px 23px;
     border: 1px solid #64799e;
     border-radius: 25px;
@@ -193,7 +193,9 @@ h1, h2, h3 {
     box-shadow: 0 0 20px #789bd766;
 }
 
-.folder:last-child:nth-child(odd) {
+/* Always centre the fifth dashboard folder */
+
+.dashboard-grid .folder:nth-child(5) {
     grid-column: 1 / -1;
     width: 55%;
     justify-self: center;
@@ -224,6 +226,14 @@ h1, h2, h3 {
     font-size: 11px;
     letter-spacing: 1px;
     line-height: 1.5;
+}
+
+/* Centre seventh About tile */
+
+.collection .collection-tile:nth-child(7) {
+    grid-column: 1 / -1;
+    width: 50%;
+    justify-self: center;
 }
 
 /* POPUPS */
@@ -263,11 +273,7 @@ h1, h2, h3 {
     font-size: 14px;
 }
 
-.popup button {
-    margin-top: 22px;
-}
-
-/* SECRET CHAMBER */
+/* GAME CARDS */
 
 .game-card {
     width: min(100%, 430px);
@@ -338,7 +344,7 @@ h1, h2, h3 {
     font-size: 12px;
 }
 
-/* WRONG ANSWER WARNING */
+/* WRONG ANSWER */
 
 .warning-overlay {
     display: none;
@@ -409,7 +415,6 @@ h1, h2, h3 {
     background: #0b101a;
     color: #e7edf8;
     font-size: 22px;
-    box-shadow: 0 0 12px #7295c522;
 }
 
 .bonus-box {
@@ -444,7 +449,6 @@ h1, h2, h3 {
     border-radius: 2px;
     touch-action: none;
     cursor: grab;
-    position: relative;
 }
 
 .puzzle-piece.selected {
@@ -570,7 +574,7 @@ h1, h2, h3 {
 
 <body>
 
-<!-- WELCOME PAGE -->
+<!-- WELCOME -->
 
 <section id="welcomePage" class="page active">
     <div class="welcome-symbol">✧</div>
@@ -598,11 +602,27 @@ h1, h2, h3 {
     <p class="subtitle">A few little things, all in one place.</p>
 
     <div class="dashboard-grid">
-        <button class="folder" onclick="showPage('aboutPage')">ABOUT MOULIK</button>
-        <button class="folder" onclick="showPage('worldPage')">HIS LITTLE WORLD</button>
-        <button class="folder" onclick="showPage('thingsPage')">THINGS ABOUT YOU</button>
-        <button class="folder" onclick="openBirthday()">ONE LAST THING</button>
-        <button class="folder" onclick="showPage('secretPage')">THE SECRET CHAMBER</button>
+
+        <button class="folder" onclick="showPage('aboutPage')">
+            ABOUT MOULIK
+        </button>
+
+        <button class="folder" onclick="showPage('worldPage')">
+            HIS LITTLE WORLD
+        </button>
+
+        <button class="folder" onclick="showPage('thingsPage')">
+            THINGS ABOUT YOU
+        </button>
+
+        <button class="folder" onclick="openBirthday()">
+            ONE LAST THING
+        </button>
+
+        <button class="folder" onclick="showPage('secretPage')">
+            THE SECRET CHAMBER
+        </button>
+
     </div>
 </section>
 
@@ -613,25 +633,51 @@ h1, h2, h3 {
     <p class="subtitle">Little things I notice about you.</p>
 
     <div class="collection">
-        <button class="collection-tile" onclick="openNote(0)">THAT GIGGLE OF YOURS ♡</button>
-        <button class="collection-tile" onclick="openNote(1)">THE UNEXPECTED ROMANTIC</button>
-        <button class="collection-tile" onclick="openNote(2)">CERTIFIED LITTLE MENACE</button>
-        <button class="collection-tile" onclick="openNote(3)">YOUR SOFT SIDE</button>
-        <button class="collection-tile" onclick="openNote(4)">NO HEAVY HEARTS</button>
-        <button class="collection-tile" onclick="openNote(5)">YOUR PATIENCE</button>
-        <button class="collection-tile" onclick="openNote(6)">I'M PROUD OF YOU. PERIOD.</button>
+
+        <button class="collection-tile" onclick="openNote(0)">
+            THAT GIGGLE OF YOURS ♡
+        </button>
+
+        <button class="collection-tile" onclick="openNote(1)">
+            THE UNEXPECTED ROMANTIC
+        </button>
+
+        <button class="collection-tile" onclick="openNote(2)">
+            CERTIFIED LITTLE MENACE
+        </button>
+
+        <button class="collection-tile" onclick="openNote(3)">
+            YOUR SOFT SIDE
+        </button>
+
+        <button class="collection-tile" onclick="openNote(4)">
+            NO HEAVY HEARTS
+        </button>
+
+        <button class="collection-tile" onclick="openNote(5)">
+            YOUR PATIENCE
+        </button>
+
+        <button class="collection-tile" onclick="openNote(6)">
+            I'M PROUD OF YOU. PERIOD.
+        </button>
+
     </div>
 
-    <button class="back-btn" onclick="backToDashboard()">BACK TO ARCHIVES</button>
+    <button class="back-btn" onclick="backToDashboard()">
+        BACK TO ARCHIVES
+    </button>
 </section>
 
-<!-- ABOUT NOTES POPUP -->
+<!-- ABOUT POPUP -->
 
 <div class="popup-overlay" id="noteOverlay" onclick="outsideNoteClose(event)">
     <div class="popup">
         <h3 id="noteTitle"></h3>
         <p id="noteText"></p>
-        <button class="secondary-btn" onclick="closeNote()">BACK TO COLLECTION</button>
+        <button class="secondary-btn" onclick="closeNote()">
+            BACK TO COLLECTION
+        </button>
     </div>
 </div>
 
@@ -649,7 +695,9 @@ h1, h2, h3 {
         </p>
     </div>
 
-    <button class="back-btn" onclick="backToDashboard()">BACK TO ARCHIVES</button>
+    <button class="back-btn" onclick="backToDashboard()">
+        BACK TO ARCHIVES
+    </button>
 </section>
 
 <!-- THINGS ABOUT YOU -->
@@ -666,7 +714,9 @@ h1, h2, h3 {
         </p>
     </div>
 
-    <button class="back-btn" onclick="backToDashboard()">BACK TO ARCHIVES</button>
+    <button class="back-btn" onclick="backToDashboard()">
+        BACK TO ARCHIVES
+    </button>
 </section>
 
 <!-- SECRET CHAMBER -->
@@ -675,19 +725,31 @@ h1, h2, h3 {
     <h1 class="section-title">THE SECRET CHAMBER</h1>
     <p class="subtitle">Not everyone gets to enter this little place.</p>
 
-    <div class="game-card" style="margin-top:40px;" onclick="openCodeGame()">
+    <div class="game-card" style="margin-top:40px; cursor:pointer;"
+         onclick="openCodeGame()">
+
         <h3>CRACK THE CODE</h3>
         <p>Four riddles. Four digits. One little vault.</p>
-        <button class="secondary-btn">ENTER GAME ♡</button>
+
+        <button class="secondary-btn" type="button">
+            ENTER GAME ♡
+        </button>
     </div>
 
-    <div class="game-card" onclick="openJigsaw()">
+    <div class="game-card" style="cursor:pointer;"
+         onclick="openJigsaw()">
+
         <h3>THE MISSING PIECES</h3>
         <p>Some things are better when put together.</p>
-        <button class="secondary-btn">PLAY ♡</button>
+
+        <button class="secondary-btn" type="button">
+            PLAY ♡
+        </button>
     </div>
 
-    <button class="back-btn" onclick="backToDashboard()">BACK TO ARCHIVES</button>
+    <button class="back-btn" onclick="backToDashboard()">
+        BACK TO ARCHIVES
+    </button>
 </section>
 
 <!-- CRACK THE CODE -->
@@ -697,15 +759,24 @@ h1, h2, h3 {
     <p class="subtitle">Let's see how well you know yourself.</p>
 
     <div class="game-card" style="margin-top:35px;">
-        <div class="level-label" id="levelLabel">LEVEL 1 — THE FOODIE</div>
+
+        <div class="level-label" id="levelLabel">
+            LEVEL 1 — THE FOODIE
+        </div>
+
         <p class="riddle" id="riddleText"></p>
 
         <input class="game-input" id="riddleAnswer"
                type="text" placeholder="Your answer...">
 
-        <button class="game-submit" onclick="checkRiddle()">SUBMIT ♡</button>
+        <button class="game-submit" id="riddleSubmit"
+                onclick="checkRiddle()">
+            SUBMIT ♡
+        </button>
 
-        <div class="progress" id="riddleProgress">DIGITS UNLOCKED: 0 / 4</div>
+        <div class="progress" id="riddleProgress">
+            DIGITS UNLOCKED: 0 / 4
+        </div>
     </div>
 
     <div class="game-card" id="vaultCard" style="display:none;">
@@ -723,7 +794,10 @@ h1, h2, h3 {
                type="text" inputmode="numeric" maxlength="4"
                placeholder="Enter 4-digit code">
 
-        <button class="game-submit" onclick="checkVault()">UNLOCK</button>
+        <button class="game-submit" onclick="checkVault()">
+            UNLOCK
+        </button>
+
         <p id="vaultMessage" style="margin-top:15px;"></p>
     </div>
 
@@ -746,14 +820,19 @@ What was the first name I gave you?
         <input class="game-input" id="bonusAnswer"
                type="text" placeholder="Think carefully...">
 
-        <button class="game-submit" onclick="checkBonus()">SUBMIT ♡</button>
+        <button class="game-submit" onclick="checkBonus()">
+            SUBMIT ♡
+        </button>
+
         <p id="bonusMessage" style="margin-top:15px;"></p>
     </div>
 
-    <button class="back-btn" onclick="showPage('secretPage')">BACK TO SECRET CHAMBER</button>
+    <button class="back-btn" onclick="showPage('secretPage')">
+        BACK TO SECRET CHAMBER
+    </button>
 </section>
 
-<!-- WRONG ANSWER WARNING -->
+<!-- WRONG ANSWER -->
 
 <div class="warning-overlay" id="warningOverlay">
     <div class="warning-box">
@@ -788,12 +867,18 @@ What was the first name I gave you?
         </p>
     </div>
 
-    <button class="secondary-btn" onclick="startJigsaw()">SHUFFLE AGAIN</button>
+    <button class="secondary-btn" onclick="startJigsaw()">
+        SHUFFLE AGAIN
+    </button>
+
     <br>
-    <button class="back-btn" onclick="showPage('secretPage')">BACK TO SECRET CHAMBER</button>
+
+    <button class="back-btn" onclick="showPage('secretPage')">
+        BACK TO SECRET CHAMBER
+    </button>
 </section>
 
-<!-- BIRTHDAY PAGE -->
+<!-- BIRTHDAY -->
 
 <section id="birthdayPage" class="page">
     <canvas id="fireworksCanvas"></canvas>
@@ -803,6 +888,7 @@ What was the first name I gave you?
         <div class="birthday-intro" id="birthdayIntro">
             <h2>READY FOR YOUR LITTLE SURPRISE?</h2>
             <p class="subtitle">I made something for you. ♡</p>
+
             <button class="primary-btn" onclick="startBirthday()">
                 UNLOCK YOUR SURPRISE ♡
             </button>
@@ -813,7 +899,9 @@ What was the first name I gave you?
         <div class="birthday-letter" id="birthdayLetter">
             <h2>HAPPY BIRTHDAY, MY LOVE. ❤️</h2>
             <div id="letterContent"></div>
-            <div class="signature" id="signature">your Heena. ♡</div>
+            <div class="signature" id="signature">
+                your Heena. ♡
+            </div>
         </div>
 
     </div>
@@ -821,9 +909,7 @@ What was the first name I gave you?
 
 <script>
 
-/* PAGE NAVIGATION */
-
-let currentPage = "welcomePage";
+/* NAVIGATION */
 
 function showPage(id) {
     document.querySelectorAll(".page").forEach(page => {
@@ -831,13 +917,10 @@ function showPage(id) {
     });
 
     document.getElementById(id).classList.add("active");
-    currentPage = id;
 
     if (id === "birthdayPage") {
         resizeCanvas();
-    }
-
-    if (id !== "birthdayPage") {
+    } else {
         stopFireworks();
     }
 }
@@ -864,7 +947,7 @@ function backToDashboard() {
     showPage("dashboardPage");
 }
 
-/* ABOUT MOULIK NOTES */
+/* ABOUT MOULIK */
 
 const notes = [
     {
@@ -955,18 +1038,26 @@ Two strangers became each other's favourite notification.`,
 let currentRiddle = 0;
 let unlockedDigits = [];
 let wrongAttempts = 0;
-let bonusUnlocked = false;
 
 function openCodeGame() {
     currentRiddle = 0;
     unlockedDigits = [];
     wrongAttempts = 0;
-    bonusUnlocked = false;
 
     document.getElementById("vaultCard").style.display = "none";
     document.getElementById("bonusCard").style.display = "none";
+
+    document.getElementById("riddleAnswer").style.display = "block";
+    document.getElementById("riddleSubmit").style.display = "inline-block";
     document.getElementById("riddleAnswer").value = "";
-    document.getElementById("riddleProgress").textContent = "DIGITS UNLOCKED: 0 / 4";
+
+    document.getElementById("vaultInput").value = "";
+    document.getElementById("vaultMessage").textContent = "";
+    document.getElementById("bonusAnswer").value = "";
+    document.getElementById("bonusMessage").textContent = "";
+
+    document.getElementById("riddleProgress").textContent =
+        "DIGITS UNLOCKED: 0 / 4";
 
     showPage("codePage");
     displayRiddle();
@@ -974,11 +1065,15 @@ function openCodeGame() {
 
 function displayRiddle() {
     if (currentRiddle >= riddles.length) {
-        document.getElementById("levelLabel").textContent = "ALL LEVELS COMPLETED ♡";
+        document.getElementById("levelLabel").textContent =
+            "ALL LEVELS COMPLETED ♡";
+
         document.getElementById("riddleText").textContent =
             "You've solved all four riddles. Your digits are waiting below.";
+
         document.getElementById("riddleAnswer").style.display = "none";
-        document.querySelector("#codePage .game-submit").style.display = "none";
+        document.getElementById("riddleSubmit").style.display = "none";
+
         document.getElementById("vaultCard").style.display = "block";
 
         unlockedDigits.forEach((digit, index) => {
@@ -988,14 +1083,18 @@ function displayRiddle() {
         return;
     }
 
-    document.getElementById("levelLabel").textContent = riddles[currentRiddle].title;
-    document.getElementById("riddleText").textContent = riddles[currentRiddle].question;
+    document.getElementById("levelLabel").textContent =
+        riddles[currentRiddle].title;
+
+    document.getElementById("riddleText").textContent =
+        riddles[currentRiddle].question;
+
     document.getElementById("riddleAnswer").value = "";
 }
 
 function checkRiddle() {
-    const answer = document.getElementById("riddleAnswer").value
-        .trim().toLowerCase().replace(/[^\w\s]/g, "");
+    const answer = document.getElementById("riddleAnswer")
+        .value.trim().toLowerCase().replace(/[^\w\s]/g, "");
 
     if (answer === riddles[currentRiddle].answer) {
         unlockedDigits.push(riddles[currentRiddle].digit);
@@ -1033,24 +1132,22 @@ function checkVault() {
 }
 
 function checkBonus() {
-    const answer = document.getElementById("bonusAnswer").value
-        .trim().toLowerCase();
+    const answer = document.getElementById("bonusAnswer")
+        .value.trim().toLowerCase();
 
     if (answer === "babydoll") {
         document.getElementById("bonusMessage").textContent =
             "YOU REMEMBERED! ♡ The very first little name. You win, baby.";
-        bonusUnlocked = true;
     } else {
         document.getElementById("warningOverlay").classList.add("show");
     }
 }
 
-/* THE MISSING PIECES — JIGSAW */
+/* THE MISSING PIECES */
 
 let puzzleOrder = [];
 let selectedPiece = null;
 let moves = 0;
-let draggedPiece = null;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -1067,21 +1164,20 @@ function openJigsaw() {
 
 function startJigsaw() {
     const board = document.getElementById("jigsawBoard");
-    const complete = document.getElementById("jigsawComplete");
 
-    complete.style.display = "none";
+    document.getElementById("jigsawComplete").style.display = "none";
     board.style.display = "grid";
 
     moves = 0;
     selectedPiece = null;
-    draggedPiece = null;
 
     document.getElementById("moveCounter").textContent = "MOVES: 0";
 
     puzzleOrder = shuffleArray([...Array(16).keys()]);
 
     if (puzzleOrder.every((value, index) => value === index)) {
-        [puzzleOrder[0], puzzleOrder[1]] = [puzzleOrder[1], puzzleOrder[0]];
+        [puzzleOrder[0], puzzleOrder[1]] =
+            [puzzleOrder[1], puzzleOrder[0]];
     }
 
     board.innerHTML = "";
@@ -1093,11 +1189,7 @@ function startJigsaw() {
         piece.dataset.original = originalIndex;
         piece.dataset.position = position;
 
-        const row = Math.floor(originalIndex / 4);
-        const col = originalIndex % 4;
-
-        piece.style.backgroundPosition =
-            `${col * 100 / 3}% ${row * 100 / 3}%`;
+        updatePiecePosition(piece, originalIndex);
 
         piece.addEventListener("pointerdown", handlePieceDown);
         piece.addEventListener("pointerup", handlePieceUp);
@@ -1108,19 +1200,16 @@ function startJigsaw() {
 
 function handlePieceDown(event) {
     event.preventDefault();
-
-    const piece = event.currentTarget;
-    draggedPiece = piece;
-    piece.classList.add("dragging");
-
-    piece.setPointerCapture(event.pointerId);
+    event.currentTarget.classList.add("dragging");
 }
 
 function handlePieceUp(event) {
     const piece = event.currentTarget;
     piece.classList.remove("dragging");
 
-    const target = document.elementFromPoint(event.clientX, event.clientY);
+    const target = document.elementFromPoint(
+        event.clientX, event.clientY
+    );
 
     const targetPiece = target && target.closest(".puzzle-piece");
 
@@ -1131,7 +1220,6 @@ function handlePieceUp(event) {
 
     if (selectedPiece && selectedPiece !== piece) {
         swapPieces(selectedPiece, piece);
-        selectedPiece.classList.remove("selected");
         selectedPiece = null;
         return;
     }
@@ -1141,11 +1229,10 @@ function handlePieceUp(event) {
         selectedPiece = null;
     } else {
         if (selectedPiece) selectedPiece.classList.remove("selected");
+
         selectedPiece = piece;
         piece.classList.add("selected");
     }
-
-    draggedPiece = null;
 }
 
 function swapPieces(first, second) {
@@ -1162,10 +1249,11 @@ function swapPieces(first, second) {
     second.classList.remove("selected", "dragging");
 
     selectedPiece = null;
-    draggedPiece = null;
 
     moves++;
-    document.getElementById("moveCounter").textContent = "MOVES: " + moves;
+
+    document.getElementById("moveCounter").textContent =
+        "MOVES: " + moves;
 
     checkJigsawComplete();
 }
@@ -1244,6 +1332,7 @@ function openBirthday() {
 
 function resetBirthday() {
     clearInterval(countdownTimer);
+
     letterTimers.forEach(timer => clearTimeout(timer));
     letterTimers = [];
 
@@ -1293,8 +1382,10 @@ function revealBirthday() {
 
     birthdayParagraphs.forEach((paragraph, index) => {
         const p = document.createElement("p");
+
         p.className = "letter-paragraph";
         p.textContent = paragraph;
+
         container.appendChild(p);
 
         const timer = setTimeout(() => {
@@ -1337,11 +1428,12 @@ function createFirework() {
         const speed = Math.random() * 3 + 1;
 
         particles.push({
-            x, y,
+            x: x,
+            y: y,
             vx: Math.cos(angle) * speed,
             vy: Math.sin(angle) * speed,
             alpha: 1,
-            color,
+            color: color,
             size: Math.random() * 2 + 1
         });
     }
@@ -1360,8 +1452,16 @@ function drawFireworks() {
 
         ctx.globalAlpha = Math.max(0, particle.alpha);
         ctx.fillStyle = particle.color;
+
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.arc(
+            particle.x,
+            particle.y,
+            particle.size,
+            0,
+            Math.PI * 2
+        );
+
         ctx.fill();
 
         if (particle.alpha <= 0) {
@@ -1395,9 +1495,7 @@ function stopFireworks() {
 
     particles = [];
 
-    if (ctx) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 </script>

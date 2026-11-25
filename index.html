@@ -208,19 +208,6 @@ h1 {
     bottom: -20px;
     pointer-events: none;
 }
-.card-final {
-    grid-column: 1 / -1;
-    width: calc(50% - 9px);
-    justify-self: center;
-    min-height: 145px;
-    border-color: #829fbd;
-    background: linear-gradient(145deg, #1b2837, #101721);
-    box-shadow: 0 0 24px #6b9dc51a;
-}
-.card-final:hover {
-    border-color: #c4ddf5;
-    box-shadow: 0 0 32px #8dbbe955;
-}
 .bottom-note {
     text-align: center;
     margin-top: 50px;
@@ -347,13 +334,6 @@ h1 {
     letter-spacing: 2px;
     margin-top: 38px;
 }
-/* FINAL TILE */
-.about-final {
-    grid-column: 1 / -1;
-    width: calc(50% - 8px);
-    justify-self: center;
-    border-color: #9bbbd9;
-}
 /* PERSONAL NOTE POPUP */
 #notePopup {
     display: none;
@@ -448,10 +428,6 @@ h1 {
     .card {
         padding: 17px 12px;
     }
-    .card-final,
-    .about-final {
-        width: calc(50% - 5px);
-    }
     .glass-tile {
         padding: 17px 12px;
     }
@@ -461,15 +437,11 @@ h1 {
     .about-grid {
         grid-template-columns: 1fr;
     }
-    .card-final,
-    .about-final {
-        grid-column: auto;
-        width: 100%;
-    }
 }
 </style>
 </head>
 <body>
+
 <!-- OPENING PAGE -->
 <section id="home">
 <div class="home-glow"></div>
@@ -493,6 +465,7 @@ MADE WITH ♡ & A LITTLE TOO MUCH LOVE
 </div>
 </div>
 </section>
+
 <!-- DASHBOARD -->
 <section id="dashboard">
 <div class="dash-container">
@@ -510,33 +483,35 @@ Some things are worth keeping forever.
 <div class="section-label">
 AVAILABLE FILES
 </div>
+
 <div class="cards">
+
 <button class="card" onclick="openFile('about')">
 <div class="card-icon">◈</div>
 <h3>ABOUT MOULIK</h3>
 <p>A closer look at the person behind the name.</p>
 </button>
+
 <button class="card" onclick="openFile('world')">
 <div class="card-icon">◇</div>
 <h3>HIS LITTLE WORLD</h3>
 <p>Favourite things, interests and little joys.</p>
 </button>
-<button class="card" onclick="openFile('story')">
-<div class="card-icon">∞</div>
-<h3>OUR STORY</h3>
-<p>Two people, countless little moments.</p>
-</button>
+
 <button class="card" onclick="openFile('things')">
 <div class="card-icon">⌬</div>
 <h3>THINGS ABOUT YOU</h3>
 <p>Observations, inside jokes and affectionate teasing.</p>
 </button>
-<button class="card card-final" onclick="openFile('birthday')">
+
+<button class="card" onclick="openFile('birthday')">
 <div class="card-icon">♡</div>
 <h3>ONE LAST THING</h3>
 <p>Something I have been wanting to tell you.</p>
 </button>
+
 </div>
+
 <div class="bottom-note">
 MADE WITH LOVE. RESERVED FOR YOU. ♡
 <br>
@@ -546,6 +521,7 @@ MADE WITH LOVE. RESERVED FOR YOU. ♡
 </div>
 </div>
 </section>
+
 <!-- ABOUT MOULIK PAGE -->
 <section id="aboutPage">
 <div class="about-container">
@@ -558,43 +534,53 @@ A few little things about you.<br>
 Things I notice, things I adore, and things that make you YOU.
 </p>
 <div class="about-divider"></div>
+
 <div class="about-grid">
+
 <button class="glass-tile" onclick="openNote('giggles')">
 <div class="tile-icon">♫</div>
 <div class="tile-title">THAT GIGGLE OF YOURS</div>
 <div class="tile-hint">Your favourite way to make me smile.</div>
 </button>
+
 <button class="glass-tile" onclick="openNote('flirting')">
 <div class="tile-icon">✧</div>
 <div class="tile-title">THE UNEXPECTED ROMANTIC</div>
 <div class="tile-hint">Never know when you'll flirt next.</div>
 </button>
+
 <button class="glass-tile" onclick="openNote('menace')">
 <div class="tile-icon">⌁</div>
 <div class="tile-title">CERTIFIED LITTLE MENACE</div>
 <div class="tile-hint">Your talent for getting on my nerves.</div>
 </button>
+
 <button class="glass-tile" onclick="openNote('softie')">
 <div class="tile-icon">♡</div>
 <div class="tile-title">YOUR SOFT SIDE</div>
 <div class="tile-hint">The way you get me talking again.</div>
 </button>
+
 <button class="glass-tile" onclick="openNote('heart')">
 <div class="tile-icon">☾</div>
 <div class="tile-title">NO HEAVY HEARTS</div>
 <div class="tile-hint">You don't let me sleep upset.</div>
 </button>
+
 <button class="glass-tile" onclick="openNote('patience')">
 <div class="tile-icon">∞</div>
 <div class="tile-title">YOUR PATIENCE</div>
 <div class="tile-hint">Especially the patience you have with me.</div>
 </button>
-<button class="glass-tile about-final" onclick="openNote('proud')">
+
+<button class="glass-tile" onclick="openNote('proud')">
 <div class="tile-icon">✦</div>
 <div class="tile-title">I'M PROUD OF YOU.</div>
 <div class="tile-hint">No particular reason needed. Just you.</div>
 </button>
+
 </div>
+
 <div class="about-bottom">
 A COLLECTION OF LITTLE THINGS I NOTICE ♡
 <br>
@@ -604,6 +590,7 @@ A COLLECTION OF LITTLE THINGS I NOTICE ♡
 </div>
 </div>
 </section>
+
 <!-- ABOUT MOULIK NOTE POPUP -->
 <div id="notePopup" onclick="outsideNoteClose(event)">
 <div class="note-content">
@@ -617,6 +604,7 @@ BACK TO COLLECTION ✕
 </button>
 </div>
 </div>
+
 <!-- OTHER FILE POPUP -->
 <div id="filePopup" onclick="outsideClose(event)">
 <div class="popup-content">
@@ -630,6 +618,7 @@ CLOSE FILE ✕
 </button>
 </div>
 </div>
+
 <script>
 /* MAIN NAVIGATION */
 function enterArchives() {
@@ -637,6 +626,7 @@ function enterArchives() {
     document.getElementById("dashboard").style.display = "block";
     window.scrollTo(0, 0);
 }
+
 function goHome() {
     closeFile();
     document.getElementById("aboutPage").style.display = "none";
@@ -644,12 +634,14 @@ function goHome() {
     document.getElementById("home").style.display = "flex";
     window.scrollTo(0, 0);
 }
+
 function backToDashboard() {
     closeNote();
     document.getElementById("aboutPage").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
     window.scrollTo(0, 0);
 }
+
 /* DASHBOARD FILES */
 const files = {
     about: {
@@ -660,10 +652,6 @@ const files = {
         title: "HIS LITTLE WORLD",
         text: "A collection of his favourite music, food, interests, hobbies and all the little things that make his world his own."
     },
-    story: {
-        title: "OUR STORY",
-        text: "Every story has a beginning. This one has its own dates, memories, unexpected moments and chapters that mean something to us."
-    },
     things: {
         title: "THINGS ABOUT YOU",
         text: "A collection of observations, funny habits, inside jokes and things that make me laugh. Yes, you are being lovingly investigated."
@@ -673,6 +661,7 @@ const files = {
         text: "Happy birthday, my love. This little corner of the internet is something I made just for you. And I hope it reminds you how special you are to me. There's so much more I want to tell you, but I'll save that for the birthday surprise."
     }
 };
+
 function openFile(id) {
     if (id === "about") {
         document.getElementById("dashboard").style.display = "none";
@@ -680,23 +669,31 @@ function openFile(id) {
         window.scrollTo(0, 0);
         return;
     }
+
     const file = files[id];
+
     document.getElementById("popupLabel").textContent =
         "ARCHIVE RECORD // " + id.toUpperCase();
+
     document.getElementById("popupTitle").textContent =
         file.title;
+
     document.getElementById("popupText").textContent =
         file.text;
+
     document.getElementById("filePopup").style.display = "flex";
 }
+
 function closeFile() {
     document.getElementById("filePopup").style.display = "none";
 }
+
 function outsideClose(event) {
     if (event.target.id === "filePopup") {
         closeFile();
     }
 }
+
 /* PERSONAL NOTES */
 const notes = {
     giggles: {
@@ -728,17 +725,23 @@ const notes = {
         text: "I don't think I need one particular reason to be proud of you. I just am. Of the person you are, the things you do, the little ways you grow and even the things you don't give yourself enough credit for. I hope you never doubt that there's someone who believes in you and is rooting for you, always. I hope you see yourself the way I see you, at least sometimes."
     }
 };
+
 function openNote(id) {
     const note = notes[id];
+
     document.getElementById("noteTitle").textContent =
         note.title;
+
     document.getElementById("noteText").textContent =
         note.text;
+
     document.getElementById("notePopup").style.display = "flex";
 }
+
 function closeNote() {
     document.getElementById("notePopup").style.display = "none";
 }
+
 function outsideNoteClose(event) {
     if (event.target.id === "notePopup") {
         closeNote();

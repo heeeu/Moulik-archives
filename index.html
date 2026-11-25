@@ -4,23 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moulik Archives ♡</title>
+
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     min-height: 100vh;
     background: #07090d;
     color: #e5eaf0;
     font-family: Arial, sans-serif;
 }
+
 button {
     cursor: pointer;
     font-family: inherit;
 }
+
 /* OPENING PAGE */
+
 #home {
     min-height: 100vh;
     display: flex;
@@ -32,33 +37,39 @@ button {
     overflow: hidden;
     background: #080a0e;
 }
+
 .container {
     width: 90%;
     max-width: 500px;
     position: relative;
     z-index: 1;
 }
+
 .tag {
     color: #9ebbd8;
     font-size: 10px;
     letter-spacing: 5px;
     margin-bottom: 35px;
 }
+
 h1 {
     font-size: clamp(34px, 9vw, 55px);
     letter-spacing: 3px;
     line-height: 1.2;
     margin-bottom: 15px;
 }
+
 .heart {
     color: #a9c8e8;
 }
+
 .subtitle {
     color: #9ba6b3;
     font-size: 13px;
     letter-spacing: 1px;
     margin-bottom: 55px;
 }
+
 .details {
     border-top: 1px solid #34475b;
     border-bottom: 1px solid #34475b;
@@ -70,9 +81,11 @@ h1 {
     letter-spacing: 1px;
     color: #b6c0cc;
 }
+
 .details span {
     color: #a9c8e8;
 }
+
 .enter {
     background: transparent;
     border: 1px solid #9ebbd8;
@@ -82,17 +95,20 @@ h1 {
     letter-spacing: 3px;
     transition: 0.3s;
 }
+
 .enter:hover {
     background: #a9c8e8;
     color: #080a0e;
     box-shadow: 0 0 25px #8db7e555;
 }
+
 .footer {
     margin-top: 55px;
     color: #77899d;
     font-size: 10px;
     letter-spacing: 2px;
 }
+
 .home-glow {
     position: absolute;
     width: 240px;
@@ -105,7 +121,9 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
 }
-/* ANIMATION */
+
+/* GENERAL ANIMATION */
+
 @keyframes appear {
     from {
         opacity: 0;
@@ -116,7 +134,82 @@ h1 {
         transform: translateY(0);
     }
 }
+
+/* HEENA'S LOVE CHECK */
+
+#loveGate {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: #050609ee;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+}
+
+.love-box {
+    width: 100%;
+    max-width: 370px;
+    padding: 38px 24px;
+    text-align: center;
+    border: 1px solid #d99bbd;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #211522, #101019);
+    box-shadow: 0 0 35px #ff91ce35;
+    animation: appear 0.5s ease;
+}
+
+.love-box h2 {
+    color: #ffe2f2;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.love-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.love-buttons button {
+    padding: 13px 25px;
+    background: #241725;
+    border: 1px solid #e7a4ca;
+    border-radius: 8px;
+    color: #ffe1f1;
+    font-size: 12px;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px #ff9ed633;
+}
+
+.pink-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: 7px;
+    border-radius: 50%;
+    background: #ff9ed6;
+    box-shadow: 0 0 7px #ff9ed6, 0 0 15px #ff65bd;
+    animation: pinkPulse 1.2s infinite alternate;
+}
+
+@keyframes pinkPulse {
+    from {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
 /* DASHBOARD */
+
 #dashboard {
     display: none;
     min-height: 100vh;
@@ -126,44 +219,52 @@ h1 {
         #080a0e;
     animation: appear 0.8s ease;
 }
+
 .dash-container {
     max-width: 850px;
     margin: auto;
 }
+
 .top-label {
     color: #9ebbd8;
     font-size: 10px;
     letter-spacing: 4px;
     margin-bottom: 28px;
 }
+
 .dash-title {
     color: #e6edf5;
     font-size: clamp(27px, 7vw, 43px);
     letter-spacing: 2px;
     margin-bottom: 12px;
 }
+
 .dash-subtitle {
     color: #a2adba;
     font-size: 13px;
     line-height: 1.7;
     margin-bottom: 40px;
 }
+
 .divider {
     height: 1px;
     background: linear-gradient(90deg, #8faecb, transparent);
     margin-bottom: 35px;
 }
+
 .section-label {
     font-size: 10px;
     letter-spacing: 3px;
     color: #a7b9cb;
     margin-bottom: 20px;
 }
+
 .cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 17px;
 }
+
 .card {
     min-height: 145px;
     padding: 22px 17px;
@@ -176,26 +277,31 @@ h1 {
     position: relative;
     overflow: hidden;
 }
+
 .card:hover {
     transform: translateY(-5px);
     border-color: #a5c9eb;
     box-shadow: 0 8px 30px #6699c533;
 }
+
 .card-icon {
     font-size: 23px;
     margin-bottom: 17px;
     color: #c1d5e8;
 }
+
 .card h3 {
     font-size: 12px;
     letter-spacing: 1px;
     margin-bottom: 8px;
 }
+
 .card p {
     font-size: 11px;
     color: #a3b0bf;
     line-height: 1.5;
 }
+
 .card::after {
     content: "";
     position: absolute;
@@ -208,6 +314,7 @@ h1 {
     bottom: -20px;
     pointer-events: none;
 }
+
 .bottom-note {
     text-align: center;
     margin-top: 50px;
@@ -215,6 +322,7 @@ h1 {
     color: #8999aa;
     letter-spacing: 1px;
 }
+
 .back-button {
     margin-top: 30px;
     background: transparent;
@@ -224,7 +332,9 @@ h1 {
     font-size: 10px;
     letter-spacing: 2px;
 }
+
 /* ABOUT MOULIK PAGE */
+
 #aboutPage {
     display: none;
     min-height: 100vh;
@@ -234,39 +344,47 @@ h1 {
         #080a0e;
     animation: appear 0.6s ease;
 }
+
 .about-container {
     max-width: 750px;
     margin: auto;
 }
+
 .about-label {
     color: #9ebbd8;
     font-size: 10px;
     letter-spacing: 4px;
     margin-bottom: 24px;
 }
+
 .about-title {
     font-size: clamp(30px, 8vw, 44px);
     letter-spacing: 2px;
     color: #edf3fa;
     margin-bottom: 12px;
 }
+
 .about-intro {
     color: #aab8c7;
     font-size: 13px;
     line-height: 1.8;
     margin-bottom: 35px;
 }
+
 .about-divider {
     height: 1px;
     background: linear-gradient(90deg, #9bbbd9, transparent);
     margin-bottom: 28px;
 }
+
 .about-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 15px;
 }
+
 /* FROSTED GLASS TILES */
+
 .glass-tile {
     min-height: 145px;
     padding: 21px 16px;
@@ -286,6 +404,7 @@ h1 {
         inset 0 1px 1px #ffffff12,
         0 5px 22px #00000030;
 }
+
 .glass-tile::before {
     content: "";
     position: absolute;
@@ -300,6 +419,7 @@ h1 {
     transition: 0.35s;
     pointer-events: none;
 }
+
 .glass-tile:hover,
 .glass-tile:focus-visible {
     transform: translateY(-5px);
@@ -309,24 +429,29 @@ h1 {
         0 8px 30px #7db5ed30;
     outline: none;
 }
+
 .glass-tile:hover::before {
     opacity: 0.35;
 }
+
 .tile-icon {
     font-size: 22px;
     color: #c2d9ef;
     margin-bottom: 18px;
 }
+
 .tile-title {
     font-size: 12px;
     letter-spacing: 1px;
     margin-bottom: 9px;
 }
+
 .tile-hint {
     color: #9eafc1;
     font-size: 10px;
     line-height: 1.5;
 }
+
 .about-bottom {
     text-align: center;
     color: #8396aa;
@@ -334,7 +459,9 @@ h1 {
     letter-spacing: 2px;
     margin-top: 38px;
 }
+
 /* PERSONAL NOTE POPUP */
+
 #notePopup {
     display: none;
     position: fixed;
@@ -345,6 +472,7 @@ h1 {
     align-items: center;
     padding: 22px;
 }
+
 .note-content {
     width: 100%;
     max-width: 430px;
@@ -357,23 +485,27 @@ h1 {
     box-shadow: 0 0 50px #75a9db35;
     animation: appear 0.35s ease;
 }
+
 .note-label {
     color: #a8c9e8;
     font-size: 10px;
     letter-spacing: 3px;
     margin-bottom: 22px;
 }
+
 .note-content h2 {
     color: #edf4fc;
     font-size: 22px;
     line-height: 1.4;
     margin-bottom: 18px;
 }
+
 .note-content p {
     color: #c1ccda;
     font-size: 13px;
     line-height: 1.9;
 }
+
 .close-button {
     margin-top: 28px;
     background: transparent;
@@ -383,7 +515,9 @@ h1 {
     font-size: 10px;
     letter-spacing: 2px;
 }
+
 /* OTHER FILE POPUP */
+
 #filePopup {
     display: none;
     position: fixed;
@@ -394,6 +528,7 @@ h1 {
     align-items: center;
     padding: 22px;
 }
+
 .popup-content {
     width: 100%;
     max-width: 420px;
@@ -404,34 +539,232 @@ h1 {
     box-shadow: 0 0 45px #6c9ac633;
     animation: appear 0.3s ease;
 }
+
 .popup-label {
     color: #a8c9e8;
     font-size: 10px;
     letter-spacing: 3px;
     margin-bottom: 22px;
 }
+
 .popup-content h2 {
     font-size: 22px;
     color: #edf3fa;
     margin-bottom: 17px;
 }
+
 .popup-content p {
     color: #b4c1d0;
     font-size: 13px;
     line-height: 1.8;
 }
+
+/* BIRTHDAY PAGE */
+
+#birthdayPage {
+    display: none;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 0%, #211323, transparent 65%),
+        #050609;
+    animation: appear 0.8s ease;
+}
+
+#fireworksCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.birthday-content {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 65px 22px 60px;
+    text-align: center;
+}
+
+.birthday-intro {
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.birthday-label {
+    color: #e9a9ce;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+}
+
+.birthday-intro h1 {
+    color: #fff0f8;
+    font-size: clamp(25px, 7vw, 38px);
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-shadow: 0 0 25px #ff9ed655;
+    margin-bottom: 30px;
+}
+
+.unlock-button {
+    background: transparent;
+    border: 1px solid #e9a9ce;
+    color: #ffe2f2;
+    padding: 15px 26px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    box-shadow: 0 0 20px #ff9ed622;
+    transition: 0.3s;
+}
+
+.unlock-button:hover {
+    background: #e9a9ce;
+    color: #130c13;
+    box-shadow: 0 0 30px #ff9ed677;
+}
+
+/* COUNTDOWN */
+
+#countdown {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    justify-content: center;
+    align-items: center;
+    background: #05060966;
+    pointer-events: none;
+}
+
+#countdownNumber {
+    color: #ffe3f2;
+    font-size: clamp(100px, 30vw, 180px);
+    font-weight: bold;
+    text-shadow:
+        0 0 20px #ff9ed6,
+        0 0 60px #ff65bd;
+    animation: countPop 0.8s ease;
+}
+
+@keyframes countPop {
+    from {
+        opacity: 0;
+        transform: scale(1.7);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.9;
+        transform: scale(0.95);
+    }
+}
+
+/* BIRTHDAY LETTER */
+
+#birthdayLetter {
+    display: none;
+    width: 100%;
+    max-width: 760px;
+    margin: 45px auto 0;
+    padding: 35px 25px;
+    text-align: left;
+    background: linear-gradient(145deg, #17121cbb, #090b12cc);
+    border: 1px solid #d6a5c455;
+    border-radius: 16px;
+    box-shadow:
+        0 0 40px #ff9ed618,
+        inset 0 0 25px #ffffff05;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.letter-heading {
+    text-align: center;
+    color: #ffe4f2;
+    font-size: clamp(22px, 6vw, 30px);
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-bottom: 35px;
+    text-shadow: 0 0 18px #ff9ed655;
+}
+
+.letter-paragraph {
+    color: #f0e5ed;
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 22px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.letter-paragraph.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.letter-signature {
+    color: #ffd5eb;
+    font-size: 17px;
+    line-height: 2;
+    text-align: right;
+    margin-top: 35px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    text-shadow: 0 0 15px #ff9ed655;
+}
+
+.letter-signature.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.birthday-back {
+    display: block;
+    margin: 35px auto 0;
+    background: transparent;
+    border: 1px solid #b58ba8;
+    color: #f4d6e9;
+    padding: 12px 22px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* RESPONSIVE */
+
 @media(max-width: 380px) {
     .cards,
     .about-grid {
         gap: 10px;
     }
+
     .card {
         padding: 17px 12px;
     }
+
     .glass-tile {
         padding: 17px 12px;
     }
+
+    #birthdayLetter {
+        padding: 28px 18px;
+    }
+
+    .letter-paragraph {
+        font-size: 13px;
+    }
 }
+
 @media(max-width: 300px) {
     .cards,
     .about-grid {
@@ -440,46 +773,80 @@ h1 {
 }
 </style>
 </head>
+
 <body>
 
 <!-- OPENING PAGE -->
+
 <section id="home">
 <div class="home-glow"></div>
+
 <div class="container">
 <div class="tag">✦ A PERSONAL PROJECT ✦</div>
+
 <h1>MOULIK<br>ARCHIVES <span class="heart">♡</span></h1>
+
 <div class="subtitle">
 A little universe, made with a lot of love.
 </div>
+
 <div class="details">
 SUBJECT: <span>ONE VERY SPECIAL HUMAN</span><br>
 CLASSIFICATION: <span>IRREPLACEABLE</span><br>
 STATUS: <span>PERMANENTLY LOVED</span><br>
 ACCESS: <span>EXCLUSIVELY YOURS</span>
 </div>
+
 <button class="enter" onclick="enterArchives()">
 ENTER ARCHIVES ↗
 </button>
+
 <div class="footer">
 MADE WITH ♡ & A LITTLE TOO MUCH LOVE
 </div>
 </div>
 </section>
 
+
+<!-- HEENA'S LOVE CHECK -->
+
+<div id="loveGate">
+<div class="love-box">
+
+<h2 id="loveQuestion">DO YOU LOVE HEENA? ♡</h2>
+
+<div class="love-buttons" id="loveButtons">
+<button onclick="acceptLove()">
+YES ♡ <span class="pink-dot"></span>
+</button>
+
+<button onclick="rejectLove()">NO</button>
+</div>
+
+</div>
+</div>
+
+
 <!-- DASHBOARD -->
+
 <section id="dashboard">
 <div class="dash-container">
+
 <div class="top-label">
 ARCHIVE SYSTEM // ACCESS GRANTED
 </div>
+
 <h1 class="dash-title">
 WELCOME TO<br>MOULIK'S WORLD.
 </h1>
+
 <p class="dash-subtitle">
 An archive of one very interesting human.<br>
 Some things are worth keeping forever.
 </p>
+
 <div class="divider"></div>
+
 <div class="section-label">
 AVAILABLE FILES
 </div>
@@ -515,24 +882,32 @@ AVAILABLE FILES
 <div class="bottom-note">
 MADE WITH LOVE. RESERVED FOR YOU. ♡
 <br>
+
 <button class="back-button" onclick="goHome()">
 ↶ RETURN TO ENTRANCE
 </button>
 </div>
+
 </div>
 </section>
 
+
 <!-- ABOUT MOULIK PAGE -->
+
 <section id="aboutPage">
 <div class="about-container">
+
 <div class="about-label">
 PERSONAL RECORD // SUBJECT: MOULIK
 </div>
+
 <h1 class="about-title">ABOUT MOULIK.</h1>
+
 <p class="about-intro">
 A few little things about you.<br>
 Things I notice, things I adore, and things that make you YOU.
 </p>
+
 <div class="about-divider"></div>
 
 <div class="about-grid">
@@ -584,88 +959,258 @@ Things I notice, things I adore, and things that make you YOU.
 <div class="about-bottom">
 A COLLECTION OF LITTLE THINGS I NOTICE ♡
 <br>
+
 <button class="back-button" onclick="backToDashboard()">
 ↶ BACK TO ARCHIVES
 </button>
 </div>
+
 </div>
 </section>
 
+
 <!-- ABOUT MOULIK NOTE POPUP -->
+
 <div id="notePopup" onclick="outsideNoteClose(event)">
 <div class="note-content">
+
 <div class="note-label">
 A LITTLE NOTE FOR YOU ♡
 </div>
+
 <h2 id="noteTitle">TITLE</h2>
 <p id="noteText">MESSAGE</p>
+
 <button class="close-button" onclick="closeNote()">
 BACK TO COLLECTION ✕
 </button>
+
 </div>
 </div>
 
+
 <!-- OTHER FILE POPUP -->
+
 <div id="filePopup" onclick="outsideClose(event)">
 <div class="popup-content">
+
 <div class="popup-label" id="popupLabel">
 ARCHIVE RECORD
 </div>
+
 <h2 id="popupTitle">FILE TITLE</h2>
 <p id="popupText">File information.</p>
+
 <button class="close-button" onclick="closeFile()">
 CLOSE FILE ✕
 </button>
+
 </div>
 </div>
 
+
+<!-- BIRTHDAY PAGE -->
+
+<section id="birthdayPage">
+
+<canvas id="fireworksCanvas"></canvas>
+
+<div class="birthday-content">
+
+<div class="birthday-intro" id="birthdayIntro">
+
+<div class="birthday-label">
+A LITTLE SOMETHING FROM HEENA ♡
+</div>
+
+<h1>READY FOR YOUR<br>LITTLE SURPRISE?</h1>
+
+<button class="unlock-button" onclick="startBirthday()">
+UNLOCK YOUR SURPRISE ♡
+</button>
+
+</div>
+
+<div id="countdown">
+<div id="countdownNumber">4</div>
+</div>
+
+<article id="birthdayLetter">
+
+<h2 class="letter-heading">HAPPY BIRTHDAY, MY LOVE. ❤️</h2>
+
+<div id="letterBody">
+
+<p class="letter-paragraph">
+First of all, I’m so happy that you exist. That, out of billions of people in this world, I somehow got to meet you, know you and have you become such a beautiful part of my life. Sometimes I think about how randomly everything started between us, how neither of us probably imagined we’d end up here, and it makes me smile.
+</p>
+
+<p class="letter-paragraph">
+Today, I hope you take a moment to appreciate yourself, not just for the person you are today, but for everything you’ve overcome, everything you’ve learned and every little step that has brought you here. You’re getting another year older, but I hope you never lose the little things that make you who you are.
+</p>
+
+<p class="letter-paragraph">
+If I could give you anything today, I think I’d give you a little piece of every gentle thing this world has to offer: the warmth of sunlight on quiet mornings, the peace that comes after a long day, the comfort of knowing you are loved, and the kind of happiness that asks nothing from you except that you simply exist.
+</p>
+
+<p class="letter-paragraph">
+I hope life is soft with you. I hope it gives you reasons to smile when you least expect them, people who hold your heart carefully, opportunities that bring you closer to your dreams, and days that feel worth remembering.
+</p>
+
+<p class="letter-paragraph">
+And if there is one thing I wish you could always remember, it’s this: you are deeply precious to me. More than these little words could ever explain. I love you from a place so sincere and quiet that sometimes I don’t even know how to put it into language.
+</p>
+
+<p class="letter-paragraph">
+To live in this world, we feel so small. To swim in water, it feels slow. But to be with you was an unexpected surprise. It was like stumbling upon a starlit path in the darkest woods at midnight.
+</p>
+
+<p class="letter-paragraph">
+Sometimes, the things you want the most don’t happen, and what you least expect does. I could compare you to a thousand different things — the stars, the ocean, butterflies, the moon — but it’s really difficult to find words that could truly describe how much I adore you.
+</p>
+
+<p class="letter-paragraph">
+Your presence is like a sonnet that finds beauty in every syllable, every pause. And I will always be grateful that you made it this far.
+</p>
+
+<p class="letter-paragraph">
+I genuinely believe that you are an amazing person. I love you for all that you are, all that you have been, and all that you’re yet to become. Because for a long time, when I’ve felt empty or alone, it was you that I could call my home.
+</p>
+
+<p class="letter-paragraph">
+I want this new year of your life to be kinder to you. I hope you grow into someone you’re proud of. I hope you find things that make you passionate about life, achieve the things you’ve been dreaming about and never feel like you’re running out of time. I want to see you happy, healthy, successful and genuinely at peace with yourself.
+</p>
+
+<p class="letter-paragraph">
+I hope you never become too occupied with growing up that you forget to enjoy being alive. Keep laughing at silly things, keep discovering, keep being curious, keep making mistakes and learning from them. There’s so much life waiting for you, and I hope you get to experience all the beautiful parts of it.
+</p>
+
+<p class="letter-paragraph">
+And selfishly, I hope I get to witness some of it too. I hope I get to celebrate your little victories, listen to your endless stories, annoy you on your bad days, laugh with you over absolutely nothing and experience all those ordinary little moments that eventually become our favourite memories.
+</p>
+
+<p class="letter-paragraph">
+I don’t know exactly what every chapter of our story will look like, but I know that I’m grateful I got to meet you and experience this kind of love with you.
+</p>
+
+<p class="letter-paragraph">
+So, on your birthday, I just hope you stay. Keep growing, keep laughing, keep becoming whoever you are meant to be. And may life be gentle enough to let you do all of it peacefully.
+</p>
+
+<p class="letter-paragraph">
+Today, as we celebrate another year of your life, I want you to know that my love for you grows stronger and more profound with each passing day. I promise to keep choosing you, appreciating you and loving you through all the different versions of yourself.
+</p>
+
+<p class="letter-paragraph">
+Happy Birthday, my dear.
+</p>
+
+<p class="letter-paragraph">
+I hope the world takes good care of you, because you mean far more to me than you probably know.
+</p>
+
+<p class="letter-paragraph">
+I love you, my beanie baby. ❤️
+</p>
+
+</div>
+
+<div class="letter-signature" id="letterSignature">
+your Heena. ♡
+</div>
+
+</article>
+
+<button class="birthday-back" onclick="backToDashboard()">
+↶ BACK TO ARCHIVES
+</button>
+
+</div>
+</section>
+
+
 <script>
+
 /* MAIN NAVIGATION */
+
 function enterArchives() {
     document.getElementById("home").style.display = "none";
+    document.getElementById("loveGate").style.display = "flex";
+    window.scrollTo(0, 0);
+}
+
+function rejectLove() {
+    document.getElementById("loveQuestion").textContent =
+        "WELL, YOU THINK YOU HAVE AN OPTION TO SAY NO? 🤨";
+
+    document.getElementById("loveButtons").innerHTML = `
+        <button onclick="acceptLove()">
+            YES ♡ <span class="pink-dot"></span>
+        </button>
+        <button onclick="acceptLove()">
+            YES ♡ <span class="pink-dot"></span>
+        </button>
+    `;
+}
+
+function acceptLove() {
+    document.getElementById("loveGate").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
     window.scrollTo(0, 0);
 }
 
 function goHome() {
     closeFile();
+
     document.getElementById("aboutPage").style.display = "none";
+    document.getElementById("birthdayPage").style.display = "none";
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("home").style.display = "flex";
+
     window.scrollTo(0, 0);
 }
 
 function backToDashboard() {
     closeNote();
+
     document.getElementById("aboutPage").style.display = "none";
+    document.getElementById("birthdayPage").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
+
     window.scrollTo(0, 0);
 }
 
+
 /* DASHBOARD FILES */
+
 const files = {
-    about: {
-        title: "ABOUT MOULIK",
-        text: "A little introduction to one very special human."
-    },
     world: {
         title: "HIS LITTLE WORLD",
         text: "A collection of his favourite music, food, interests, hobbies and all the little things that make his world his own."
     },
+
     things: {
         title: "THINGS ABOUT YOU",
         text: "A collection of observations, funny habits, inside jokes and things that make me laugh. Yes, you are being lovingly investigated."
-    },
-    birthday: {
-        title: "ONE LAST THING ♡",
-        text: "Happy birthday, my love. This little corner of the internet is something I made just for you. And I hope it reminds you how special you are to me. There's so much more I want to tell you, but I'll save that for the birthday surprise."
     }
 };
 
 function openFile(id) {
+
     if (id === "about") {
         document.getElementById("dashboard").style.display = "none";
         document.getElementById("aboutPage").style.display = "block";
+        window.scrollTo(0, 0);
+        return;
+    }
+
+    if (id === "birthday") {
+        document.getElementById("dashboard").style.display = "none";
+        document.getElementById("birthdayPage").style.display = "block";
+        document.getElementById("birthdayIntro").style.display = "flex";
+        document.getElementById("birthdayLetter").style.display = "none";
+        document.getElementById("countdown").style.display = "none";
+
         window.scrollTo(0, 0);
         return;
     }
@@ -694,32 +1239,41 @@ function outsideClose(event) {
     }
 }
 
+
 /* PERSONAL NOTES */
+
 const notes = {
+
     giggles: {
         title: "THAT GIGGLE OF YOURS ♡",
         text: "You already know what your giggles do to me. And yet, every single time, you manage to get the same reaction out of me. Never stop laughing, okay? I could listen to that sound over and over again."
     },
+
     flirting: {
         title: "THE UNEXPECTED ROMANTIC",
         text: "You can be talking about literally anything, and suddenly you decide to flirt with me. No warning, no context. Just Moulik being Moulik. And I hope you never stop."
     },
+
     menace: {
         title: "CERTIFIED LITTLE MENACE",
         text: "You successfully get on my nerves, watch me get annoyed, and then laugh like you've achieved something extraordinary. I don't know whether to laugh with you or be even more annoyed. You really are a menace."
     },
+
     softie: {
         title: "YOUR SOFT SIDE",
         text: "The moment I get annoyed and stop talking, suddenly your voice gets all soft. Sweet little words, gentle flirting, and every possible attempt to make me talk again. I notice that side of you, too."
     },
+
     heart: {
         title: "NO HEAVY HEARTS",
         text: "One thing I'll always appreciate about you is how you try to make sure I never go to bed angry or spend the night overthinking. Even when things aren't perfect, you don't just let me sit with all those thoughts. You try to make things okay between us. And that means more to me than you probably realise."
     },
+
     patience: {
         title: "YOUR PATIENCE",
         text: "I know patience isn't always your strongest quality, but somehow you have so much of it for me. You let me be me, even when I'm being difficult, emotional, dramatic or taking forever to explain what's wrong. I notice the patience you show me, and I appreciate it more than I can put into words."
     },
+
     proud: {
         title: "I'M PROUD OF YOU. PERIOD.",
         text: "I don't think I need one particular reason to be proud of you. I just am. Of the person you are, the things you do, the little ways you grow and even the things you don't give yourself enough credit for. I hope you never doubt that there's someone who believes in you and is rooting for you, always. I hope you see yourself the way I see you, at least sometimes."
@@ -747,6 +1301,208 @@ function outsideNoteClose(event) {
         closeNote();
     }
 }
+
+
+/* BIRTHDAY COUNTDOWN */
+
+let birthdayStarted = false;
+
+function startBirthday() {
+
+    if (birthdayStarted) return;
+
+    birthdayStarted = true;
+
+    document.getElementById("birthdayIntro").style.display = "none";
+
+    const countdown = document.getElementById("countdown");
+    const number = document.getElementById("countdownNumber");
+
+    countdown.style.display = "flex";
+
+    const numbers = ["4", "3", "2", "1"];
+    let index = 0;
+
+    function showNumber() {
+
+        number.style.animation = "none";
+        void number.offsetWidth;
+
+        number.textContent = numbers[index];
+        number.style.animation = "countPop 0.8s ease";
+
+        index++;
+
+        if (index < numbers.length) {
+            setTimeout(showNumber, 900);
+        } else {
+            setTimeout(revealBirthday, 1000);
+        }
+    }
+
+    showNumber();
+}
+
+function revealBirthday() {
+
+    document.getElementById("countdown").style.display = "none";
+
+    document.getElementById("birthdayLetter").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+    startFireworks();
+    revealLetter();
+}
+
+
+/* LETTER REVEAL */
+
+function revealLetter() {
+
+    const paragraphs = document.querySelectorAll(".letter-paragraph");
+    const signature = document.getElementById("letterSignature");
+
+    paragraphs.forEach((paragraph, index) => {
+
+        setTimeout(() => {
+            paragraph.classList.add("visible");
+        }, 700 + index * 1200);
+
+    });
+
+    const signatureDelay = 700 + paragraphs.length * 1200;
+
+    setTimeout(() => {
+        signature.classList.add("visible");
+    }, signatureDelay);
+}
+
+
+/* CONTINUOUS FIREWORKS */
+
+let fireworksRunning = false;
+let fireworks = [];
+let particles = [];
+
+const canvas = document.getElementById("fireworksCanvas");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = window.innerWidth * ratio;
+    canvas.height = window.innerHeight * ratio;
+
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+const fireworkColors = [
+    "#ff9ed6",
+    "#ffd4ec",
+    "#dcecff",
+    "#b9d9ff",
+    "#ffffff",
+    "#e8b7d7"
+];
+
+function createFirework() {
+
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight * 0.65 + 30;
+
+    const color = fireworkColors[
+        Math.floor(Math.random() * fireworkColors.length)
+    ];
+
+    const count = 45 + Math.floor(Math.random() * 35);
+
+    for (let i = 0; i < count; i++) {
+
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 3.5 + 0.7;
+
+        particles.push({
+            x: x,
+            y: y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            alpha: 1,
+            radius: Math.random() * 2 + 0.7,
+            color: color,
+            gravity: 0.025 + Math.random() * 0.025
+        });
+    }
+}
+
+function drawFireworks() {
+
+    if (!fireworksRunning) return;
+
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    particles.forEach((particle, index) => {
+
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        particle.vy += particle.gravity;
+        particle.vx *= 0.992;
+        particle.alpha -= 0.009;
+
+        ctx.globalAlpha = Math.max(particle.alpha, 0);
+
+        ctx.beginPath();
+
+        ctx.arc(
+            particle.x,
+            particle.y,
+            particle.radius,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = particle.color;
+
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = particle.color;
+
+        ctx.fill();
+
+        if (particle.alpha <= 0) {
+            particles.splice(index, 1);
+        }
+    });
+
+    ctx.globalAlpha = 1;
+    ctx.shadowBlur = 0;
+
+    requestAnimationFrame(drawFireworks);
+}
+
+function startFireworks() {
+
+    if (fireworksRunning) return;
+
+    fireworksRunning = true;
+
+    drawFireworks();
+
+    setInterval(() => {
+
+        if (fireworksRunning) {
+            createFirework();
+        }
+
+    }, 550);
+}
+
 </script>
+
 </body>
 </html>

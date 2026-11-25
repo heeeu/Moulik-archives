@@ -13,479 +13,571 @@
 }
 
 body {
-    background: #050609;
-    color: #e9edf5;
-    font-family: Georgia, serif;
     min-height: 100vh;
-    overflow-x: hidden;
+    background: #07090d;
+    color: #e5eaf0;
+    font-family: Arial, sans-serif;
 }
 
 button {
-    font-family: inherit;
     cursor: pointer;
+    font-family: inherit;
 }
 
-.page {
-    display: none;
+/* OPENING PAGE */
+
+#home {
     min-height: 100vh;
-    padding: 35px 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    animation: fadeIn .5s ease;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    background: #080a0e;
 }
 
-.page.active {
-    display: block;
+.container {
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+.tag {
+    color: #9ebbd8;
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
 }
 
-h1, h2, h3 {
-    color: #e5eaf5;
-    font-weight: normal;
-    letter-spacing: 2px;
-}
-
-.subtitle {
-    color: #8998b6;
-    font-size: 13px;
-    margin-top: 12px;
-    letter-spacing: 1px;
-}
-
-.small-text {
-    color: #8791a5;
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-.main-title {
-    font-size: clamp(27px, 7vw, 42px);
-    margin-top: 20vh;
-    text-shadow: 0 0 20px #7897d566;
-}
-
-.primary-btn {
-    margin-top: 35px;
-    padding: 13px 27px;
-    border: 1px solid #9aaccb;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #e8edf8, #9baac5);
-    color: #101522;
-    letter-spacing: 1px;
-    font-size: 12px;
-    box-shadow: 0 0 20px #7799d544;
-}
-
-.secondary-btn {
-    margin-top: 20px;
-    padding: 11px 23px;
-    border: 1px solid #64799e;
-    border-radius: 25px;
-    color: #dce5f8;
-    background: #111724;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-.back-btn {
-    margin-top: 35px;
-    padding: 10px 20px;
-    border: 1px solid #64799e;
-    background: transparent;
-    color: #cbd7ed;
-    border-radius: 25px;
-    font-size: 11px;
-    letter-spacing: 1px;
-}
-
-/* WELCOME */
-
-.welcome-symbol {
-    font-size: 35px;
-    color: #a9bbdb;
+h1 {
+    font-size: clamp(34px, 9vw, 55px);
+    letter-spacing: 3px;
+    line-height: 1.2;
     margin-bottom: 15px;
 }
 
-/* LOVE GATE */
+.heart {
+    color: #a9c8e8;
+}
+
+.subtitle {
+    color: #9ba6b3;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 55px;
+}
+
+.details {
+    border-top: 1px solid #34475b;
+    border-bottom: 1px solid #34475b;
+    padding: 22px 10px;
+    margin-bottom: 40px;
+    text-align: left;
+    line-height: 2.4;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #b6c0cc;
+}
+
+.details span {
+    color: #a9c8e8;
+}
+
+.enter {
+    background: transparent;
+    border: 1px solid #9ebbd8;
+    color: #dceafa;
+    padding: 15px 35px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    transition: 0.3s;
+}
+
+.enter:hover {
+    background: #a9c8e8;
+    color: #080a0e;
+    box-shadow: 0 0 25px #8db7e555;
+}
+
+.footer {
+    margin-top: 55px;
+    color: #77899d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.home-glow {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: #6fa8e8;
+    opacity: 0.09;
+    filter: blur(110px);
+    border-radius: 50%;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* GENERAL ANIMATION */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEENA'S LOVE CHECK */
+
+#loveGate {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: #050609ee;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+}
 
 .love-box {
-    width: min(90%, 350px);
-    margin: 22vh auto 0;
-    padding: 35px 20px;
-    border: 1px solid #b77b9b;
+    width: 100%;
+    max-width: 370px;
+    padding: 38px 24px;
+    text-align: center;
+    border: 1px solid #d99bbd;
     border-radius: 18px;
-    background: #17111a;
-    box-shadow: 0 0 30px #e58ab044;
+    background: linear-gradient(145deg, #211522, #101019);
+    box-shadow: 0 0 35px #ff91ce35;
+    animation: appear 0.5s ease;
 }
 
 .love-box h2 {
-    font-size: 21px;
-    margin-bottom: 28px;
-    color: #f0d7e5;
+    color: #ffe2f2;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-bottom: 30px;
 }
 
-.love-choice {
+.love-buttons {
     display: flex;
     justify-content: center;
     gap: 18px;
+    flex-wrap: wrap;
 }
 
-.love-choice button {
-    min-width: 100px;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: 1px solid #e3a5c3;
-    background: #e8c4d7;
-    color: #26121d;
-    font-size: 13px;
+.love-buttons button {
+    padding: 13px 25px;
+    background: #241725;
+    border: 1px solid #e7a4ca;
+    border-radius: 8px;
+    color: #ffe1f1;
+    font-size: 12px;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px #ff9ed633;
 }
 
-.love-dot {
+.pink-dot {
     display: inline-block;
     width: 7px;
     height: 7px;
-    background: #fa9ac6;
+    margin-left: 7px;
     border-radius: 50%;
-    margin-left: 6px;
-    animation: pulse 1.2s infinite;
+    background: #ff9ed6;
+    box-shadow: 0 0 7px #ff9ed6, 0 0 15px #ff65bd;
+    animation: pinkPulse 1.2s infinite alternate;
 }
 
-@keyframes pulse {
-    50% { opacity: .3; transform: scale(.7); }
+@keyframes pinkPulse {
+    from {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.3);
+    }
 }
 
 /* DASHBOARD */
 
-.dashboard-title {
-    margin: 45px 0 12px;
-    font-size: clamp(23px, 6vw, 32px);
+#dashboard {
+    display: none;
+    min-height: 100vh;
+    padding: 55px 22px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #172a40 0%, transparent 55%),
+        #080a0e;
+    animation: appear 0.8s ease;
 }
 
-.dashboard-grid {
-    width: min(100%, 520px);
-    margin: 45px auto 0;
+.dash-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.top-label {
+    color: #9ebbd8;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+}
+
+.dash-title {
+    color: #e6edf5;
+    font-size: clamp(27px, 7vw, 43px);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.dash-subtitle {
+    color: #a2adba;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, #8faecb, transparent);
+    margin-bottom: 35px;
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #a7b9cb;
+    margin-bottom: 20px;
+}
+
+.cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 17px;
 }
 
-.folder {
-    min-height: 125px;
-    border: 1px solid #7586a5;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #151b28, #080b12);
-    color: #dce5f5;
-    box-shadow: 0 0 16px #6689bd18;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 8px;
+.card {
+    min-height: 145px;
+    padding: 22px 17px;
+    border: 1px solid #45596e;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #18212c, #0c1118);
+    text-align: left;
+    color: #e9edf4;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #a5c9eb;
+    box-shadow: 0 8px 30px #6699c533;
+}
+
+.card-icon {
+    font-size: 23px;
+    margin-bottom: 17px;
+    color: #c1d5e8;
+}
+
+.card h3 {
     font-size: 12px;
     letter-spacing: 1px;
-    transition: .25s;
+    margin-bottom: 8px;
 }
 
-.folder:active {
-    transform: scale(.96);
-    box-shadow: 0 0 20px #789bd766;
-}
-
-/* Always centre the fifth dashboard folder */
-
-.dashboard-grid .folder:nth-child(5) {
-    grid-column: 1 / -1;
-    width: 55%;
-    justify-self: center;
-}
-
-/* COLLECTION PAGES */
-
-.section-title {
-    margin-top: 40px;
-    font-size: 26px;
-}
-
-.collection {
-    max-width: 480px;
-    margin: 35px auto 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 13px;
-}
-
-.collection-tile {
-    min-height: 105px;
-    border: 1px solid #657895;
-    border-radius: 13px;
-    background: linear-gradient(145deg, #19202d, #0b0e15);
-    color: #dce5f5;
-    padding: 15px 8px;
+.card p {
     font-size: 11px;
-    letter-spacing: 1px;
+    color: #a3b0bf;
     line-height: 1.5;
 }
 
-/* Centre seventh About tile */
+.card::after {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: #80b9ec;
+    filter: blur(55px);
+    opacity: 0.17;
+    right: -20px;
+    bottom: -20px;
+    pointer-events: none;
+}
 
-.collection .collection-tile:nth-child(7) {
+.bottom-note {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 11px;
+    color: #8999aa;
+    letter-spacing: 1px;
+}
+
+.back-button {
+    margin-top: 30px;
+    background: transparent;
+    border: 1px solid #526b84;
+    color: #b9d1e9;
+    padding: 12px 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* ABOUT MOULIK PAGE */
+
+#aboutPage {
+    display: none;
+    min-height: 100vh;
+    padding: 45px 22px 60px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #1b3048 0%, transparent 55%),
+        #080a0e;
+    animation: appear 0.6s ease;
+}
+
+.about-container {
+    max-width: 750px;
+    margin: auto;
+}
+
+.about-label {
+    color: #9ebbd8;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+}
+
+.about-title {
+    font-size: clamp(30px, 8vw, 44px);
+    letter-spacing: 2px;
+    color: #edf3fa;
+    margin-bottom: 12px;
+}
+
+.about-intro {
+    color: #aab8c7;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.about-divider {
+    height: 1px;
+    background: linear-gradient(90deg, #9bbbd9, transparent);
+    margin-bottom: 28px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+/* FROSTED GLASS TILES */
+
+.glass-tile {
+    min-height: 145px;
+    padding: 21px 16px;
+    border: 1px solid #718ba5aa;
+    border-radius: 15px;
+    background:
+        linear-gradient(140deg, #ffffff12, #ffffff03),
+        linear-gradient(145deg, #182637aa, #101721cc);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #edf3fa;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: 0.35s ease;
+    box-shadow:
+        inset 0 1px 1px #ffffff12,
+        0 5px 22px #00000030;
+}
+
+.glass-tile::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -40px;
+    bottom: -45px;
+    border-radius: 50%;
+    background: #85bbed;
+    filter: blur(45px);
+    opacity: 0.17;
+    transition: 0.35s;
+    pointer-events: none;
+}
+
+.glass-tile:hover,
+.glass-tile:focus-visible {
+    transform: translateY(-5px);
+    border-color: #c2dff9;
+    box-shadow:
+        inset 0 1px 2px #ffffff25,
+        0 8px 30px #7db5ed30;
+    outline: none;
+}
+
+.glass-tile:hover::before {
+    opacity: 0.35;
+}
+
+.tile-icon {
+    font-size: 22px;
+    color: #c2d9ef;
+    margin-bottom: 18px;
+}
+
+.tile-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 9px;
+}
+
+.tile-hint {
+    color: #9eafc1;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* CENTRE THE SEVENTH TILE */
+
+.about-grid .glass-tile:nth-child(7) {
     grid-column: 1 / -1;
     width: 50%;
     justify-self: center;
 }
 
-/* POPUPS */
-
-.popup-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 30;
-    background: #000b;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.popup-overlay.show {
-    display: flex;
-}
-
-.popup {
-    width: min(100%, 390px);
-    padding: 30px 23px;
-    border: 1px solid #7d91b3;
-    border-radius: 17px;
-    background: linear-gradient(145deg, #171e2c, #090c13);
-    box-shadow: 0 0 30px #7c9bd433;
-}
-
-.popup h3 {
-    font-size: 17px;
-    margin-bottom: 18px;
-}
-
-.popup p {
-    color: #c4cede;
-    line-height: 1.8;
-    font-size: 14px;
-}
-
-/* GAME CARDS */
-
-.game-card {
-    width: min(100%, 430px);
-    margin: 18px auto;
-    padding: 24px 18px;
-    border: 1px solid #7186a8;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #171e2b, #090c13);
-    color: #dce5f5;
-}
-
-.game-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.game-card p {
-    font-size: 13px;
-    color: #aab6ca;
-    line-height: 1.7;
-}
-
-.game-input {
-    width: 100%;
-    margin-top: 20px;
-    padding: 13px;
-    border: 1px solid #7488a8;
-    border-radius: 9px;
-    background: #080c14;
-    color: white;
-    font-size: 15px;
+.about-bottom {
     text-align: center;
-    outline: none;
-}
-
-.game-input:focus {
-    box-shadow: 0 0 13px #7a9bc855;
-}
-
-.game-submit {
-    padding: 11px 22px;
-    margin-top: 14px;
-    border: 1px solid #9cacc8;
-    border-radius: 25px;
-    background: #cbd6e8;
-    color: #101522;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-.level-label {
-    color: #a8b9d8;
-    font-size: 11px;
+    color: #8396aa;
+    font-size: 10px;
     letter-spacing: 2px;
-    margin-bottom: 18px;
+    margin-top: 38px;
 }
 
-.riddle {
-    color: #e0e6f1 !important;
-    font-size: 15px !important;
-    line-height: 2 !important;
-    white-space: pre-line;
-}
+/* PERSONAL NOTE POPUP */
 
-.progress {
-    margin: 20px 0;
-    color: #9db0d1;
-    font-size: 12px;
-}
-
-/* WRONG ANSWER */
-
-.warning-overlay {
+#notePopup {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 60;
+    z-index: 20;
+    background: #000000df;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: #0008;
+    padding: 22px;
 }
 
-.warning-overlay.show {
-    display: flex;
-}
-
-.warning-box {
-    width: min(85%, 290px);
-    padding: 23px 18px;
-    border: 1px solid #a85b65;
-    border-radius: 14px;
-    background: #211116;
-    box-shadow: 0 0 22px #a72c4544;
-    animation: warningPop .2s ease;
-}
-
-@keyframes warningPop {
-    from { transform: scale(.9); opacity: .5; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.warning-face {
-    font-size: 33px;
-    margin-bottom: 10px;
-}
-
-.warning-box p {
-    color: #f0d7dc;
-    font-size: 15px;
-}
-
-.warning-box button {
-    margin-top: 17px;
-    border: 1px solid #c18b96;
-    background: #39202a;
-    color: #f4dce3;
-    border-radius: 20px;
-    padding: 9px 20px;
-    font-size: 11px;
-}
-
-/* VAULT */
-
-.vault-digits {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 25px 0;
-}
-
-.vault-digit {
-    width: 48px;
-    height: 55px;
-    display: grid;
-    place-items: center;
-    border: 1px solid #7389aa;
-    border-radius: 8px;
-    background: #0b101a;
-    color: #e7edf8;
-    font-size: 22px;
-}
-
-.bonus-box {
-    margin-top: 25px;
-    padding: 20px 12px;
-    border: 1px dashed #8b9bb7;
-    border-radius: 12px;
-}
-
-/* JIGSAW */
-
-.jigsaw-board {
-    width: min(90vw, 380px);
-    aspect-ratio: 1;
-    margin: 25px auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 3px;
-    padding: 3px;
-    background: #899bb9;
-    border: 1px solid #a9b9d4;
-    border-radius: 7px;
-    touch-action: none;
-}
-
-.puzzle-piece {
-    background-image: url("jigsaw-photo.jpg");
-    background-size: 400% 400%;
-    background-repeat: no-repeat;
-    border: 1px solid #a8b7d0;
-    border-radius: 2px;
-    touch-action: none;
-    cursor: grab;
-}
-
-.puzzle-piece.selected {
-    outline: 3px solid #f0c4dc;
-    z-index: 2;
-}
-
-.puzzle-piece.dragging {
-    opacity: .5;
-}
-
-.move-counter {
-    color: #b9c9e3;
-    font-size: 13px;
-    margin: 15px 0;
-}
-
-.jigsaw-complete {
-    display: none;
-    max-width: 380px;
-    margin: 20px auto;
-    animation: fadeIn .8s ease;
-}
-
-.jigsaw-complete img {
+.note-content {
     width: 100%;
-    border-radius: 12px;
-    border: 1px solid #a5b9d9;
-    box-shadow: 0 0 25px #809fce55;
+    max-width: 430px;
+    padding: 32px 25px;
+    border: 1px solid #91b2d2;
+    border-radius: 16px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #233c56, transparent 75%),
+        #111923;
+    box-shadow: 0 0 50px #75a9db35;
+    animation: appear 0.35s ease;
 }
 
-/* BIRTHDAY */
+.note-label {
+    color: #a8c9e8;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.note-content h2 {
+    color: #edf4fc;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 18px;
+}
+
+.note-content p {
+    color: #c1ccda;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.close-button {
+    margin-top: 28px;
+    background: transparent;
+    border: 1px solid #91b2d2;
+    color: #d0e4f7;
+    padding: 11px 22px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* OTHER FILE POPUP */
+
+#filePopup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000000e8;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+}
+
+.popup-content {
+    width: 100%;
+    max-width: 420px;
+    background: #111a25;
+    border: 1px solid #7799ba;
+    border-radius: 14px;
+    padding: 30px 23px;
+    box-shadow: 0 0 45px #6c9ac633;
+    animation: appear 0.3s ease;
+}
+
+.popup-label {
+    color: #a8c9e8;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.popup-content h2 {
+    font-size: 22px;
+    color: #edf3fa;
+    margin-bottom: 17px;
+}
+
+.popup-content p {
+    color: #b4c1d0;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* BIRTHDAY PAGE */
 
 #birthdayPage {
+    display: none;
     position: relative;
+    min-height: 100vh;
     overflow: hidden;
-    background: #030409;
+    background:
+        radial-gradient(ellipse at 50% 0%, #211323, transparent 65%),
+        #050609;
+    animation: appear 0.8s ease;
 }
 
 #fireworksCanvas {
@@ -494,55 +586,129 @@ h1, h2, h3 {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
 }
 
 .birthday-content {
     position: relative;
     z-index: 2;
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-.birthday-intro {
-    padding-top: 25vh;
-}
-
-.birthday-intro h2 {
-    font-size: clamp(22px, 6vw, 32px);
-    line-height: 1.5;
-}
-
-.countdown {
-    font-size: 85px;
-    color: #f1c9dc;
-    text-shadow: 0 0 30px #e990c8;
-    margin-top: 25vh;
-    animation: countPulse .8s ease;
-}
-
-@keyframes countPulse {
-    50% { transform: scale(1.2); opacity: .5; }
-}
-
-.birthday-letter {
-    display: none;
-    padding: 35px 7px 60px;
+    min-height: 100vh;
+    padding: 65px 22px 60px;
     text-align: center;
 }
 
-.birthday-letter h2 {
-    font-size: 27px;
-    margin: 30px 0;
-    color: #f2d8e7;
-    text-shadow: 0 0 20px #e8a5cb88;
+.birthday-intro {
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.birthday-label {
+    color: #e9a9ce;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+}
+
+.birthday-intro h1 {
+    color: #fff0f8;
+    font-size: clamp(25px, 7vw, 38px);
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-shadow: 0 0 25px #ff9ed655;
+    margin-bottom: 30px;
+}
+
+.unlock-button {
+    background: transparent;
+    border: 1px solid #e9a9ce;
+    color: #ffe2f2;
+    padding: 15px 26px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    box-shadow: 0 0 20px #ff9ed622;
+    transition: 0.3s;
+}
+
+.unlock-button:hover {
+    background: #e9a9ce;
+    color: #130c13;
+    box-shadow: 0 0 30px #ff9ed677;
+}
+
+/* COUNTDOWN */
+
+#countdown {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    justify-content: center;
+    align-items: center;
+    background: #05060966;
+    pointer-events: none;
+}
+
+#countdownNumber {
+    color: #ffe3f2;
+    font-size: clamp(100px, 30vw, 180px);
+    font-weight: bold;
+    text-shadow:
+        0 0 20px #ff9ed6,
+        0 0 60px #ff65bd;
+    animation: countPop 0.8s ease;
+}
+
+@keyframes countPop {
+    from {
+        opacity: 0;
+        transform: scale(1.7);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.9;
+        transform: scale(0.95);
+    }
+}
+
+/* BIRTHDAY LETTER */
+
+#birthdayLetter {
+    display: none;
+    width: 100%;
+    max-width: 760px;
+    margin: 45px auto 0;
+    padding: 35px 25px;
+    text-align: left;
+    background: linear-gradient(145deg, #17121cbb, #090b12cc);
+    border: 1px solid #d6a5c455;
+    border-radius: 16px;
+    box-shadow:
+        0 0 40px #ff9ed618,
+        inset 0 0 25px #ffffff05;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.letter-heading {
+    text-align: center;
+    color: #ffe4f2;
+    font-size: clamp(22px, 6vw, 30px);
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-bottom: 35px;
 }
 
 .letter-paragraph {
-    color: #e0e3ec;
-    font-size: 15px;
+    color: #f0e5ed;
+    font-size: 14px;
     line-height: 2;
-    margin: 0 auto 23px;
+    margin-bottom: 22px;
     opacity: 0;
     transform: translateY(12px);
     transition: opacity 1.2s ease, transform 1.2s ease;
@@ -553,259 +719,659 @@ h1, h2, h3 {
     transform: translateY(0);
 }
 
-.signature {
+.letter-signature {
+    color: #ffd5eb;
+    font-size: 17px;
+    line-height: 2;
+    text-align: right;
+    margin-top: 35px;
     opacity: 0;
-    color: #f1c7df;
-    font-size: 20px;
-    margin-top: 40px;
-    transition: opacity 2s ease;
+    transform: translateY(12px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    text-shadow: 0 0 15px #ff9ed655;
 }
 
-.signature.visible {
+.letter-signature.visible {
     opacity: 1;
+    transform: translateY(0);
 }
+
+.birthday-back {
+    display: block;
+    margin: 35px auto 0;
+    background: transparent;
+    border: 1px solid #b58ba8;
+    color: #f4d6e9;
+    padding: 12px 22px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* SECRET CHAMBER */
+
+#secretPage,
+#codePage,
+#jigsawPage {
+    display: none;
+    min-height: 100vh;
+    padding: 45px 22px 60px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #1b3048 0%, transparent 55%),
+        #080a0e;
+    animation: appear 0.6s ease;
+}
+
+.secret-container {
+    max-width: 750px;
+    margin: auto;
+}
+
+.secret-label {
+    color: #9ebbd8;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+}
+
+.secret-title {
+    font-size: clamp(30px, 8vw, 44px);
+    letter-spacing: 2px;
+    color: #edf3fa;
+    margin-bottom: 12px;
+}
+
+.secret-intro {
+    color: #aab8c7;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.secret-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.secret-card {
+    min-height: 155px;
+    padding: 22px 17px;
+    border: 1px solid #718ba5aa;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #182637, #101721);
+    color: #edf3fa;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.secret-card:hover {
+    transform: translateY(-5px);
+    border-color: #c2dff9;
+    box-shadow: 0 8px 30px #7db5ed30;
+}
+
+.secret-card-icon {
+    font-size: 24px;
+    color: #c2d9ef;
+    margin-bottom: 18px;
+}
+
+.secret-card h3 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 9px;
+}
+
+.secret-card p {
+    color: #9eafc1;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.game-box {
+    max-width: 500px;
+    margin: 25px auto;
+    padding: 25px 20px;
+    border: 1px solid #718ba5aa;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #182637, #101721);
+    text-align: center;
+}
+
+.game-level {
+    color: #9ebbd8;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.game-box h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.riddle {
+    color: #c7d3e0;
+    font-size: 14px;
+    line-height: 2;
+    white-space: pre-line;
+    margin-bottom: 25px;
+}
+
+.game-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #718ba5;
+    border-radius: 8px;
+    background: #080d14;
+    color: #edf3fa;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.game-input:focus {
+    border-color: #c2dff9;
+    box-shadow: 0 0 15px #7db5ed30;
+}
+
+.game-button {
+    padding: 12px 22px;
+    border: 1px solid #9ebbd8;
+    background: transparent;
+    color: #dceafa;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin: 5px;
+}
+
+.game-button:hover {
+    background: #a9c8e8;
+    color: #080a0e;
+}
+
+.game-progress {
+    color: #9ebbd8;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 20px 0;
+}
+
+.wrong-warning {
+    display: none;
+    max-width: 300px;
+    margin: 18px auto 0;
+    padding: 15px;
+    border: 1px solid #a76d7b;
+    border-radius: 10px;
+    background: #24151c;
+    color: #f0dce3;
+    animation: appear 0.3s ease;
+}
+
+.wrong-warning .sad-face {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.wrong-warning p {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.bonus-box,
+.vault-box {
+    display: none;
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid #45596e;
+}
+
+.jigsaw-board {
+    width: min(88vw, 390px);
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3px;
+    margin: 25px auto;
+    padding: 4px;
+    border: 1px solid #718ba5;
+    border-radius: 8px;
+    background: #111a25;
+    box-shadow: 0 0 30px #7db5ed20;
+}
+
+.jigsaw-piece {
+    background-image: url("jigsaw-photo.jpg");
+    background-size: 400% 400%;
+    border: 1px solid #ffffff25;
+    border-radius: 2px;
+    cursor: pointer;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    transition: border 0.2s, opacity 0.2s;
+}
+
+.jigsaw-piece.selected {
+    border: 3px solid #c2dff9;
+    box-shadow: 0 0 15px #7db5ed;
+    opacity: 0.8;
+}
+
+.jigsaw-info {
+    color: #aab8c7;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.jigsaw-complete {
+    display: none;
+    color: #dceafa;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+.jigsaw-preview {
+    display: none;
+    width: min(88vw, 390px);
+    border: 1px solid #9ebbd8;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: 0 0 25px #7db5ed40;
+}
+
+/* RESPONSIVE */
 
 @media(max-width: 380px) {
-    .folder { min-height: 110px; font-size: 10px; }
-    .collection-tile { font-size: 10px; }
+    .cards,
+    .about-grid {
+        gap: 10px;
+    }
+
+    .card {
+        padding: 17px 12px;
+    }
+
+    .glass-tile {
+        padding: 17px 12px;
+    }
+
+    #birthdayLetter {
+        padding: 28px 18px;
+    }
+
+    .letter-paragraph {
+        font-size: 13px;
+    }
+
+    .secret-grid {
+        gap: 10px;
+    }
+
+    .secret-card {
+        padding: 17px 12px;
+    }
+}
+
+@media(max-width: 300px) {
+    .cards,
+    .about-grid,
+    .secret-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid .glass-tile:nth-child(7) {
+        grid-column: auto;
+        width: 100%;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME -->
+<!-- OPENING PAGE -->
 
-<section id="welcomePage" class="page active">
-    <div class="welcome-symbol">✧</div>
-    <h1 class="main-title">MOULIK ARCHIVES</h1>
-    <p class="subtitle">A little universe, made with a lot of love.</p>
-    <button class="primary-btn" onclick="enterArchives()">TAP TO OPEN ♡</button>
+<section id="home">
+<div class="home-glow"></div>
+
+<div class="container">
+<div class="tag">✦ A PERSONAL PROJECT ✦</div>
+
+<h1>MOULIK<br>ARCHIVES <span class="heart">♡</span></h1>
+
+<div class="subtitle">
+A little universe, made with a lot of love.
+</div>
+
+<div class="details">
+SUBJECT: <span>ONE VERY SPECIAL HUMAN</span><br>
+CLASSIFICATION: <span>IRREPLACEABLE</span><br>
+STATUS: <span>PERMANENTLY LOVED</span><br>
+ACCESS: <span>EXCLUSIVELY YOURS</span>
+</div>
+
+<button class="enter" onclick="enterArchives()">
+ENTER ARCHIVES ↗
+</button>
+
+<div class="footer">
+MADE WITH ♡ & A LITTLE TOO MUCH LOVE
+</div>
+</div>
 </section>
 
-<!-- LOVE GATE -->
 
-<section id="lovePage" class="page">
-    <div class="love-box">
-        <h2 id="loveQuestion">DO YOU LOVE HEENA? ♡</h2>
-        <div class="love-choice" id="loveButtons">
-            <button onclick="acceptLove()">YES ♡<span class="love-dot"></span></button>
-            <button onclick="rejectLove()">NO</button>
-        </div>
-    </div>
-</section>
+<!-- HEENA'S LOVE CHECK -->
+
+<div id="loveGate">
+<div class="love-box">
+
+<h2 id="loveQuestion">DO YOU LOVE HEENA? ♡</h2>
+
+<div class="love-buttons" id="loveButtons">
+<button onclick="acceptLove()">
+YES ♡ <span class="pink-dot"></span>
+</button>
+
+<button onclick="rejectLove()">NO</button>
+</div>
+
+</div>
+</div>
+
 
 <!-- DASHBOARD -->
 
-<section id="dashboardPage" class="page">
-    <h1 class="dashboard-title">WELCOME TO MOULIK'S WORLD.</h1>
-    <p class="subtitle">A few little things, all in one place.</p>
+<section id="dashboard">
+<div class="dash-container">
 
-    <div class="dashboard-grid">
-
-        <button class="folder" onclick="showPage('aboutPage')">
-            ABOUT MOULIK
-        </button>
-
-        <button class="folder" onclick="showPage('worldPage')">
-            HIS LITTLE WORLD
-        </button>
-
-        <button class="folder" onclick="showPage('thingsPage')">
-            THINGS ABOUT YOU
-        </button>
-
-        <button class="folder" onclick="openBirthday()">
-            ONE LAST THING
-        </button>
-
-        <button class="folder" onclick="showPage('secretPage')">
-            THE SECRET CHAMBER
-        </button>
-
-    </div>
-</section>
-
-<!-- ABOUT MOULIK -->
-
-<section id="aboutPage" class="page">
-    <h1 class="section-title">ABOUT MOULIK</h1>
-    <p class="subtitle">Little things I notice about you.</p>
-
-    <div class="collection">
-
-        <button class="collection-tile" onclick="openNote(0)">
-            THAT GIGGLE OF YOURS ♡
-        </button>
-
-        <button class="collection-tile" onclick="openNote(1)">
-            THE UNEXPECTED ROMANTIC
-        </button>
-
-        <button class="collection-tile" onclick="openNote(2)">
-            CERTIFIED LITTLE MENACE
-        </button>
-
-        <button class="collection-tile" onclick="openNote(3)">
-            YOUR SOFT SIDE
-        </button>
-
-        <button class="collection-tile" onclick="openNote(4)">
-            NO HEAVY HEARTS
-        </button>
-
-        <button class="collection-tile" onclick="openNote(5)">
-            YOUR PATIENCE
-        </button>
-
-        <button class="collection-tile" onclick="openNote(6)">
-            I'M PROUD OF YOU. PERIOD.
-        </button>
-
-    </div>
-
-    <button class="back-btn" onclick="backToDashboard()">
-        BACK TO ARCHIVES
-    </button>
-</section>
-
-<!-- ABOUT POPUP -->
-
-<div class="popup-overlay" id="noteOverlay" onclick="outsideNoteClose(event)">
-    <div class="popup">
-        <h3 id="noteTitle"></h3>
-        <p id="noteText"></p>
-        <button class="secondary-btn" onclick="closeNote()">
-            BACK TO COLLECTION
-        </button>
-    </div>
+<div class="top-label">
+ARCHIVE SYSTEM // ACCESS GRANTED
 </div>
 
-<!-- HIS LITTLE WORLD -->
+<h1 class="dash-title">
+WELCOME TO<br>MOULIK'S WORLD.
+</h1>
 
-<section id="worldPage" class="page">
-    <h1 class="section-title">HIS LITTLE WORLD</h1>
-    <p class="subtitle">A little corner for the things you love.</p>
+<p class="dash-subtitle">
+An archive of one very interesting human.<br>
+Some things are worth keeping forever.
+</p>
 
-    <div class="game-card" style="margin-top:40px;">
-        <h3>YOUR LITTLE UNIVERSE ♡</h3>
-        <p>
-            Cars, games, workouts, food, and all the little things
-            that make you you.
-        </p>
-    </div>
+<div class="divider"></div>
 
-    <button class="back-btn" onclick="backToDashboard()">
-        BACK TO ARCHIVES
-    </button>
+<div class="section-label">
+AVAILABLE FILES
+</div>
+
+<div class="cards">
+
+<button class="card" onclick="openFile('about')">
+<div class="card-icon">◈</div>
+<h3>ABOUT MOULIK</h3>
+<p>A closer look at the person behind the name.</p>
+</button>
+
+<button class="card" onclick="openFile('world')">
+<div class="card-icon">◇</div>
+<h3>HIS LITTLE WORLD</h3>
+<p>Favourite things, interests and little joys.</p>
+</button>
+
+<button class="card" onclick="openFile('things')">
+<div class="card-icon">⌬</div>
+<h3>THINGS ABOUT YOU</h3>
+<p>Observations, inside jokes and affectionate teasing.</p>
+</button>
+
+<button class="card" onclick="openFile('birthday')">
+<div class="card-icon">♡</div>
+<h3>ONE LAST THING</h3>
+<p>Something I have been wanting to tell you.</p>
+</button>
+
+<button class="card" onclick="openSecretChamber()">
+<div class="card-icon">⌘</div>
+<h3>THE SECRET CHAMBER</h3>
+<p>A few little challenges await you.</p>
+</button>
+
+</div>
+
+<div class="bottom-note">
+MADE WITH LOVE. RESERVED FOR YOU. ♡
+<br>
+
+<button class="back-button" onclick="goHome()">
+↶ RETURN TO ENTRANCE
+</button>
+</div>
+
+</div>
 </section>
 
-<!-- THINGS ABOUT YOU -->
 
-<section id="thingsPage" class="page">
-    <h1 class="section-title">THINGS ABOUT YOU</h1>
-    <p class="subtitle">Some things I know. Some things I adore.</p>
+<!-- ABOUT MOULIK PAGE -->
 
-    <div class="game-card" style="margin-top:40px;">
-        <h3>A LITTLE REMINDER ♡</h3>
-        <p>
-            You're a sleepyhead, a little menace, a gamer,
-            a cook, a poet, and someone whose giggles I adore.
-        </p>
-    </div>
+<section id="aboutPage">
+<div class="about-container">
 
-    <button class="back-btn" onclick="backToDashboard()">
-        BACK TO ARCHIVES
-    </button>
+<div class="about-label">
+PERSONAL RECORD // SUBJECT: MOULIK
+</div>
+
+<h1 class="about-title">ABOUT MOULIK.</h1>
+
+<p class="about-intro">
+A few little things about you.<br>
+Things I notice, things I adore, and things that make you YOU.
+</p>
+
+<div class="about-divider"></div>
+
+<div class="about-grid">
+
+<button class="glass-tile" onclick="openNote('giggles')">
+<div class="tile-icon">♫</div>
+<div class="tile-title">THAT GIGGLE OF YOURS</div>
+<div class="tile-hint">Your favourite way to make me smile.</div>
+</button>
+
+<button class="glass-tile" onclick="openNote('flirting')">
+<div class="tile-icon">✧</div>
+<div class="tile-title">THE UNEXPECTED ROMANTIC</div>
+<div class="tile-hint">Never know when you'll flirt next.</div>
+</button>
+
+<button class="glass-tile" onclick="openNote('menace')">
+<div class="tile-icon">⌁</div>
+<div class="tile-title">CERTIFIED LITTLE MENACE</div>
+<div class="tile-hint">Your talent for getting on my nerves.</div>
+</button>
+
+<button class="glass-tile" onclick="openNote('softie')">
+<div class="tile-icon">♡</div>
+<div class="tile-title">YOUR SOFT SIDE</div>
+<div class="tile-hint">The way you get me talking again.</div>
+</button>
+
+<button class="glass-tile" onclick="openNote('heart')">
+<div class="tile-icon">☾</div>
+<div class="tile-title">NO HEAVY HEARTS</div>
+<div class="tile-hint">You don't let me sleep upset.</div>
+</button>
+
+<button class="glass-tile" onclick="openNote('patience')">
+<div class="tile-icon">∞</div>
+<div class="tile-title">YOUR PATIENCE</div>
+<div class="tile-hint">Especially the patience you have with me.</div>
+</button>
+
+<button class="glass-tile" onclick="openNote('proud')">
+<div class="tile-icon">✦</div>
+<div class="tile-title">I'M PROUD OF YOU.</div>
+<div class="tile-hint">No particular reason needed. Just you.</div>
+</button>
+
+</div>
+
+<div class="about-bottom">
+A COLLECTION OF LITTLE THINGS I NOTICE ♡
+<br>
+
+<button class="back-button" onclick="backToDashboard()">
+↶ BACK TO ARCHIVES
+</button>
+</div>
+
+</div>
 </section>
+
+
+<!-- ABOUT MOULIK NOTE POPUP -->
+
+<div id="notePopup" onclick="outsideNoteClose(event)">
+<div class="note-content">
+
+<div class="note-label">
+A LITTLE NOTE FOR YOU ♡
+</div>
+
+<h2 id="noteTitle">TITLE</h2>
+<p id="noteText">MESSAGE</p>
+
+<button class="close-button" onclick="closeNote()">
+BACK TO COLLECTION ✕
+</button>
+
+</div>
+</div>
+
+
+<!-- OTHER FILE POPUP -->
+
+<div id="filePopup" onclick="outsideClose(event)">
+<div class="popup-content">
+
+<div class="popup-label" id="popupLabel">
+ARCHIVE RECORD
+</div>
+
+<h2 id="popupTitle">FILE TITLE</h2>
+<p id="popupText">File information.</p>
+
+<button class="close-button" onclick="closeFile()">
+CLOSE FILE ✕
+</button>
+
+</div>
+</div>
+
 
 <!-- SECRET CHAMBER -->
 
-<section id="secretPage" class="page">
-    <h1 class="section-title">THE SECRET CHAMBER</h1>
-    <p class="subtitle">Not everyone gets to enter this little place.</p>
+<section id="secretPage">
+<div class="secret-container">
 
-    <div class="game-card" style="margin-top:40px; cursor:pointer;"
-         onclick="openCodeGame()">
+<div class="secret-label">
+RESTRICTED ACCESS // HEENA'S CHALLENGES
+</div>
 
-        <h3>CRACK THE CODE</h3>
-        <p>Four riddles. Four digits. One little vault.</p>
+<h1 class="secret-title">THE SECRET CHAMBER.</h1>
 
-        <button class="secondary-btn" type="button">
-            ENTER GAME ♡
-        </button>
-    </div>
+<p class="secret-intro">
+Welcome to the little corner where your memory and skills will be tested. Good luck, baby.
+</p>
 
-    <div class="game-card" style="cursor:pointer;"
-         onclick="openJigsaw()">
+<div class="about-divider"></div>
 
-        <h3>THE MISSING PIECES</h3>
-        <p>Some things are better when put together.</p>
+<div class="secret-grid">
 
-        <button class="secondary-btn" type="button">
-            PLAY ♡
-        </button>
-    </div>
+<button class="secret-card" onclick="openCodeGame()">
+<div class="secret-card-icon">⌘</div>
+<h3>CRACK THE CODE</h3>
+<p>Four riddles. One bonus question. One final vault.</p>
+</button>
 
-    <button class="back-btn" onclick="backToDashboard()">
-        BACK TO ARCHIVES
-    </button>
+<button class="secret-card" onclick="openJigsaw()">
+<div class="secret-card-icon">▧</div>
+<h3>THE MISSING PIECES</h3>
+<p>Put the pieces together. There's something waiting for you.</p>
+</button>
+
+</div>
+
+<div class="about-bottom">
+CHOOSE YOUR CHALLENGE ♡
+<br>
+<button class="back-button" onclick="backToDashboard()">
+↶ BACK TO ARCHIVES
+</button>
+</div>
+
+</div>
 </section>
+
 
 <!-- CRACK THE CODE -->
 
-<section id="codePage" class="page">
-    <h1 class="section-title">CRACK THE CODE</h1>
-    <p class="subtitle">Let's see how well you know yourself.</p>
+<section id="codePage">
+<div class="secret-container">
 
-    <div class="game-card" style="margin-top:35px;">
+<div class="secret-label">CHALLENGE 01 // MEMORY TEST</div>
 
-        <div class="level-label" id="levelLabel">
-            LEVEL 1 — THE FOODIE
-        </div>
+<h1 class="secret-title">CRACK THE CODE.</h1>
 
-        <p class="riddle" id="riddleText"></p>
+<p class="secret-intro">
+Let's see how well you remember the little things.
+</p>
 
-        <input class="game-input" id="riddleAnswer"
-               type="text" placeholder="Your answer...">
+<div class="game-box">
 
-        <button class="game-submit" id="riddleSubmit"
-                onclick="checkRiddle()">
-            SUBMIT ♡
-        </button>
+<div class="game-level" id="codeLevel">LEVEL 1 OF 4</div>
 
-        <div class="progress" id="riddleProgress">
-            DIGITS UNLOCKED: 0 / 4
-        </div>
-    </div>
+<h2 id="riddleTitle">THE FOODIE</h2>
 
-    <div class="game-card" id="vaultCard" style="display:none;">
-        <h3>THE LITTLE VAULT</h3>
-        <p>You've collected all four digits. Enter the code.</p>
+<p class="riddle" id="riddleText"></p>
 
-        <div class="vault-digits">
-            <div class="vault-digit" id="digit0">?</div>
-            <div class="vault-digit" id="digit1">?</div>
-            <div class="vault-digit" id="digit2">?</div>
-            <div class="vault-digit" id="digit3">?</div>
-        </div>
+<input
+type="text"
+id="riddleAnswer"
+class="game-input"
+placeholder="Your answer..."
+autocomplete="off"
+>
 
-        <input class="game-input" id="vaultInput"
-               type="text" inputmode="numeric" maxlength="4"
-               placeholder="Enter 4-digit code">
+<button class="game-button" id="submitRiddleButton" onclick="checkRiddle()">
+SUBMIT ANSWER ↗
+</button>
 
-        <button class="game-submit" onclick="checkVault()">
-            UNLOCK
-        </button>
+<div class="game-progress" id="codeProgress">
+0 / 4 COMPLETED
+</div>
 
-        <p id="vaultMessage" style="margin-top:15px;"></p>
-    </div>
+<div class="wrong-warning" id="wrongWarning">
+<div class="sad-face">☹️</div>
+<p>I thought u knew baby</p>
+<button class="game-button" onclick="retryRiddle()">
+TRY AGAIN ♡
+</button>
+</div>
 
-    <div class="game-card" id="bonusCard" style="display:none;">
-        <div class="level-label">BONUS LEVEL</div>
-        <h3>THE NAME THAT STARTED IT ALL</h3>
+<div class="bonus-box" id="bonusBox">
 
-        <p class="riddle">
+<div class="game-level">BONUS CHALLENGE</div>
+
+<h2>THE NAME THAT STARTED IT ALL</h2>
+
+<p class="riddle">
 Before the Shona, before the Jaanu,
 Before all the names that came along,
 There was one little name, just yours,
@@ -815,118 +1381,243 @@ Not a title, not a promise,
 Just a name wrapped in affection.
 Think back to the beginning,
 What was the first name I gave you?
-        </p>
+</p>
 
-        <input class="game-input" id="bonusAnswer"
-               type="text" placeholder="Think carefully...">
+<input
+type="text"
+id="bonusAnswer"
+class="game-input"
+placeholder="Your answer..."
+autocomplete="off"
+>
 
-        <button class="game-submit" onclick="checkBonus()">
-            SUBMIT ♡
-        </button>
+<button class="game-button" onclick="checkBonus()">
+SUBMIT BONUS ANSWER ♡
+</button>
 
-        <p id="bonusMessage" style="margin-top:15px;"></p>
-    </div>
+<div id="bonusResult" class="game-progress"></div>
 
-    <button class="back-btn" onclick="showPage('secretPage')">
-        BACK TO SECRET CHAMBER
-    </button>
-</section>
-
-<!-- WRONG ANSWER -->
-
-<div class="warning-overlay" id="warningOverlay">
-    <div class="warning-box">
-        <div class="warning-face">☹️</div>
-        <p>I thought u knew baby</p>
-        <button onclick="closeWarning()">TRY AGAIN ♡</button>
-    </div>
 </div>
 
-<!-- JIGSAW -->
+<div class="vault-box" id="vaultBox">
 
-<section id="jigsawPage" class="page">
-    <h1 class="section-title">THE MISSING PIECES</h1>
-    <p class="subtitle">Put the little pieces back together.</p>
+<div class="game-level">FINAL VAULT</div>
 
-    <div class="game-card" style="margin-top:25px;">
-        <p>Drag one piece onto another to swap them.</p>
-        <p class="small-text" style="margin-top:8px;">
-            On your phone, you can also tap two pieces to swap them.
-        </p>
-    </div>
+<h2>ONE LAST CODE.</h2>
 
-    <div class="move-counter" id="moveCounter">MOVES: 0</div>
+<p class="riddle">
+You've made it this far. Enter the secret code to unlock the vault.
+</p>
 
-    <div class="jigsaw-board" id="jigsawBoard"></div>
+<input
+type="text"
+id="vaultAnswer"
+class="game-input"
+placeholder="Enter the 4-digit code"
+maxlength="4"
+inputmode="numeric"
+>
 
-    <div class="jigsaw-complete" id="jigsawComplete">
-        <h2 style="margin-bottom:18px;">YOU DID IT ♡</h2>
-        <img src="jigsaw-photo.jpg" alt="Our picture">
-        <p class="subtitle" style="margin-top:18px;">
-            Some pieces just belong together.
-        </p>
-    </div>
+<button class="game-button" onclick="checkVault()">
+UNLOCK VAULT ♡
+</button>
 
-    <button class="secondary-btn" onclick="startJigsaw()">
-        SHUFFLE AGAIN
-    </button>
+<div id="vaultResult" class="game-progress"></div>
 
-    <br>
+</div>
 
-    <button class="back-btn" onclick="showPage('secretPage')">
-        BACK TO SECRET CHAMBER
-    </button>
+</div>
+
+<div class="about-bottom">
+<button class="back-button" onclick="openSecretChamber()">
+↶ BACK TO SECRET CHAMBER
+</button>
+</div>
+
+</div>
 </section>
 
-<!-- BIRTHDAY -->
 
-<section id="birthdayPage" class="page">
-    <canvas id="fireworksCanvas"></canvas>
+<!-- THE MISSING PIECES -->
 
-    <div class="birthday-content">
+<section id="jigsawPage">
+<div class="secret-container">
 
-        <div class="birthday-intro" id="birthdayIntro">
-            <h2>READY FOR YOUR LITTLE SURPRISE?</h2>
-            <p class="subtitle">I made something for you. ♡</p>
+<div class="secret-label">CHALLENGE 02 // THE MISSING PIECES</div>
 
-            <button class="primary-btn" onclick="startBirthday()">
-                UNLOCK YOUR SURPRISE ♡
-            </button>
-        </div>
+<h1 class="secret-title">PUT US TOGETHER.</h1>
 
-        <div id="countdownArea"></div>
+<p class="secret-intro">
+Sixteen little pieces. One picture. Tap two pieces to swap their places until everything fits.
+</p>
 
-        <div class="birthday-letter" id="birthdayLetter">
-            <h2>HAPPY BIRTHDAY, MY LOVE. ❤️</h2>
-            <div id="letterContent"></div>
-            <div class="signature" id="signature">
-                your Heena. ♡
-            </div>
-        </div>
+<div class="game-box">
 
-    </div>
+<div class="game-level">16 PIECES // MEDIUM DIFFICULTY</div>
+
+<div class="jigsaw-info">
+Moves: <span id="moveCount">0</span>
+</div>
+
+<div class="jigsaw-board" id="jigsawBoard"></div>
+
+<div class="jigsaw-complete" id="jigsawComplete">
+✦ YOU DID IT! ✦
+<br>
+You found all the missing pieces. ♡
+</div>
+
+<img
+src="jigsaw-photo.jpg"
+id="jigsawPreview"
+class="jigsaw-preview"
+alt="Our picture"
+>
+
+<button class="game-button" onclick="resetJigsaw()">
+SHUFFLE AGAIN ↻
+</button>
+
+</div>
+
+<div class="about-bottom">
+<button class="back-button" onclick="openSecretChamber()">
+↶ BACK TO SECRET CHAMBER
+</button>
+</div>
+
+</div>
 </section>
+
+
+<!-- BIRTHDAY PAGE -->
+
+<section id="birthdayPage">
+
+<canvas id="fireworksCanvas"></canvas>
+
+<div class="birthday-content">
+
+<div class="birthday-intro" id="birthdayIntro">
+
+<div class="birthday-label">
+A LITTLE SOMETHING FROM HEENA ♡
+</div>
+
+<h1>READY FOR YOUR<br>LITTLE SURPRISE?</h1>
+
+<button class="unlock-button" onclick="startBirthday()">
+UNLOCK YOUR SURPRISE ♡
+</button>
+
+</div>
+
+<div id="countdown">
+<div id="countdownNumber">4</div>
+</div>
+
+<article id="birthdayLetter">
+
+<h2 class="letter-heading">HAPPY BIRTHDAY, MY LOVE. ❤️</h2>
+
+<div id="letterBody">
+
+<p class="letter-paragraph">
+First of all, I’m so happy that you exist. That, out of billions of people in this world, I somehow got to meet you, know you and have you become such a beautiful part of my life. Sometimes I think about how randomly everything started between us, how neither of us probably imagined we’d end up here, and it makes me smile.
+</p>
+
+<p class="letter-paragraph">
+Today, I hope you take a moment to appreciate yourself, not just for the person you are today, but for everything you’ve overcome, everything you’ve learned and every little step that has brought you here. You’re getting another year older, but I hope you never lose the little things that make you who you are.
+</p>
+
+<p class="letter-paragraph">
+If I could give you anything today, I think I’d give you a little piece of every gentle thing this world has to offer: the warmth of sunlight on quiet mornings, the peace that comes after a long day, the comfort of knowing you are loved, and the kind of happiness that asks nothing from you except that you simply exist.
+</p>
+
+<p class="letter-paragraph">
+I hope life is soft with you. I hope it gives you reasons to smile when you least expect them, people who hold your heart carefully, opportunities that bring you closer to your dreams, and days that feel worth remembering.
+</p>
+
+<p class="letter-paragraph">
+And if there is one thing I wish you could always remember, it’s this: you are deeply precious to me. More than these little words could ever explain. I love you from a place so sincere and quiet that sometimes I don’t even know how to put it into language.
+</p>
+
+<p class="letter-paragraph">
+To live in this world, we feel so small. To swim in water, it feels slow. But to be with you was an unexpected surprise. It was like stumbling upon a starlit path in the darkest woods at midnight.
+</p>
+
+<p class="letter-paragraph">
+Sometimes, the things you want the most don’t happen, and what you least expect does. I could compare you to a thousand different things — the stars, the ocean, butterflies, the moon — but it’s really difficult to find words that could truly describe how much I adore you.
+</p>
+
+<p class="letter-paragraph">
+Your presence is like a sonnet that finds beauty in every syllable, every pause. And I will always be grateful that you made it this far.
+</p>
+
+<p class="letter-paragraph">
+I genuinely believe that you are an amazing person. I love you for all that you are, all that you have been, and all that you’re yet to become. Because for a long time, when I’ve felt empty or alone, it was you that I could call my home.
+</p>
+
+<p class="letter-paragraph">
+I want this new year of your life to be kinder to you. I hope you grow into someone you’re proud of. I hope you find things that make you passionate about life, achieve the things you’ve been dreaming about and never feel like you’re running out of time. I want to see you happy, healthy, successful and genuinely at peace with yourself.
+</p>
+
+<p class="letter-paragraph">
+I hope you never become too occupied with growing up that you forget to enjoy being alive. Keep laughing at silly things, keep discovering, keep being curious, keep making mistakes and learning from them. There’s so much life waiting for you, and I hope you get to experience all the beautiful parts of it.
+</p>
+
+<p class="letter-paragraph">
+And selfishly, I hope I get to witness some of it too. I hope I get to celebrate your little victories, listen to your endless stories, annoy you on your bad days, laugh with you over absolutely nothing and experience all those ordinary little moments that eventually become our favourite memories.
+</p>
+
+<p class="letter-paragraph">
+I don’t know exactly what every chapter of our story will look like, but I know that I’m grateful I got to meet you and experience this kind of love with you.
+</p>
+
+<p class="letter-paragraph">
+So, on your birthday, I just hope you stay. Keep growing, keep laughing, keep becoming whoever you are meant to be. And may life be gentle enough to let you do all of it peacefully.
+</p>
+
+<p class="letter-paragraph">
+Today, as we celebrate another year of your life, I want you to know that my love for you grows stronger and more profound with each passing day. I promise to keep choosing you, appreciating you and loving you through all the different versions of yourself.
+</p>
+
+<p class="letter-paragraph">
+Happy Birthday, my dear.
+</p>
+
+<p class="letter-paragraph">
+I hope the world takes good care of you, because you mean far more to me than you probably know.
+</p>
+
+<p class="letter-paragraph">
+I love you, my beanie baby. ❤️
+</p>
+
+</div>
+
+<div class="letter-signature" id="letterSignature">
+your Heena. ♡
+</div>
+
+</article>
+
+<button class="birthday-back" onclick="backToDashboard()">
+↶ BACK TO ARCHIVES
+</button>
+
+</div>
+</section>
+
 
 <script>
 
-/* NAVIGATION */
-
-function showPage(id) {
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
-
-    document.getElementById(id).classList.add("active");
-
-    if (id === "birthdayPage") {
-        resizeCanvas();
-    } else {
-        stopFireworks();
-    }
-}
+/* MAIN NAVIGATION */
 
 function enterArchives() {
-    showPage("lovePage");
+    document.getElementById("home").style.display = "none";
+    document.getElementById("loveGate").style.display = "flex";
+    window.scrollTo(0, 0);
 }
 
 function rejectLove() {
@@ -934,558 +1625,512 @@ function rejectLove() {
         "WELL, YOU THINK YOU HAVE AN OPTION TO SAY NO? 🤨";
 
     document.getElementById("loveButtons").innerHTML = `
-        <button onclick="acceptLove()">YES ♡<span class="love-dot"></span></button>
-        <button onclick="acceptLove()">YES ♡<span class="love-dot"></span></button>
+        <button onclick="acceptLove()">
+            YES ♡ <span class="pink-dot"></span>
+        </button>
+        <button onclick="acceptLove()">
+            YES ♡ <span class="pink-dot"></span>
+        </button>
     `;
 }
 
 function acceptLove() {
-    showPage("dashboardPage");
+    document.getElementById("loveGate").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+    window.scrollTo(0, 0);
+}
+
+function goHome() {
+    hideAllMainPages();
+
+    document.getElementById("home").style.display = "flex";
+
+    window.scrollTo(0, 0);
 }
 
 function backToDashboard() {
-    showPage("dashboardPage");
+    hideAllMainPages();
+
+    document.getElementById("dashboard").style.display = "block";
+
+    window.scrollTo(0, 0);
 }
 
-/* ABOUT MOULIK */
 
-const notes = [
-    {
+/* DASHBOARD FILES */
+
+const files = {
+    world: {
+        title: "HIS LITTLE WORLD",
+        text: "A collection of his favourite music, food, interests, hobbies and all the little things that make his world his own."
+    },
+
+    things: {
+        title: "THINGS ABOUT YOU",
+        text: "A collection of observations, funny habits, inside jokes and things that make me laugh. Yes, you are being lovingly investigated."
+    }
+};
+
+function openFile(id) {
+
+    if (id === "about") {
+        hideAllMainPages();
+        document.getElementById("aboutPage").style.display = "block";
+        window.scrollTo(0, 0);
+        return;
+    }
+
+    if (id === "birthday") {
+        hideAllMainPages();
+
+        document.getElementById("birthdayPage").style.display = "block";
+        document.getElementById("birthdayIntro").style.display = "flex";
+        document.getElementById("birthdayLetter").style.display = "none";
+        document.getElementById("countdown").style.display = "none";
+
+        resetBirthday();
+
+        window.scrollTo(0, 0);
+        return;
+    }
+
+    const file = files[id];
+
+    document.getElementById("popupLabel").textContent =
+        "ARCHIVE RECORD // " + id.toUpperCase();
+
+    document.getElementById("popupTitle").textContent =
+        file.title;
+
+    document.getElementById("popupText").textContent =
+        file.text;
+
+    document.getElementById("filePopup").style.display = "flex";
+}
+
+function closeFile() {
+    document.getElementById("filePopup").style.display = "none";
+}
+
+function outsideClose(event) {
+    if (event.target.id === "filePopup") {
+        closeFile();
+    }
+}
+
+
+/* PERSONAL NOTES */
+
+const notes = {
+
+    giggles: {
         title: "THAT GIGGLE OF YOURS ♡",
         text: "You already know what your giggles do to me. And yet, every single time, you manage to get the same reaction out of me. Never stop laughing, okay? I could listen to that sound over and over again."
     },
-    {
+
+    flirting: {
         title: "THE UNEXPECTED ROMANTIC",
         text: "You can be talking about literally anything, and suddenly you decide to flirt with me. No warning, no context. Just Moulik being Moulik. And I hope you never stop."
     },
-    {
+
+    menace: {
         title: "CERTIFIED LITTLE MENACE",
         text: "You successfully get on my nerves, watch me get annoyed, and then laugh like you've achieved something extraordinary. I don't know whether to laugh with you or be even more annoyed. You really are a menace."
     },
-    {
+
+    softie: {
         title: "YOUR SOFT SIDE",
         text: "The moment I get annoyed and stop talking, suddenly your voice gets all soft. Sweet little words, gentle flirting, and every possible attempt to make me talk again. I notice that side of you, too."
     },
-    {
+
+    heart: {
         title: "NO HEAVY HEARTS",
         text: "One thing I'll always appreciate about you is how you try to make sure I never go to bed angry or spend the night overthinking. Even when things aren't perfect, you don't just let me sit with all those thoughts. You try to make things okay between us. And that means more to me than you probably realise."
     },
-    {
+
+    patience: {
         title: "YOUR PATIENCE",
         text: "I know patience isn't always your strongest quality, but somehow you have so much of it for me. You let me be me, even when I'm being difficult, emotional, dramatic or taking forever to explain what's wrong. I notice the patience you show me, and I appreciate it more than I can put into words."
     },
-    {
+
+    proud: {
         title: "I'M PROUD OF YOU. PERIOD.",
         text: "I don't think I need one particular reason to be proud of you. I just am. Of the person you are, the things you do, the little ways you grow and even the things you don't give yourself enough credit for. I hope you never doubt that there's someone who believes in you and is rooting for you, always. I hope you see yourself the way I see you, at least sometimes."
     }
-];
+};
 
-function openNote(index) {
-    document.getElementById("noteTitle").textContent = notes[index].title;
-    document.getElementById("noteText").textContent = notes[index].text;
-    document.getElementById("noteOverlay").classList.add("show");
+function openNote(id) {
+    const note = notes[id];
+
+    document.getElementById("noteTitle").textContent =
+        note.title;
+
+    document.getElementById("noteText").textContent =
+        note.text;
+
+    document.getElementById("notePopup").style.display = "flex";
 }
 
 function closeNote() {
-    document.getElementById("noteOverlay").classList.remove("show");
+    document.getElementById("notePopup").style.display = "none";
 }
 
 function outsideNoteClose(event) {
-    if (event.target.id === "noteOverlay") closeNote();
+    if (event.target.id === "notePopup") {
+        closeNote();
+    }
 }
+
+
+/* SECRET CHAMBER NAVIGATION */
+
+function hideAllMainPages() {
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("aboutPage").style.display = "none";
+    document.getElementById("birthdayPage").style.display = "none";
+    document.getElementById("secretPage").style.display = "none";
+    document.getElementById("codePage").style.display = "none";
+    document.getElementById("jigsawPage").style.display = "none";
+
+    closeNote();
+    closeFile();
+}
+
+function openSecretChamber() {
+    hideAllMainPages();
+
+    document.getElementById("secretPage").style.display = "block";
+
+    window.scrollTo(0, 0);
+}
+
+function openCodeGame() {
+    hideAllMainPages();
+
+    document.getElementById("codePage").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+    showRiddle();
+}
+
+function openJigsaw() {
+    hideAllMainPages();
+
+    document.getElementById("jigsawPage").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+    if (!jigsawStarted) {
+        resetJigsaw();
+    }
+}
+
 
 /* CRACK THE CODE */
 
 const riddles = [
     {
-        title: "LEVEL 1 — THE FOODIE",
-        question: `I can be served with butter,
+        title: "THE FOODIE",
+        text: `I can be served with butter,
 I can be served with cheese,
 But when I'm made the way you love me,
 I'm your ultimate comfort feast.`,
-        answer: "pav bhaji",
-        digit: "4"
+        answer: "pav bhaji"
     },
+
     {
-        title: "LEVEL 2 — THE LITTLE MENACE",
-        question: `You love to provoke,
+        title: "THE LITTLE MENACE",
+        text: `You love to provoke,
 You love to annoy,
 You watch people react,
 And that's your favourite joy.`,
-        answer: "ragebaiting",
-        digit: "8"
+        answer: "ragebaiting"
     },
+
     {
-        title: "LEVEL 3 — THE SLEEPYHEAD",
-        question: `You close your eyes for a little while,
+        title: "THE SLEEPYHEAD",
+        text: `You close your eyes for a little while,
 But hours disappear.
 The world keeps moving around you,
 While you're nowhere near.`,
-        answer: "sleeping",
-        digit: "2"
+        answer: "sleeping"
     },
+
     {
-        title: "LEVEL 4 — THE UNEXPECTED BEGINNING",
-        question: `It wasn't planned,
+        title: "THE UNEXPECTED BEGINNING",
+        text: `It wasn't planned,
 It wasn't expected,
 Yet somewhere along the way,
 Two strangers became each other's favourite notification.`,
-        answer: "snapchat",
-        digit: "6"
+        answer: "snapchat"
     }
 ];
 
 let currentRiddle = 0;
-let unlockedDigits = [];
-let wrongAttempts = 0;
+let completedRiddles = [];
+let bonusSolved = false;
 
-function openCodeGame() {
-    currentRiddle = 0;
-    unlockedDigits = [];
-    wrongAttempts = 0;
+function showRiddle() {
+    const riddle = riddles[currentRiddle];
 
-    document.getElementById("vaultCard").style.display = "none";
-    document.getElementById("bonusCard").style.display = "none";
+    document.getElementById("codeLevel").textContent =
+        "LEVEL " + (currentRiddle + 1) + " OF 4";
 
-    document.getElementById("riddleAnswer").style.display = "block";
-    document.getElementById("riddleSubmit").style.display = "inline-block";
-    document.getElementById("riddleAnswer").value = "";
-
-    document.getElementById("vaultInput").value = "";
-    document.getElementById("vaultMessage").textContent = "";
-    document.getElementById("bonusAnswer").value = "";
-    document.getElementById("bonusMessage").textContent = "";
-
-    document.getElementById("riddleProgress").textContent =
-        "DIGITS UNLOCKED: 0 / 4";
-
-    showPage("codePage");
-    displayRiddle();
-}
-
-function displayRiddle() {
-    if (currentRiddle >= riddles.length) {
-        document.getElementById("levelLabel").textContent =
-            "ALL LEVELS COMPLETED ♡";
-
-        document.getElementById("riddleText").textContent =
-            "You've solved all four riddles. Your digits are waiting below.";
-
-        document.getElementById("riddleAnswer").style.display = "none";
-        document.getElementById("riddleSubmit").style.display = "none";
-
-        document.getElementById("vaultCard").style.display = "block";
-
-        unlockedDigits.forEach((digit, index) => {
-            document.getElementById("digit" + index).textContent = digit;
-        });
-
-        return;
-    }
-
-    document.getElementById("levelLabel").textContent =
-        riddles[currentRiddle].title;
+    document.getElementById("riddleTitle").textContent =
+        riddle.title;
 
     document.getElementById("riddleText").textContent =
-        riddles[currentRiddle].question;
+        riddle.text;
 
     document.getElementById("riddleAnswer").value = "";
+    document.getElementById("riddleAnswer").style.display = "block";
+
+    document.getElementById("submitRiddleButton").style.display = "inline-block";
+
+    document.getElementById("wrongWarning").style.display = "none";
+    document.getElementById("bonusBox").style.display = "none";
+    document.getElementById("vaultBox").style.display = "none";
+
+    document.getElementById("codeProgress").textContent =
+        completedRiddles.length + " / 4 COMPLETED";
 }
 
 function checkRiddle() {
-    const answer = document.getElementById("riddleAnswer")
-        .value.trim().toLowerCase().replace(/[^\w\s]/g, "");
+    const input = document.getElementById("riddleAnswer")
+        .value.trim().toLowerCase().replace(/\s+/g, " ");
 
-    if (answer === riddles[currentRiddle].answer) {
-        unlockedDigits.push(riddles[currentRiddle].digit);
-        currentRiddle++;
-        wrongAttempts = 0;
+    const correct = riddles[currentRiddle].answer;
 
-        document.getElementById("riddleProgress").textContent =
-            "DIGITS UNLOCKED: " + unlockedDigits.length + " / 4";
+    if (input === correct) {
 
-        displayRiddle();
+        completedRiddles[currentRiddle] = true;
+
+        document.getElementById("wrongWarning").style.display = "none";
+
+        if (currentRiddle < riddles.length - 1) {
+
+            currentRiddle++;
+            showRiddle();
+
+        } else {
+
+            document.getElementById("codeLevel").textContent =
+                "ALL FOUR LEVELS COMPLETED";
+
+            document.getElementById("riddleTitle").textContent =
+                "YOU DID IT! ♡";
+
+            document.getElementById("riddleText").textContent =
+                "Four riddles solved. Now let's see if you remember the very first name you gave me.";
+
+            document.getElementById("riddleAnswer").style.display = "none";
+
+            document.getElementById("submitRiddleButton").style.display = "none";
+
+            document.getElementById("codeProgress").textContent =
+                "4 / 4 COMPLETED";
+
+            document.getElementById("bonusBox").style.display = "block";
+        }
+
     } else {
-        wrongAttempts++;
-        document.getElementById("warningOverlay").classList.add("show");
+
+        document.getElementById("wrongWarning").style.display = "block";
+
     }
 }
 
-function closeWarning() {
-    document.getElementById("warningOverlay").classList.remove("show");
-    document.getElementById("riddleAnswer").focus();
+function retryRiddle() {
+    document.getElementById("wrongWarning").style.display = "none";
+    document.getElementById("riddleAnswer").value = "";
 }
 
-function checkVault() {
-    const code = document.getElementById("vaultInput").value.trim();
 
-    if (code === "4826" && unlockedDigits.length === 4) {
-        document.getElementById("vaultMessage").textContent =
-            "VAULT UNLOCKED. I knew you'd get it. ♡";
-
-        document.getElementById("bonusCard").style.display = "block";
-        document.getElementById("vaultCard").style.display = "none";
-    } else {
-        document.getElementById("vaultMessage").textContent =
-            "Not quite, baby. Try again. ♡";
-    }
-}
+/* BONUS QUESTION */
 
 function checkBonus() {
     const answer = document.getElementById("bonusAnswer")
         .value.trim().toLowerCase();
 
     if (answer === "babydoll") {
-        document.getElementById("bonusMessage").textContent =
-            "YOU REMEMBERED! ♡ The very first little name. You win, baby.";
+
+        bonusSolved = true;
+
+        document.getElementById("bonusResult").textContent =
+            "YOU REMEMBERED! ♡";
+
+        document.getElementById("vaultBox").style.display = "block";
+
     } else {
-        document.getElementById("warningOverlay").classList.add("show");
+
+        document.getElementById("bonusResult").textContent =
+            "Not quite, baby. Think back to the very beginning. ☹️";
+
     }
 }
 
-/* THE MISSING PIECES */
 
-let puzzleOrder = [];
+/* FINAL VAULT — CODE 1511 */
+
+function checkVault() {
+    const answer = document.getElementById("vaultAnswer").value.trim();
+
+    const result = document.getElementById("vaultResult");
+
+    if (answer === "1511" && bonusSolved) {
+
+        result.textContent =
+            "VAULT UNLOCKED! YOU KNOW ME PRETTY WELL. ♡";
+
+    } else {
+
+        result.textContent =
+            "Not quite, baby. Try again. ☹️";
+
+    }
+}
+
+
+/* THE MISSING PIECES — 4 × 4 JIGSAW */
+
+const jigsawBoard = document.getElementById("jigsawBoard");
+
+let jigsawPieces = [];
 let selectedPiece = null;
-let moves = 0;
+let moveCount = 0;
+let jigsawStarted = false;
 
 function shuffleArray(array) {
+
     for (let i = array.length - 1; i > 0; i--) {
+
         const j = Math.floor(Math.random() * (i + 1));
+
         [array[i], array[j]] = [array[j], array[i]];
+
     }
+
     return array;
 }
 
-function openJigsaw() {
-    showPage("jigsawPage");
-    startJigsaw();
-}
+function resetJigsaw() {
 
-function startJigsaw() {
-    const board = document.getElementById("jigsawBoard");
+    jigsawStarted = true;
+    selectedPiece = null;
+    moveCount = 0;
+
+    document.getElementById("moveCount").textContent = "0";
 
     document.getElementById("jigsawComplete").style.display = "none";
-    board.style.display = "grid";
 
-    moves = 0;
-    selectedPiece = null;
+    document.getElementById("jigsawPreview").style.display = "none";
 
-    document.getElementById("moveCounter").textContent = "MOVES: 0";
+    const pieces = Array.from({ length: 16 }, (_, index) => index);
 
-    puzzleOrder = shuffleArray([...Array(16).keys()]);
+    do {
 
-    if (puzzleOrder.every((value, index) => value === index)) {
-        [puzzleOrder[0], puzzleOrder[1]] =
-            [puzzleOrder[1], puzzleOrder[0]];
-    }
+        jigsawPieces = shuffleArray([...pieces]);
 
-    board.innerHTML = "";
+    } while (jigsawPieces.every((piece, index) => piece === index));
 
-    puzzleOrder.forEach((originalIndex, position) => {
-        const piece = document.createElement("div");
+    renderJigsaw();
+}
 
-        piece.className = "puzzle-piece";
-        piece.dataset.original = originalIndex;
-        piece.dataset.position = position;
+function renderJigsaw() {
 
-        updatePiecePosition(piece, originalIndex);
+    jigsawBoard.innerHTML = "";
 
-        piece.addEventListener("pointerdown", handlePieceDown);
-        piece.addEventListener("pointerup", handlePieceUp);
+    jigsawPieces.forEach((piece, index) => {
 
-        board.appendChild(piece);
+        const tile = document.createElement("button");
+
+        tile.className = "jigsaw-piece";
+        tile.type = "button";
+
+        const row = Math.floor(piece / 4);
+        const col = piece % 4;
+
+        tile.style.backgroundPosition =
+            (col * 100 / 3) + "% " + (row * 100 / 3) + "%";
+
+        tile.setAttribute("aria-label", "Puzzle piece " + (index + 1));
+
+        tile.addEventListener("click", () => {
+            selectJigsawPiece(index);
+        });
+
+        jigsawBoard.appendChild(tile);
+
     });
 }
 
-function handlePieceDown(event) {
-    event.preventDefault();
-    event.currentTarget.classList.add("dragging");
-}
+function selectJigsawPiece(index) {
 
-function handlePieceUp(event) {
-    const piece = event.currentTarget;
-    piece.classList.remove("dragging");
+    const tiles = jigsawBoard.children;
 
-    const target = document.elementFromPoint(
-        event.clientX, event.clientY
-    );
+    if (selectedPiece === null) {
 
-    const targetPiece = target && target.closest(".puzzle-piece");
+        selectedPiece = index;
 
-    if (targetPiece && targetPiece !== piece) {
-        swapPieces(piece, targetPiece);
+        tiles[index].classList.add("selected");
+
         return;
     }
 
-    if (selectedPiece && selectedPiece !== piece) {
-        swapPieces(selectedPiece, piece);
+    if (selectedPiece === index) {
+
+        tiles[index].classList.remove("selected");
+
         selectedPiece = null;
+
         return;
     }
 
-    if (selectedPiece === piece) {
-        piece.classList.remove("selected");
-        selectedPiece = null;
-    } else {
-        if (selectedPiece) selectedPiece.classList.remove("selected");
-
-        selectedPiece = piece;
-        piece.classList.add("selected");
-    }
-}
-
-function swapPieces(first, second) {
-    const firstIndex = Number(first.dataset.original);
-    const secondIndex = Number(second.dataset.original);
-
-    first.dataset.original = secondIndex;
-    second.dataset.original = firstIndex;
-
-    updatePiecePosition(first, secondIndex);
-    updatePiecePosition(second, firstIndex);
-
-    first.classList.remove("selected", "dragging");
-    second.classList.remove("selected", "dragging");
+    [
+        jigsawPieces[selectedPiece],
+        jigsawPieces[index]
+    ] = [
+        jigsawPieces[index],
+        jigsawPieces[selectedPiece]
+    ];
 
     selectedPiece = null;
 
-    moves++;
+    moveCount++;
 
-    document.getElementById("moveCounter").textContent =
-        "MOVES: " + moves;
+    document.getElementById("moveCount").textContent = moveCount;
 
-    checkJigsawComplete();
-}
+    renderJigsaw();
 
-function updatePiecePosition(piece, originalIndex) {
-    const row = Math.floor(originalIndex / 4);
-    const col = originalIndex % 4;
+    if (jigsawPieces.every((piece, index) => piece === index)) {
 
-    piece.style.backgroundPosition =
-        `${col * 100 / 3}% ${row * 100 / 3}%`;
-}
+        finishJigsaw();
 
-function checkJigsawComplete() {
-    const pieces = [...document.querySelectorAll(".puzzle-piece")];
-
-    const solved = pieces.every((piece, index) =>
-        Number(piece.dataset.original) === index
-    );
-
-    if (solved) {
-        document.getElementById("jigsawBoard").style.display = "none";
-        document.getElementById("jigsawComplete").style.display = "block";
     }
 }
 
-/* BIRTHDAY LETTER */
+function finishJigsaw() {
 
-const birthdayParagraphs = [
-`First of all, I’m so happy that you exist. That, out of billions of people in this world, I somehow got to meet you, know you and have you become such a beautiful part of my life. Sometimes I think about how randomly everything started between us, how neither of us probably imagined we’d end up here, and it makes me smile.`,
+    document.getElementById("jigsawComplete").style.display = "block";
 
-`Today, I hope you take a moment to appreciate yourself, not just for the person you are today, but for everything you’ve overcome, everything you’ve learned and every little step that has brought you here. You’re getting another year older, but I hope you never lose the little things that make you who you are.`,
+    document.getElementById("jigsawPreview").style.display = "block";
 
-`If I could give you anything today, I think I’d give you a little piece of every gentle thing this world has to offer: the warmth of sunlight on quiet mornings, the peace that comes after a long day, the comfort of knowing you are loved, and the kind of happiness that asks nothing from you except that you simply exist.`,
-
-`I hope life is soft with you. I hope it gives you reasons to smile when you least expect them, people who hold your heart carefully, opportunities that bring you closer to your dreams, and days that feel worth remembering.`,
-
-`And if there is one thing I wish you could always remember, it’s this: you are deeply precious to me. More than these little words could ever explain. I love you from a place so sincere and quiet that sometimes I don’t even know how to put it into language.`,
-
-`To live in this world, we feel so small. To swim in water, it feels slow. But to be with you was an unexpected surprise. It was like stumbling upon a starlit path in the darkest woods at midnight.`,
-
-`Sometimes, the things you want the most don’t happen, and what you least expect does. I could compare you to a thousand different things — the stars, the ocean, butterflies, the moon — but it’s really difficult to find words that could truly describe how much I adore you.`,
-
-`Your presence is like a sonnet that finds beauty in every syllable, every pause. And I will always be grateful that you made it this far.`,
-
-`I genuinely believe that you are an amazing person. I love you for all that you are, all that you have been, and all that you’re yet to become. Because for a long time, when I’ve felt empty or alone, it was you that I could call my home.`,
-
-`I want this new year of your life to be kinder to you. I hope you grow into someone you’re proud of. I hope you find things that make you passionate about life, achieve the things you’ve been dreaming about and never feel like you’re running out of time. I want to see you happy, healthy, successful and genuinely at peace with yourself.`,
-
-`I hope you never become too occupied with growing up that you forget to enjoy being alive. Keep laughing at silly things, keep discovering, keep being curious, keep making mistakes and learning from them. There’s so much life waiting for you, and I hope you get to experience all the beautiful parts of it.`,
-
-`And selfishly, I hope I get to witness some of it too. I hope I get to celebrate your little victories, listen to your endless stories, annoy you on your bad days, laugh with you over absolutely nothing and experience all those ordinary little moments that eventually become our favourite memories.`,
-
-`I don’t know exactly what every chapter of our story will look like, but I know that I’m grateful I got to meet you and experience this kind of love with you.`,
-
-`So, on your birthday, I just hope you stay. Keep growing, keep laughing, keep becoming whoever you are meant to be. And may life be gentle enough to let you do all of it peacefully.`,
-
-`Today, as we celebrate another year of your life, I want you to know that my love for you grows stronger and more profound with each passing day. I promise to keep choosing you, appreciating you and loving you through all the different versions of yourself.`,
-
-`Happy Birthday, my dear.`,
-
-`I hope the world takes good care of you, because you mean far more to me than you probably know.`,
-
-`I love you, my beanie baby. ❤️`
-];
-
-let birthdayStarted = false;
-let countdownTimer = null;
-let letterTimers = [];
-let fireworksInterval = null;
-let fireworksRunning = false;
-
-function openBirthday() {
-    resetBirthday();
-    showPage("birthdayPage");
 }
 
-function resetBirthday() {
-    clearInterval(countdownTimer);
 
-    letterTimers.forEach(timer => clearTimeout(timer));
-    letterTimers = [];
+/* BIRTHDAY COUNTDOWN */
+
+let birthdayStarted = false;
+let countdownTimers = [];
+
+function resetBirthday() {
 
     birthdayStarted = false;
 
-    document.getElementById("birthdayIntro").style.display = "block";
-    document.getElementById("countdownArea").innerHTML = "";
-    document.getElementById("birthdayLetter").style.display = "none";
-    document.getElementById("letterContent").innerHTML = "";
-    document.getElementById("signature").classList.remove("visible");
+    countdownTimers.forEach(timer => clearTimeout(timer));
+    countdownTimers = [];
 
-    stopFireworks();
-}
-
-function startBirthday() {
-    if (birthdayStarted) return;
-
-    birthdayStarted = true;
-
-    document.getElementById("birthdayIntro").style.display = "none";
-
-    startFireworks();
-
-    let count = 4;
-
-    document.getElementById("countdownArea").innerHTML =
-        `<div class="countdown">${count}</div>`;
-
-    countdownTimer = setInterval(() => {
-        count--;
-
-        if (count > 0) {
-            document.getElementById("countdownArea").innerHTML =
-                `<div class="countdown">${count}</div>`;
-        } else {
-            clearInterval(countdownTimer);
-            document.getElementById("countdownArea").innerHTML = "";
-            revealBirthday();
-        }
-    }, 1000);
-}
-
-function revealBirthday() {
-    document.getElementById("birthdayLetter").style.display = "block";
-
-    const container = document.getElementById("letterContent");
-
-    birthdayParagraphs.forEach((paragraph, index) => {
-        const p = document.createElement("p");
-
-        p.className = "letter-paragraph";
-        p.textContent = paragraph;
-
-        container.appendChild(p);
-
-        const timer = setTimeout(() => {
-            p.classList.add("visible");
-        }, index * 1900 + 500);
-
-        letterTimers.push(timer);
-    });
-
-    const signatureTimer = setTimeout(() => {
-        document.getElementById("signature").classList.add("visible");
-    }, birthdayParagraphs.length * 1900 + 1000);
-
-    letterTimers.push(signatureTimer);
-}
-
-/* FIREWORKS */
-
-const canvas = document.getElementById("fireworksCanvas");
-const ctx = canvas.getContext("2d");
-
-let particles = [];
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-
-window.addEventListener("resize", resizeCanvas);
-
-function createFirework() {
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height * .55 + 30;
-
-    const colors = ["#f2b5d2", "#d9e4f7", "#91b9ed", "#f6d9e8"];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-
-    for (let i = 0; i < 45; i++) {
-        const angle = Math.PI * 2 * i / 45;
-        const speed = Math.random() * 3 + 1;
-
-        particles.push({
-            x: x,
-            y: y,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed,
-            alpha: 1,
-            color: color,
-            size: Math.random() * 2 + 1
-        });
-    }
-}
-
-function drawFireworks() {
-    if (!fireworksRunning) return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach((particle, index) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.vy += .025;
-        particle.alpha -= .009;
-
-        ctx.globalAlpha = Math.max(0, particle.alpha);
-        ctx.fillStyle = particle.color;
-
-        ctx.beginPath();
-        ctx.arc(
-            particle.x,
-            particle.y,
-            particle.size,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fill();
-
-        if (particle.alpha <= 0) {
-            particles.splice(index, 1);
-        }
-    });
-
-    ctx.globalAlpha = 1;
-}
-
-function startFireworks() {
-    stopFireworks();
-
-    resizeCanvas();
-    particles = [];
-    fireworksRunning = true;
-
-    fireworksInterval = setInterval(() => {
-        if (Math.random() < .09) createFirework();
-        drawFireworks();
-    }, 30);
-}
-
-function stopFireworks() {
     fireworksRunning = false;
 
     if (fireworksInterval) {
@@ -1493,9 +2138,260 @@ function stopFireworks() {
         fireworksInterval = null;
     }
 
+    fireworks = [];
     particles = [];
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("birthdayIntro").style.display = "flex";
+    document.getElementById("birthdayLetter").style.display = "none";
+    document.getElementById("countdown").style.display = "none";
+
+    document.querySelectorAll(".letter-paragraph").forEach(paragraph => {
+        paragraph.classList.remove("visible");
+    });
+
+    document.getElementById("letterSignature").classList.remove("visible");
+
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+}
+
+function startBirthday() {
+
+    if (birthdayStarted) return;
+
+    birthdayStarted = true;
+
+    document.getElementById("birthdayIntro").style.display = "none";
+
+    const countdown = document.getElementById("countdown");
+    const number = document.getElementById("countdownNumber");
+
+    countdown.style.display = "flex";
+
+    const numbers = ["4", "3", "2", "1"];
+
+    let index = 0;
+
+    function showNumber() {
+
+        number.style.animation = "none";
+
+        void number.offsetWidth;
+
+        number.textContent = numbers[index];
+
+        number.style.animation = "countPop 0.8s ease";
+
+        index++;
+
+        if (index < numbers.length) {
+
+            countdownTimers.push(setTimeout(showNumber, 900));
+
+        } else {
+
+            countdownTimers.push(setTimeout(revealBirthday, 1000));
+
+        }
+    }
+
+    showNumber();
+}
+
+function revealBirthday() {
+
+    document.getElementById("countdown").style.display = "none";
+
+    document.getElementById("birthdayLetter").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+    startFireworks();
+
+    revealLetter();
+}
+
+
+/* LETTER REVEAL */
+
+function revealLetter() {
+
+    const paragraphs = document.querySelectorAll(".letter-paragraph");
+
+    const signature = document.getElementById("letterSignature");
+
+    paragraphs.forEach((paragraph, index) => {
+
+        const timer = setTimeout(() => {
+
+            paragraph.classList.add("visible");
+
+        }, 700 + index * 1200);
+
+        countdownTimers.push(timer);
+
+    });
+
+    const signatureDelay = 700 + paragraphs.length * 1200;
+
+    countdownTimers.push(setTimeout(() => {
+
+        signature.classList.add("visible");
+
+    }, signatureDelay));
+
+}
+
+
+/* CONTINUOUS FIREWORKS */
+
+let fireworksRunning = false;
+let fireworks = [];
+let particles = [];
+let fireworksInterval = null;
+
+const canvas = document.getElementById("fireworksCanvas");
+
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = window.innerWidth * ratio;
+
+    canvas.height = window.innerHeight * ratio;
+
+    canvas.style.width = window.innerWidth + "px";
+
+    canvas.style.height = window.innerHeight + "px";
+
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+}
+
+window.addEventListener("resize", resizeCanvas);
+
+resizeCanvas();
+
+const fireworkColors = [
+    "#ff9ed6",
+    "#ffd4ec",
+    "#dcecff",
+    "#b9d9ff",
+    "#ffffff",
+    "#e8b7d7"
+];
+
+function createFirework() {
+
+    const x = Math.random() * window.innerWidth;
+
+    const y = Math.random() * window.innerHeight * 0.65 + 30;
+
+    const color = fireworkColors[
+        Math.floor(Math.random() * fireworkColors.length)
+    ];
+
+    const count = 45 + Math.floor(Math.random() * 35);
+
+    for (let i = 0; i < count; i++) {
+
+        const angle = Math.random() * Math.PI * 2;
+
+        const speed = Math.random() * 3.5 + 0.7;
+
+        particles.push({
+
+            x: x,
+
+            y: y,
+
+            vx: Math.cos(angle) * speed,
+
+            vy: Math.sin(angle) * speed,
+
+            alpha: 1,
+
+            radius: Math.random() * 2 + 0.7,
+
+            color: color,
+
+            gravity: 0.025 + Math.random() * 0.025
+
+        });
+
+    }
+}
+
+function drawFireworks() {
+
+    if (!fireworksRunning) return;
+
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    particles.forEach((particle, index) => {
+
+        particle.x += particle.vx;
+
+        particle.y += particle.vy;
+
+        particle.vy += particle.gravity;
+
+        particle.vx *= 0.992;
+
+        particle.alpha -= 0.009;
+
+        ctx.globalAlpha = Math.max(particle.alpha, 0);
+
+        ctx.beginPath();
+
+        ctx.arc(
+            particle.x,
+            particle.y,
+            particle.radius,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = particle.color;
+
+        ctx.shadowBlur = 12;
+
+        ctx.shadowColor = particle.color;
+
+        ctx.fill();
+
+        if (particle.alpha <= 0) {
+
+            particles.splice(index, 1);
+
+        }
+
+    });
+
+    ctx.globalAlpha = 1;
+
+    ctx.shadowBlur = 0;
+
+    requestAnimationFrame(drawFireworks);
+}
+
+function startFireworks() {
+
+    if (fireworksRunning) return;
+
+    fireworksRunning = true;
+
+    drawFireworks();
+
+    fireworksInterval = setInterval(() => {
+
+        if (fireworksRunning) {
+
+            createFirework();
+
+        }
+
+    }, 550);
 }
 
 </script>

@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -2763,5 +2763,82 @@ function createFirework() {
 
         });
 
+      }
     }
+
+function drawFireworks() {
+
+    if (!fireworksRunning) return;
+
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    particles.forEach((particle, index) => {
+
+        particle.x += particle.vx;
+
+        particle.y += particle.vy;
+
+        particle.vy += particle.gravity;
+
+        particle.vx *= 0.992;
+
+        particle.alpha -= 0.009;
+
+        ctx.globalAlpha = Math.max(particle.alpha, 0);
+
+        ctx.beginPath();
+
+        ctx.arc(
+            particle.x,
+            particle.y,
+            particle.radius,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = particle.color;
+
+        ctx.shadowBlur = 12;
+
+        ctx.shadowColor = particle.color;
+
+        ctx.fill();
+
+        if (particle.alpha <= 0) {
+
+            particles.splice(index, 1);
+
+        }
+
+    });
+
+    ctx.globalAlpha = 1;
+
+    ctx.shadowBlur = 0;
+
+    requestAnimationFrame(drawFireworks);
 }
+
+function startFireworks() {
+
+    if (fireworksRunning) return;
+
+    fireworksRunning = true;
+
+    drawFireworks();
+
+    fireworksInterval = setInterval(() => {
+
+        if (fireworksRunning) {
+
+            createFirework();
+
+        }
+
+    }, 550);
+}
+
+</script>
+
+</body>
+</html>

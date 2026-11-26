@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -984,7 +984,7 @@ h1 {
         inset 0 1px 8px #ffffff12;
 }
 
-/* FINAL SURPRISE — GLOSSY WHITE TILE SCREEN */
+/* FINAL SURPRISE — VISIBLE GLOSSY WHITE TILES */
 
 #finalSurprise {
     display: none;
@@ -1001,13 +1001,16 @@ h1 {
     text-align: center;
     padding: 34px 18px;
     color: #344253;
-    background-color: #fbfdff;
+    background-color: #edf1f5;
+    /* Individual square tiles, visible grout and glossy reflections */
     background-image:
-        radial-gradient(ellipse at 50% 42%, #ffffff 0%, #ffffffb8 34%, transparent 72%),
-        linear-gradient(90deg, #dce5ed55 1px, transparent 1px),
-        linear-gradient(0deg, #dce5ed55 1px, transparent 1px),
-        linear-gradient(135deg, #ffffff 0%, #f2f6fa 48%, #ffffff 100%);
-    background-size: auto, 58px 58px, 58px 58px, auto;
+        linear-gradient(112deg, #ffffffb8 0%, transparent 34%, #dce5ed45 68%, #ffffffa8 100%),
+        radial-gradient(ellipse at 27% 18%, #ffffff 0%, #ffffffb8 25%, transparent 67%),
+        linear-gradient(145deg, #ffffff 0%, #f7f9fb 48%, #e9eef3 100%),
+        linear-gradient(to right, #c5ced755 2px, transparent 2px),
+        linear-gradient(to bottom, #c5ced755 2px, transparent 2px);
+    background-size: auto, 84px 84px, 84px 84px, 84px 84px, 84px 84px;
+    background-position: center, 0 0, 0 0, 0 0, 0 0;
     animation: pinkAppear 0.8s ease;
 }
 
@@ -1016,8 +1019,10 @@ h1 {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(125deg, #ffffff70 0%, transparent 35%, #dce8f355 72%, #ffffff88 100%);
     z-index: 0;
+    background:
+        radial-gradient(ellipse at 50% 42%, #ffffffa8 0%, #ffffff40 35%, transparent 72%),
+        linear-gradient(125deg, #ffffff55 0%, transparent 42%, #dce8f344 76%, #ffffff55 100%);
 }
 
 .final-content {
@@ -1030,14 +1035,12 @@ h1 {
     animation: finalPop 0.9s ease;
 }
 
-.final-label {
-    display: none;
-}
+.final-label { display: none; }
 
 .final-content h1 {
     color: #35485b;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(32px, 8vw, 45px);
+    font-size: clamp(31px, 8vw, 44px);
     font-weight: 500;
     letter-spacing: 0.2px;
     line-height: 1.25;
@@ -1054,174 +1057,125 @@ h1 {
     margin: 0 0 13px;
 }
 
-/* CSS-DRAWN KISSING COUPLE STICKER */
-
+/* CSS-ILLUSTRATED KISSING COUPLE — SOFT, HAND-DRAWN STICKER STYLE */
 .kiss-couple {
     position: relative;
-    width: min(78vw, 285px);
-    height: 245px;
-    margin: 4px auto 3px;
-    filter: drop-shadow(0 12px 13px #60758a22);
-    animation: stickerFloat 3.6s ease-in-out infinite;
+    width: min(82vw, 300px);
+    height: 250px;
+    margin: 2px auto 5px;
+    filter: drop-shadow(0 9px 8px #52627320);
+    animation: stickerFloat 3.8s ease-in-out infinite;
 }
 
 .kiss-person {
     position: absolute;
-    width: 53%;
+    width: 58%;
     height: 100%;
 }
 
-.kiss-person.left {
-    left: 0;
-    top: 0;
-    z-index: 2;
-}
-
-.kiss-person.right {
-    right: 0;
-    top: 0;
-    z-index: 1;
-}
+.kiss-person.left { left: 0; top: 0; z-index: 2; }
+.kiss-person.right { right: 0; top: 0; z-index: 1; }
 
 .kiss-head {
     position: absolute;
-    width: 148px;
-    height: 148px;
-    border: 4px solid #30343a;
-    border-radius: 48% 52% 50% 48%;
-    background: linear-gradient(145deg, #ffffff 0%, #fffefe 72%, #e9edf0 100%);
-    box-shadow: inset -8px -9px 0 #dce1e555, inset 5px 5px 0 #ffffff;
+    width: 153px;
+    height: 145px;
+    border: 3px solid #292b2d;
+    background: linear-gradient(145deg, #ffffff 0%, #fff 70%, #e8e8e8 100%);
+    box-shadow: inset -8px -9px 0 #d8d8d833, inset 5px 5px 0 #ffffff;
 }
 
 .left .kiss-head {
     left: 0;
-    top: 15px;
-    transform: rotate(-8deg);
+    top: 29px;
+    border-radius: 52% 48% 48% 43%;
+    transform: rotate(-7deg);
 }
 
 .right .kiss-head {
-    right: 0;
+    right: -1px;
     top: 0;
-    transform: rotate(7deg);
+    width: 157px;
+    height: 151px;
+    border-radius: 50% 48% 48% 50%;
+    transform: rotate(5deg);
 }
 
 .kiss-body {
     position: absolute;
-    width: 100px;
-    height: 116px;
-    top: 132px;
-    border: 4px solid #30343a;
-    border-radius: 48% 48% 30% 30%;
-    background: linear-gradient(145deg, #ffffff, #edf0f2);
+    width: 104px;
+    height: 115px;
+    top: 139px;
+    border: 3px solid #292b2d;
+    background: linear-gradient(145deg, #fff 0%, #fff 70%, #e7e7e7 100%);
 }
 
 .left .kiss-body {
-    left: 34px;
-    transform: rotate(7deg);
+    left: 45px;
+    top: 151px;
+    width: 100px;
+    height: 96px;
+    border-radius: 48% 43% 28% 30%;
+    transform: rotate(5deg);
 }
 
 .right .kiss-body {
-    right: 17px;
-    top: 120px;
-    height: 126px;
+    right: 19px;
+    top: 139px;
+    width: 91px;
+    height: 107px;
+    border-radius: 35% 38% 28% 30%;
     transform: rotate(-5deg);
 }
 
 .kiss-eye {
     position: absolute;
-    width: 23px;
-    height: 11px;
-    border-top: 4px solid #30343a;
+    width: 27px;
+    height: 13px;
+    border-top: 4px solid #292b2d;
     border-radius: 50%;
 }
 
-.left .kiss-eye.one {
-    left: 33px;
-    top: 62px;
-    transform: rotate(-25deg);
-}
-
-.left .kiss-eye.two {
-    left: 91px;
-    top: 51px;
-    transform: rotate(-18deg);
-}
-
-.right .kiss-eye.one {
-    left: 34px;
-    top: 50px;
-    transform: rotate(65deg);
-}
-
-.right .kiss-eye.two {
-    left: 83px;
-    top: 91px;
-    transform: rotate(48deg);
-}
+.left .kiss-eye.one { left: 27px; top: 68px; transform: rotate(-48deg); }
+.left .kiss-eye.two { left: 91px; top: 49px; transform: rotate(-18deg); }
+.right .kiss-eye.one { left: 28px; top: 49px; width: 22px; height: 45px; border: 0; border-left: 5px solid #292b2d; border-radius: 50%; transform: rotate(-9deg); }
+.right .kiss-eye.two { left: 76px; top: 92px; width: 25px; height: 43px; border: 0; border-left: 5px solid #292b2d; border-radius: 50%; transform: rotate(-35deg); }
 
 .kiss-mouth {
     position: absolute;
-    width: 17px;
-    height: 13px;
-    border: 3px solid #30343a;
+    width: 21px;
+    height: 15px;
+    border: 3px solid #292b2d;
     border-left-color: transparent;
     border-bottom-color: transparent;
     border-radius: 50%;
 }
-
-.left .kiss-mouth {
-    right: 7px;
-    top: 91px;
-    transform: rotate(42deg);
-}
-
-.right .kiss-mouth {
-    left: 6px;
-    top: 103px;
-    transform: rotate(225deg);
-}
+.left .kiss-mouth { right: 3px; top: 96px; transform: rotate(48deg); }
+.right .kiss-mouth { left: 0; top: 105px; transform: rotate(225deg); }
 
 .kiss-blush {
     position: absolute;
-    width: 28px;
-    height: 17px;
+    width: 34px;
+    height: 22px;
     border-radius: 50%;
-    background: #f4b9c9;
-    opacity: 0.48;
-    filter: blur(5px);
+    background: #f2b6c8;
+    opacity: 0.52;
+    filter: blur(6px);
 }
-
-.left .kiss-blush {
-    left: 36px;
-    top: 105px;
-}
-
-.right .kiss-blush {
-    left: 13px;
-    top: 119px;
-}
+.left .kiss-blush { left: 34px; top: 111px; }
+.right .kiss-blush { left: 12px; top: 116px; }
 
 .kiss-arm {
     position: absolute;
     z-index: 4;
     width: 91px;
-    height: 27px;
-    border: 4px solid #30343a;
+    height: 28px;
+    border: 3px solid #292b2d;
     border-radius: 25px;
     background: #fff;
 }
-
-.left .kiss-arm {
-    right: -21px;
-    top: 159px;
-    transform: rotate(35deg);
-}
-
-.right .kiss-arm {
-    left: -23px;
-    top: 145px;
-    transform: rotate(-35deg);
-}
+.left .kiss-arm { right: -18px; top: 165px; transform: rotate(35deg); }
+.right .kiss-arm { left: -25px; top: 146px; transform: rotate(-35deg); }
 
 .final-kiss-caption {
     color: #718397;
@@ -1231,9 +1185,7 @@ h1 {
     margin: 4px 0 25px;
 }
 
-.final-heart {
-    display: none;
-}
+.final-heart { display: none; }
 
 .final-back-button {
     display: inline-block;
@@ -1249,7 +1201,6 @@ h1 {
     box-shadow: 0 6px 18px #61778d20, inset 0 1px 0 #ffffff;
     transition: 0.3s ease;
 }
-
 .final-back-button:hover {
     background: #ffffff;
     transform: translateY(-2px);
@@ -1258,14 +1209,9 @@ h1 {
 
 @keyframes stickerFloat {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-7px); }
+    50% { transform: translateY(-5px); }
 }
-
-@keyframes pinkAppear {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
+@keyframes pinkAppear { from { opacity: 0; } to { opacity: 1; } }
 @keyframes finalPop {
     from { opacity: 0; transform: scale(0.94) translateY(10px); }
     to { opacity: 1; transform: scale(1) translateY(0); }
@@ -2819,80 +2765,3 @@ function createFirework() {
 
     }
 }
-
-function drawFireworks() {
-
-    if (!fireworksRunning) return;
-
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-    particles.forEach((particle, index) => {
-
-        particle.x += particle.vx;
-
-        particle.y += particle.vy;
-
-        particle.vy += particle.gravity;
-
-        particle.vx *= 0.992;
-
-        particle.alpha -= 0.009;
-
-        ctx.globalAlpha = Math.max(particle.alpha, 0);
-
-        ctx.beginPath();
-
-        ctx.arc(
-            particle.x,
-            particle.y,
-            particle.radius,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fillStyle = particle.color;
-
-        ctx.shadowBlur = 12;
-
-        ctx.shadowColor = particle.color;
-
-        ctx.fill();
-
-        if (particle.alpha <= 0) {
-
-            particles.splice(index, 1);
-
-        }
-
-    });
-
-    ctx.globalAlpha = 1;
-
-    ctx.shadowBlur = 0;
-
-    requestAnimationFrame(drawFireworks);
-}
-
-function startFireworks() {
-
-    if (fireworksRunning) return;
-
-    fireworksRunning = true;
-
-    drawFireworks();
-
-    fireworksInterval = setInterval(() => {
-
-        if (fireworksRunning) {
-
-            createFirework();
-
-        }
-
-    }, 550);
-}
-
-</script>
-
-</body>
-</html>
